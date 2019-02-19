@@ -69,8 +69,17 @@ class CfgFunctions
 	#include "node_modules\grad-civs\cfgFunctions.hpp"
 	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
 
+
+    #include "grad-convoy\cfgFunctions.hpp"
+
 	#include "USER\userFunctions.hpp"
 };
+
+// GRAD CONVOY
+class GRADConvoy {
+    #include "USER\userConvoys.hpp"
+};
+
 
 
 //DIALOGS ======================================================================
