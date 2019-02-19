@@ -87,7 +87,7 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
     _args params ["_convoyID"];
     
     private _vehicleListIdentifier = format ["GRAD_convoy_vehicleList_%1", _convoyID];
-	private _convoyVehicles = missionNamespace getVariable [_vehicleListIdentifier, _convoy];
+	private _convoyVehicles = missionNamespace getVariable [_vehicleListIdentifier, []];
 
 	if (count _convoyVehicles < 1) exitWith {
 		[_handle] call CBA_fnc_removePerFramehandler;
