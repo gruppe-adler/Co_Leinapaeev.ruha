@@ -1,6 +1,14 @@
+/*
+
+	// use unique IDs to start!
+	[0] call GRAD_convoy_fnc_startConvoy;
+	
+*/
+
 params ["_convoyID"];
 
-private _convoy = [_convoyID] call GRAD_convoy_fnc_createConvoy;
+private _convoyParams = [_convoyID] call GRAD_convoy_fnc_createConvoy;
+_convoyParams params ["_waypoints", "_convoy"];
 
 // store convoy in MNS to be able to remove vehicles out of it later on
 private _identifier = format ["GRAD_convoy_vehicleList_%1", _convoyID];
@@ -16,6 +24,11 @@ DISTANCE_MIN = 15;
 DISTANCE_MAX = 20;
 
 DISTANCE_MAX_LEADING = 50;
+
+// give leader all the waypoints necessary
+{
+	(_convoy select 0) addWaypoint [_x, _forEachIndex];
+} forEach _waypoints;
 
 for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
 
