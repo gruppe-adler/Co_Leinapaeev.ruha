@@ -21,6 +21,8 @@ if (!isNull _vehicleBehind && {_index > 0}) then {
 
 _convoy deleteAt [_index];
 
+
+// arguably not necessary – maybe make a param for this later
 if (!(_x getVariable ["GRAD_convoy_formationBroken", false])) then {
 	[_convoy, _waypoints] call GRAD_convoy_fnc_breakFormation;
 };

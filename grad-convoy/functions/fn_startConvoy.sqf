@@ -34,8 +34,11 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
 
 	// disable AI as we dont need it
 	private _thisVeh = _convoy select _i;
-	_thisVeh disableAI "FSM";
-	_thisVeh disableAI "PATH";
+    driver _thisVeh disableAI "FSM"; // safe some performance here
+    driver _thisVeh disableAI "PATH";   // safe some performance here
+    driver _thisVeh setBehaviour "AWARE"; // to force lights off
+    driver _ThisVeh setCombatMode "BLUE";  // disable him attacking
+    driver _thisVeh disableAi "autoCombat";
 
 
     [{
