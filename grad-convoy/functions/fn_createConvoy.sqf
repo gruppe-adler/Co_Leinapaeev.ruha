@@ -19,6 +19,7 @@ if (count _vehicleDefinitions < 1) exitWith {
 
 
 private _convoy = [];
+private _group = createGroup _side;
 
 {   
     _x params ["_classname", "_position", "_dir"];
@@ -26,10 +27,22 @@ private _convoy = [];
     private _position = call compile _position;
     private _dir = call compile _dir;
 
-    private _veh = ([_position,_dir,_classname,_side] call BIS_fnc_spawnVehicle) select 0;
+    private _vehParams = ([_position,_dir,_classname,_group] call BIS_fnc_spawnVehicle);
+    _vehParams params ["_veh", "_crew", "_group"];
 
     _convoy pushBack _veh;
-  
+
+    // cache vehicle in front and in back for easier access
+    if (_forEachIndex > 0) then {
+    	_veh setVariable ["GRAD_convoy_vehicleInFront", _convoy select (_forEachIndex - 1)];
+  	};
+
+  	if (_forEachIndex < (count _vehicles - 1)) then {
+    	_veh setVariable ["GRAD_convoy_vehicleBehind", _convoy select (_forEachIndex + 1)];
+  	};
+
 } forEach _vehicles;
+
+_group setFormation "STAG COLUMN";
 
 [_waypoints, _convoy]

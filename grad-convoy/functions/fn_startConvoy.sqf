@@ -40,10 +40,10 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
 
     [{
         params ["_vehicles","_handle"];
-        _vehicles params ["_convoyID", "_thisVeh"];
+        _vehicles params ["_convoyID", "_thisVeh", "_waypoints"];
 
         // remove vehicle from convoy if necessary
-        [_convoyID, _thisVeh, _handle] call GRAD_convoy_fnc_healthCheck;
+        [_convoyID, _thisVeh, _waypoints, _handle] call GRAD_convoy_fnc_healthCheck;
 
         private _vehicleListIdentifier = format ["GRAD_convoy_vehicleList_%1", _convoyID];
 		private _convoyVehicles = missionNamespace getVariable [_vehicleListIdentifier, _convoy];
@@ -91,7 +91,7 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
 	        _x setVariable ["grad_convoy_pathHistory", []];
 	    } forEach _convoyVehicles;
 
-    },0.5,[_convoyID, _thisVeh] call CBA_fnc_addPerFrameHandler;
+    },0.5,[_convoyID, _thisVeh, _waypoints] call CBA_fnc_addPerFrameHandler;
 };
 
 // record history path of each vehicle

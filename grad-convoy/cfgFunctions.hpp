@@ -7,8 +7,8 @@ class GRAD_convoy {
 		class getSpeedLimit;
 		class getVehicleDefinitions;
 		class healthCheck;
-		class init;
 		class mainLoop;
 		class removeVehicleFromConvoy;
+		class startConvoy;
 	};
-};
+};*

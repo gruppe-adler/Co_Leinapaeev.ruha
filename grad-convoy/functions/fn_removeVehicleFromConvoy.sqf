@@ -1,4 +1,4 @@
-params ["_convoyID", "_thisVeh"];
+params ["_convoyID", "_thisVeh", "_waypoints"];
 
 private _identifier = format ["GRAD_convoy_vehicleList_%1", _convoyID];
 private _convoy = missionNamespace getVariable [_identifier, []];
@@ -20,5 +20,9 @@ if (!isNull _vehicleBehind && {_index > 0}) then {
 
 
 _convoy deleteAt [_index];
+
+if (!(_x getVariable ["GRAD_convoy_formationBroken", false])) then {
+	[_convoy, _waypoints] call GRAD_convoy_fnc_breakFormation;
+};
 
 missionNamespace setVariable [_identifier, _convoy];
