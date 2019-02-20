@@ -1,6 +1,6 @@
 /*
 
-	// use unique IDs to start!
+	// use unique IDs (number) to start!
 	[0] call GRAD_convoy_fnc_startConvoy;
 	
 */
@@ -14,17 +14,6 @@ _convoyParams params ["_waypoints", "_convoy"];
 private _identifier = format ["GRAD_convoy_vehicleList_%1", _convoyID];
 missionNamespace setVariable [_identifier, _convoy];
 
-SPEED_HOLD = 0.5;
-SPEED_STEADY = 30;
-SPEED_GET_CLOSER = 32;
-SPEED_INCREASE_DISTANCE = 28;
-
-DISTANCE_EMERGENCY_BREAK = 5;
-DISTANCE_MIN = 15;
-DISTANCE_MAX = 20;
-
-DISTANCE_MAX_LEADING = 50;
-
 // give leader all the waypoints necessary
 {
 	(_convoy select 0) addWaypoint [_x, _forEachIndex];
@@ -34,11 +23,14 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
 
 	// disable AI as we dont need it
 	private _thisVeh = _convoy select _i;
-    driver _thisVeh disableAI "FSM"; // safe some performance here
-    driver _thisVeh disableAI "PATH";   // safe some performance here
-    driver _thisVeh setBehaviour "AWARE"; // to force lights off
-    driver _ThisVeh setCombatMode "BLUE";  // disable him attacking
-    driver _thisVeh disableAi "autoCombat";
+    (driver _thisVeh) disableAI "FSM"; // safe some performance here
+    // path planning necessary in first veh
+    if (_i > 0) then {
+        (driver _thisVeh) disableAI "PATH";   // safe some performance here, only when setdriveonpath
+    };
+    (driver _thisVeh) setBehaviour "AWARE"; // to force lights off
+    (driver _ThisVeh) setCombatMode "BLUE";  // disable him attacking
+    (driver _thisVeh) disableAi "autoCombat";
 
 
     [{

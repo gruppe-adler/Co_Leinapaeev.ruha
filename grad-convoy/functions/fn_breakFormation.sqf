@@ -2,10 +2,10 @@ params ["_convoy", "_waypoints"];
 
 
 {
-	driver vehicle _x enableAI "FSM";
-	driver vehicle _x enableAI "PATH";
-	driver vehicle _x setBehaviour "CARELESS"; 
-	driver vehicle _x disableAi "autoCombat";
+	(driver _x) enableAI "FSM";
+	(driver _x) enableAI "PATH";
+	(driver _x) setBehaviour "CARELESS"; 
+	(driver _x) disableAi "autoCombat";
 	_x setVariable ["GRAD_convoy_formationBroken", true];
 	_x setConvoySeparation 20;
 	_x limitSpeed 50;
