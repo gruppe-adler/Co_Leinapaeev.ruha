@@ -63,6 +63,7 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
         	private _distFront = _thisVeh distance _vehicleInFront;
             if (_distFront < DISTANCE_EMERGENCY_BREAK) then {
                 _thisVeh limitSpeed SPEED_HOLD;
+                _thisVeh setVariable ["GRAD_convoy_vehicleHolds", true];
             } else {
             	// all fine, go rollin on path travelled from veh in front
             	private _path = _thisVeh getVariable ["grad_convoy_nextPath", []];
@@ -70,19 +71,22 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
 
                 private _speedLimit = [_distFront] call GRAD_convoy_fnc_getSpeedLimit;
                 _thisVeh limitSpeed _speedLimit;
+                _thisVeh setVariable ["GRAD_convoy_vehicleHolds", false];
             };
         };
 
         if (!isNull _vehicleBehind && {_thisVeh distance _vehicleBehind > DISTANCE_MAX_LEADING}) then {
             _thisVeh limitSpeed SPEED_HOLD;
+            _thisVeh setVariable ["GRAD_convoy_vehicleHolds", true];
         } else {
             if (isNull _vehicleInFront) then {
                 _thisVeh limitSpeed SPEED_STEADY;
+                _thisVeh setVariable ["GRAD_convoy_vehicleHolds", false];
             };
         };
 
 
-        // reset history paths of each vehicle
+        // reset history paths of each vehicle (experimental)
         {
 	        private _path = _x getVariable ["grad_convoy_pathHistory", []];
 	        if (_forEachIndex > 0 && _forEachIndex < (count _convoy - 1)) then {
@@ -97,7 +101,7 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
     },0.5,[_convoyID, _thisVeh, _waypoints] call CBA_fnc_addPerFrameHandler;
 };
 
-// record history path of each vehicle
+// record history path of each vehicle (experimental)
 [{
     params ["_args", "_handle"];
     _args params ["_convoyID"];
@@ -116,3 +120,22 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
     } forEach _convoyVehicles;
 
 }, 0.1, [_convoyID]] call CBA_fnc_addPerFrameHandler;
+
+
+// check for stuck vehicle (experimental)
+[{
+    params ["_args", "_handle"];
+    _args params ["_convoyID"];
+    
+    private _vehicleListIdentifier = format ["GRAD_convoy_vehicleList_%1", _convoyID];
+    private _convoyVehicles = missionNamespace getVariable [_vehicleListIdentifier, []];
+
+    if (count _convoyVehicles < 1) exitWith {
+        [_handle] call CBA_fnc_removePerFramehandler;
+    };
+
+    {   
+        [_x] call GRAD_convoy_fnc_checkForStuckVehicle;
+    } forEach _convoyVehicles;
+
+}, 3, [_convoyID]] call CBA_fnc_addPerFrameHandler;
