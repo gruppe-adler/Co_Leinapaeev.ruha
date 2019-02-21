@@ -26,7 +26,7 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
     (driver _thisVeh) disableAI "FSM"; // safe some performance here
     // path planning necessary in first veh
     if (_i > 0) then {
-        (driver _thisVeh) disableAI "PATH";   // safe some performance here, only when setdriveonpath
+        (driver _thisVeh) disableAI "PATH";   // potentially safe some performance here for following vehicles
     };
     (driver _thisVeh) setBehaviour "AWARE"; // to force lights off
     (driver _ThisVeh) setCombatMode "BLUE";  // disable him attacking
