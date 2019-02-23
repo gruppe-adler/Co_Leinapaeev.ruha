@@ -1,6 +1,6 @@
-class GRAD_convoy {
+class grad_convoy {
 
-	class functions {
+	class common {
 		file = grad-convoy\functions;
 
 		class breakFormation;
@@ -10,8 +10,7 @@ class GRAD_convoy {
 		class getVehicleDefinitions;
 		class healthCheck;
 		class init { postInit = 1; };
-		class mainLoop;
 		class removeVehicleFromConvoy;
 		class startConvoy;
 	};
-};*
+};

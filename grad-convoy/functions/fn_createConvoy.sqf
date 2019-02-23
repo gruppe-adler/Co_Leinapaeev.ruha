@@ -32,16 +32,20 @@ private _group = createGroup _side;
 
     _convoy pushBack _veh;
 
-    // cache vehicle in front and in back for easier access
-    if (_forEachIndex > 0) then {
-    	_veh setVariable ["GRAD_convoy_vehicleInFront", _convoy select (_forEachIndex - 1)];
-  	};
-
-  	if (_forEachIndex < (count _vehicles - 1)) then {
-    	_veh setVariable ["GRAD_convoy_vehicleBehind", _convoy select (_forEachIndex + 1)];
-  	};
-
 } forEach _vehicles;
+
+// cache vehicle in front and in back for easier access
+{
+    if (_forEachIndex > 0) then {
+      _x setVariable ["GRAD_convoy_vehicleInFront", _convoy select (_forEachIndex - 1)];
+    };
+
+    if (_forEachIndex < ((count _convoy) - 1)) then {
+      _x setVariable ["GRAD_convoy_vehicleBehind", _convoy select (_forEachIndex + 1)];
+    };
+
+} forEach _convoy;
+
 
 _group setFormation "STAG COLUMN";
 

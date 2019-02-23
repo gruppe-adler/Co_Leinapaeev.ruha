@@ -9,7 +9,7 @@ private _vehicleInFront = _thisVeh getVariable ["GRAD_convoy_vehicleInFront", ob
 private _vehicleBehind = _thisVeh getVariable ["GRAD_convoy_vehicleBehind", objNull];
 
 
-if (!isNull _vehicleInFront && {_convoy > (_index - 1)}) then {
+if (!isNull _vehicleInFront && {count _convoy > (_index - 1)}) then {
 	// set new vehicleBehind for vehicle in front, if available
 	_vehicleInFront setVariable ["GRAD_convoy_vehicleBehind", (_convoy select (_index + 1))];
 };
@@ -23,7 +23,7 @@ _convoy deleteAt [_index];
 
 
 // arguably not necessary – maybe make a param for this later
-if (!(_x getVariable ["GRAD_convoy_formationBroken", false])) then {
+if (!(_thisVeh getVariable ["GRAD_convoy_formationBroken", false])) then {
 	[_convoy, _waypoints] call GRAD_convoy_fnc_breakFormation;
 };
 

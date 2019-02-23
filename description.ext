@@ -75,12 +75,6 @@ class CfgFunctions
 	#include "USER\userFunctions.hpp"
 };
 
-// GRAD CONVOY
-class GRADConvoy {
-    #include "USER\userConvoys.hpp"
-};
-
-
 
 //DIALOGS ======================================================================
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
