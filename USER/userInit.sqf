@@ -3,6 +3,18 @@
 *   Funktioniert wie die init.sqf.
 */
 
+
+if (!isServer) exitWith {};
+
+["GRAD_loadout_loadoutApplied", {
+    
+    {
+        [_x,"Kaitseliit"] call BIS_fnc_setUnitInsignia;
+    } forEach (playableUnits + switchableUnits); 
+}] call CBA_fnc_addEventHandler;
+
+
+
 // draw death positions for curator
 {
 	[_x] call BIS_fnc_drawCuratorDeaths;
