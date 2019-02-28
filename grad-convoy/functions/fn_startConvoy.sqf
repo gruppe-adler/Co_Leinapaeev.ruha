@@ -34,6 +34,8 @@ addMissionEventHandler ["Draw3D", {
         {
             drawIcon3D ["\A3\ui_f\data\map\markers\military\dot_CA.paa", [1,1,1,1-1/(_forEachIndex + 1)], _x, 1, 1, 45, "", 1, 0.05, "TahomaB"];
         } forEach _iconpositions;
+        private _holds = _x getVariable ["GRAD_convoy_vehicleHolds", false];
+        drawIcon3D ["\A3\ui_f\data\map\markers\military\dot_CA.paa", [1,0,0,1], getPos _x, 1, 1, 45, str _holds, 1, 0.05, "TahomaB"];
     } forEach _vehicles;
 }];
 
@@ -41,7 +43,7 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
 
 	// disable AI as we dont need it
 	private _thisVeh = _convoy select _i;
-    (driver _thisVeh) disableAI "FSM"; // safe some performance here
+    // (driver _thisVeh) disableAI "FSM"; // safe some performance here
     // path planning necessary in first veh
     if (_i > 0) then {
      //   (driver _thisVeh) disableAI "PATH";   // potentially safe some performance here for following vehicles
@@ -49,6 +51,7 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
     (driver _thisVeh) setBehaviour "AWARE"; // to force lights off
     (driver _thisVeh) setCombatMode "BLUE";  // disable him attacking
     (driver _thisVeh) disableAi "autoCombat";
+    _thisVeh setSpeedMode "FULL";
 
 
     [{
