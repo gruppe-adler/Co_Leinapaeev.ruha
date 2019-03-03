@@ -9,7 +9,7 @@ private _pushdir = -10; //push backwards by default
 
 if (
 		(abs(speed _thisVeh) < 2) && 
-		{ !(_thisVeh getVariable ["GRAD_convoy_vehicleHolds", false]) } &&
+		{ (_thisVeh getVariable ["GRAD_convoy_vehicleThinks", 0] != 0) } &&
 		{ (alive (driver _thisVeh)) && (canMove _thisVeh) && ((fuel _thisVeh) > 0) } && 
 		{ ((_thisVeh distance2D _posASL) < 8) } 
 	) then
@@ -26,4 +26,3 @@ if (
 	_thisVeh setVelocityModelSpace [0,_pushdir,0];
 	diag_log format ["*** pushing %1 a little", name driver _q];
 	};
-};

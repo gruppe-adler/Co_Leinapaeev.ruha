@@ -32,7 +32,7 @@ private _group = createGroup _side;
 
     // workaround for stuck tanks / vehicles with turrets / commanders
     // make driver the commanding one
-    _crew join (group driver _veh);
+    _crew joinSilent (group driver _veh);
 
     _convoy pushBack _veh;
 
@@ -51,6 +51,6 @@ private _group = createGroup _side;
 } forEach _convoy;
 
 
-_group setFormation "STAG COLUMN";
+_group setFormation "COLUMN";
 
 [_waypoints, _convoy]
