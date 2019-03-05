@@ -119,6 +119,16 @@ class Params {
     #include "USER\userParams.hpp"
 };
 
+class CfgMusic
+{
+    class rossiya
+    {
+        // display name
+        name    = "rossiya";
+        // filename, volume, pitch
+        sound[] = { "sounds\rossiya.ogg", db + 0, 1.0 };
+    };
+};
 
 //SOUNDS =======================================================================
 class CfgSounds {
