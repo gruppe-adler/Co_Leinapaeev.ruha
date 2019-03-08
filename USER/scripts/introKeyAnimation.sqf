@@ -92,3 +92,19 @@ cutText ["", "BLACK IN", 10];
 
 sleep 5;
 STHud_UIMode = 1;
+sleep 20;
+[  
+  ["Radio Host","Dear citizens",0],  
+  ["Radio Host","We interrupt our music program with breaking news!",2],  
+  ["Radio Host","Soldiers of the Russian Federation violently crossed our border on multiple points and are heading southwest.",5],  
+  ["Radio Host","This is no emergency exercise! I repeat, this is no emergency exercise.",12], 
+  ["Radio Host","We call all citizens to their evacuation and support plans, resist the intruders!",19], 
+  ["Radio Host","Dont fall for misinformation! We are being attacked! Again:",25], 
+  ["unintelligible voice","...",32]
+] spawn BIS_fnc_EXP_camp_playSubtitles;
+sleep 30;
+
+siren1 say3d ["introSiren", 5000];
+sleep 4;
+siren2 say3d ["introSiren", 5000];
+

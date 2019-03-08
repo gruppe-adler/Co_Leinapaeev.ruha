@@ -7,6 +7,12 @@
 if (!isServer) exitWith {};
 
 ["GRAD_loadout_loadoutApplied", {
+    params ["_loadoutTarget", "_unitLoadout"];
+
+    if (typeOf _loadoutTarget == "I_medic_F" && _loadoutTarget getVariable ["GRAD_loadout_applicationCount", 0] == 0) exitWith {
+        removeAllAssignedItems _loadoutTarget;
+        removeAllContainers _loadoutTarget;
+    };
     
     {
         [_x,"Kaitseliit"] call BIS_fnc_setUnitInsignia;

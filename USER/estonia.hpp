@@ -179,7 +179,6 @@ class estonia {
             primaryWeaponMagazine = "hlc_50Rnd_762x51_T_MG3";
             handgunWeapon = "";
             handgunWeaponMagazine = "";
-            backpack = "ARC_GER_Kitbag_compact_Flecktarn";
             addItemsToBackpack[] = {
                 LIST_2("hlc_100Rnd_762x51_B_MG3"),
                 LIST_3("hlc_50Rnd_762x51_T_MG3")
