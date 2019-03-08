@@ -20,7 +20,7 @@
 
 loadoutFactionBlu = "";
 loadoutFactionOpf = "";
-loadoutFactionInd = "";
+loadoutFactionInd = "estonia";
 
 // Achtung: grad-factions enthält derzeit keine Loadouts, die für Zivilisten funktionieren
 loadoutFactionCiv = "";
