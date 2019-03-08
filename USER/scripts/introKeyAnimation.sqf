@@ -1,4 +1,15 @@
+params ["_timeline"];
+
+cutText ["", "BLACK", 999];
+
 if (didJIP) exitWith {};
+
+waitUntil {
+  time > 5
+};
+
+[_timeline] call BIS_fnc_timeline_play;
+
 0 fadeMusic 1;
 0 fadeSound 0;
 playMusic "rossiya";
@@ -19,7 +30,7 @@ _filmgrain ppEffectAdjust [0.3,0.3,0.12,0.12,0.12,true];
 _filmgrain ppEffectCommit 0;
 
 
-private _camera = "camera" camCreate (position introCamPos_1);
+/*
 _camera camSetPos (position introCamPos_1);
 _camera camCommand "inertia on";
 _camera camSetTarget introCamTarget_1;
@@ -43,14 +54,17 @@ sleep 5;
 _camera camSetPos (position introCamPos_4);
 _camera camCommit 10;
 sleep 10;
-
+*/
+sleep 120;
 
 10 fadeMusic 0;
 10 fadeSound 1;
 
+private _camera = ([introCam1] call BIS_fnc_camera_getCam);
 _camera camSetTarget player;
 _camera camCommit 3;
 sleep 1;
+detach _camera;
 _camera camSetPos [getPos player select 0, getPos player select 1, 1.7];
 _camera camCommit 5;
 sleep 3;
