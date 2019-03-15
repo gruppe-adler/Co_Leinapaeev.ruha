@@ -3,15 +3,12 @@ if (didJIP) exitWith {};
 0 fadeMusic 1;
 0 fadeSound 0;
 playMusic "rossiya";
-klapperradio say3D ["introRadio", 100];
+
 
 
 cutText ["", "BLACK IN", 8];
 
-for "_i" from 0 to 20 do {
-    private _agent = createAgent ["Mullet_F", position introFishSpawnPos, [], 2, "CAN_COLLIDE"]; 
-    _agent setDir 20;
-};
+
 
 
 private _filmgrain = ppEffectCreate ["FilmGrain",2000];  

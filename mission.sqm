@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2394;
+		nextID=2397;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2002.3185,15.612502,1332.7328};
-		dir[]={-0.24567233,-0.6267246,0.73950857};
-		up[]={-0.19758742,0.77923781,0.59476489};
-		aside[]={0.94900757,-2.1618325e-007,0.31527013};
+		pos[]={1986.6533,8.6538353,1342.426};
+		dir[]={-0.053628497,-0.70221704,0.70994169};
+		up[]={-0.052894782,0.711963,0.70022267};
+		aside[]={0.99716085,2.8502836e-007,0.07532499};
 	};
 };
 binarizationWanted=0;
@@ -3912,7 +3912,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=373;
+		items=374;
 		class Item0
 		{
 			dataType="Layer";
@@ -7318,7 +7318,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={1996.3119,0.78139794,1352.8027};
+								position[]={1996.312,0.78143883,1352.8031};
 								angles[]={0,3.3071721,0};
 							};
 							side="Independent";
@@ -7326,6 +7326,7 @@ class Mission
 							class Attributes
 							{
 								description="Gruppenführer";
+								isPlayer=1;
 								isPlayable=1;
 								class Inventory
 								{
@@ -7384,7 +7385,6 @@ class Mission
 							};
 							id=2309;
 							type="I_officer_F";
-							atlOffset=-4.0888786e-005;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -18494,7 +18494,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -21317,6 +21317,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				init="call{[this] execVM ""USER\scripts\dressup.sqf"";}";
 				disableSimulation=1;
 				dynamicSimulation=1;
 			};
@@ -23193,6 +23194,24 @@ class Mission
 			};
 			id=2393;
 			type="Crater";
+		};
+		class Item373
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1999.516,1.2079849,1357.687};
+				angles[]={5.6314616,0,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="fakeRadio";
+			};
+			id=2394;
+			type="Land_ClutterCutter_small_F";
+			atlOffset=0.00026082993;
 		};
 	};
 	class Connections

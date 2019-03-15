@@ -3,12 +3,72 @@
 *   Ist in CfgSounds included.
 */
 
-class introRadio
+class introRadio01
 {
     // how the sound is referred to in the editor (e.g. trigger effects)
-    name = "introRadio";
+    name = "introRadio01";
     // filename, volume, pitch, distance (optional)
-    sound[] = { "sounds\radio1_complete.ogg", 10, 1 };
+    sound[] = { "sounds\radio_01.ogg", 10, 1 };
+    // subtitle delay in seconds, subtitle text
+    titles[] = { 0, "" };
+};
+
+class introRadio02
+{
+    // how the sound is referred to in the editor (e.g. trigger effects)
+    name = "introRadio02";
+    // filename, volume, pitch, distance (optional)
+    sound[] = { "sounds\radio_02.ogg", 10, 1 };
+    // subtitle delay in seconds, subtitle text
+    titles[] = { 0, "" };
+};
+
+class introRadio03
+{
+    // how the sound is referred to in the editor (e.g. trigger effects)
+    name = "introRadio03";
+    // filename, volume, pitch, distance (optional)
+    sound[] = { "sounds\radio_03.ogg", 10, 1 };
+    // subtitle delay in seconds, subtitle text
+    titles[] = { 0, "" };
+};
+
+class introRadio04
+{
+    // how the sound is referred to in the editor (e.g. trigger effects)
+    name = "introRadio04";
+    // filename, volume, pitch, distance (optional)
+    sound[] = { "sounds\radio_04.ogg", 10, 1 };
+    // subtitle delay in seconds, subtitle text
+    titles[] = { 0, "" };
+};
+
+class introRadio05
+{
+    // how the sound is referred to in the editor (e.g. trigger effects)
+    name = "introRadio05";
+    // filename, volume, pitch, distance (optional)
+    sound[] = { "sounds\radio_05.ogg", 10, 1 };
+    // subtitle delay in seconds, subtitle text
+    titles[] = { 0, "" };
+};
+
+class introRadio06
+{
+    // how the sound is referred to in the editor (e.g. trigger effects)
+    name = "introRadio06";
+    // filename, volume, pitch, distance (optional)
+    sound[] = { "sounds\radio_06.ogg", 10, 1 };
+    // subtitle delay in seconds, subtitle text
+    titles[] = { 0, "" };
+};
+
+class introRadioSong
+{
+    // how the sound is referred to in the editor (e.g. trigger effects)
+    name = "introRadioSong";
+    // filename, volume, pitch, distance (optional)
+    sound[] = { "sounds\radio_song.ogg", 10, 1 };
     // subtitle delay in seconds, subtitle text
     titles[] = { 0, "" };
 };
