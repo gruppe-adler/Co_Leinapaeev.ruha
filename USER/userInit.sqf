@@ -12,6 +12,7 @@ if (!isServer) exitWith {};
     if (typeOf _loadoutTarget == "I_medic_F" && _loadoutTarget getVariable ["GRAD_loadout_applicationCount", 0] == 0) exitWith {
         removeAllAssignedItems _loadoutTarget;
         removeAllContainers _loadoutTarget;
+        removeHeadgear _loadoutTarget;
     };
     
     {

@@ -1,6 +1,8 @@
-params ["_wheelchair", "_vehicle"];
+params ["_wheelchair"];
 
+private _vehicle = attachedTo _wheelchair;
 
+if (isNull _vehicle) exitWith { hint "not loaded onto anything"; };
 
 (boundingBoxReal _vehicle) params ["_arg1","_arg2"];
 private _width = abs ((_arg2 select 0) - (_arg1 select 0));

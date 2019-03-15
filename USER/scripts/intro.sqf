@@ -1,3 +1,4 @@
+if (!isMultiplayer) exitWith {};
 if (didJIP) exitWith {};
 0 fadeMusic 1;
 0 fadeSound 0;

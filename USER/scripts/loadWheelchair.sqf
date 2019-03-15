@@ -3,7 +3,7 @@ params ["_wheelchair", "_vehicle"];
 
 
 private _offsets = [
-	["classname", [0,2,1.5]],
+	["gm_demo_nato_mb_u1300l_cargo", [0,-2,0.8]],
 	["classname", [0,2,1.5]],
 	["classname", [0,2,1.5]]
 ];
