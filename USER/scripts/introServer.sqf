@@ -38,6 +38,11 @@ sleep 6;
 
 sleep 7;
 
-siren1 say3d ["introSiren", 7000];
-sleep 4;
-siren2 say3d ["introSiren", 7000];
+INTRO_SIREN_WAILING = true;
+
+while {INTRO_SIREN_WAILING} do {
+    [siren1, ["introSiren", 7000]] remoteExec ["say3D", [0, -2] select isDedicated];
+    sleep 4;
+    [siren2, ["introSiren", 7000]] remoteExec ["say3D", [0, -2] select isDedicated];
+    sleep 47;
+};

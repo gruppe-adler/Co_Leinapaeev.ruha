@@ -21,6 +21,7 @@ private _identifier = format ["GRAD_convoy_vehicleList_%1", _convoyID];
 missionNamespace setVariable [_identifier, _convoy];
 
 // debug
+/*
 addMissionEventHandler ["Draw3D", {
     private _id = missionNamespace getVariable ["GRAD_convoyActive", 0];
     private _vehicles = missionNamespace getVariable [format ["GRAD_convoy_vehicleList_%1", _id], objNull];
@@ -36,6 +37,7 @@ addMissionEventHandler ["Draw3D", {
         drawIcon3D ["\A3\ui_f\data\map\markers\military\dot_CA.paa", [1,1,1,0.8], getPos _x, 1, 1, 45, (str _speed + " | " + str _holds + " | " + str _distance), 1, 0.05, "TahomaB"];
     } forEach _vehicles;
 }];
+*/
 
 for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
 
@@ -50,7 +52,6 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
             params ["_thisVeh", "_waypoints"];
 
             _thisVeh setDriveOnPath _waypoints;
-            systemChat "starting engines 0";
 
         }, [_thisVeh, _waypoints], 5] call CBA_fnc_waitAndExecute;
     };
@@ -69,13 +70,14 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
     [{  
         params ["_thisVeh", "_waypoints"];
 
-        speed _thisVeh > 5
+        speed _thisVeh > 10
 
     },{
         params ["_thisVeh", "_waypoints"];
 
         private _vehicleBehind = _thisVeh getVariable ["GRAD_convoy_vehicleBehind", objNull];
         if (!isNull _vehicleBehind) then {
+            [_waypoints, getPos _thisVeh] call BIS_fnc_arrayUnShift;  
             _vehicleBehind setDriveOnPath _waypoints;
             systemChat "starting engines";
         };

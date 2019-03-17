@@ -36,7 +36,15 @@ private _group = createGroup _side;
 
     _convoy pushBack _veh;
 
+
+    [_veh, true] call BC_flagsOnVehicles_fnc_toggleFlag;
+
+
+
 } forEach _vehicles;
+
+
+
 
 // cache vehicle in front and in back for easier access
 {
