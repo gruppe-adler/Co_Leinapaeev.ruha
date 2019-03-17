@@ -31,6 +31,8 @@ if (CONVOY_DEFEND_ON_AMBUSH) then {
             _cargo allowGetIn false;
             {
                 _x action ["Eject", vehicle _x];
+                unassignVehicle _x;
+                _x allowGetIn false;
             } forEach (crew _x); // cargo
             
 

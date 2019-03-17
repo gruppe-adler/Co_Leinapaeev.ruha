@@ -92,7 +92,7 @@
 	    ["RHS_Ural_Fuel_MSV_01", 				"getPos civConvoyPos_10", 		"getDir civConvoyPos_1"],
 	    ["RHS_Ural_Fuel_MSV_01", 				"getPos civConvoyPos_11", 		"getDir civConvoyPos_1"],
 	    ["RHS_Ural_Fuel_MSV_01", 				"getPos civConvoyPos_12", 		"getDir civConvoyPos_1"],
-	    ["RHS_Ural_Fuel_MSV_01", 				"getPos civConvoyPos_13",		"getDir civConvoyPos_1"],
+	    ["RHS_BM21_MSV_01", 				"getPos civConvoyPos_13",		"getDir civConvoyPos_1"],
 	    ["rhs_gaz66_msv", 				"getPos civConvoyPos_14", 		"getDir civConvoyPos_1"],
 	    ["rhs_gaz66_msv", 				"getPos civConvoyPos_15", 		"getDir civConvoyPos_1"],
 	    ["rhs_btr80a_msv", 				"getPos civConvoyPos_16", 		"getDir civConvoyPos_1"],

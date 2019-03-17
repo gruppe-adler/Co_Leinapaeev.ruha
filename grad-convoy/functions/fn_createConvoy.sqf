@@ -32,7 +32,10 @@ private _group = createGroup _side;
 
     // workaround for stuck tanks / vehicles with turrets / commanders
     // make driver the commanding one
-    _crew joinSilent (group driver _veh);
+    private _originalGroup = _group;
+    private _commandfuckergroup = createGroup east;
+    _crew joinSilent _commandfuckergroup;
+    [driver _veh] joinSilent _originalGroup;
 
     _convoy pushBack _veh;
 
@@ -40,7 +43,19 @@ private _group = createGroup _side;
     [_veh, true] call BC_flagsOnVehicles_fnc_toggleFlag;
 
 
+    if (typeOf _veh == "rhs_gaz66_msv"
+        ) then {
+        [_veh] call GRAD_convoy_fnc_addSquadToCargo;
+    };
 
+    if (typeOf _veh == "rhs_gaz66_msv" ||
+            typeOf _veh == "rhs_tigr_m_msv" ||
+            typeOf _veh == "rhs_gaz66_ammo_msv" || 
+            typeOf _veh == "RHS_Ural_Fuel_MSV_01" ||
+            typeOf _veh == "RHS_BM21_MSV_01"
+        ) then {
+                _veh animateSource ['light_hide',1,true];
+        };
 } forEach _vehicles;
 
 

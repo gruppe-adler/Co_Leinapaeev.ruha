@@ -64,7 +64,16 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
     _thisVeh disableAI "AUTOTARGET";
     _thisVeh setSpeedMode "FULL";
     _thisVeh setVariable ["GRAD_convoy_path", _waypoints];
+
     
+    {
+        _x setBehaviour "SAFE"; // to force lights off
+        _x setCombatMode "BLUE";  // disable him attacking
+        _x disableAi "autoCombat";
+        _x disableAI "TARGET";
+        _x disableAI "AUTOTARGET";
+        _x setSpeedMode "FULL";
+    } forEach crew _thisVeh;
     // workaround/possible fix for vehicles stuck at beginning
     // lets them start with a delay
     [{  

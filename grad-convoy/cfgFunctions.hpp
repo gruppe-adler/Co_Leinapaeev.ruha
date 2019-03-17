@@ -3,6 +3,7 @@ class grad_convoy {
 	class common {
 		file = grad-convoy\functions;
 
+		class addSquadToCargo;
 		class breakFormation;
 		class checkForStuckVehicle;
 		class createConvoy;

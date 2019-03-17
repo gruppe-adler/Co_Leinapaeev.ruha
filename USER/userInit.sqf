@@ -13,7 +13,7 @@ if (!isServer) exitWith {};
         removeAllAssignedItems _loadoutTarget;
         removeAllContainers _loadoutTarget;
         removeHeadgear _loadoutTarget;
-        removeWeaponGlobal _loadoutTarget;
+        removeAllWeapons _loadoutTarget;
     };
     
     {
