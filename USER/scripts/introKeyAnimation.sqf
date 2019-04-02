@@ -1,33 +1,32 @@
-params ["_timeline"];
+private _timeline = GRAD_LEIP_introKeyFrameAnimation;
+diwako_dui_main_toggled_off = true;
+
+// if (!isMultiplayer) exitWith {};
+// if (didJIP) exitWith {};
 
 cutText ["", "BLACK", 999];
 
-if (!isMultiplayer) exitWith {};
-if (didJIP) exitWith {};
+[_timeline] call BIS_fnc_timeline_play;
 
 private _camera = ([introCam1] call BIS_fnc_camera_getCam);
 _camera cameraEffect ["internal","back"];
+/*
 _camera camSetPos (position introCamPos_1);
 _camera camSetTarget introCamTarget_1;
-
-waitUntil {
-  time > 5
-};
-
-[_timeline] call BIS_fnc_timeline_play;
+*/
 
 0 fadeMusic 1;
 0 fadeSound 0;
-playMusic "rossiya";
-klapperradio say3D ["introRadio", 100];
 
 
 cutText ["", "BLACK IN", 8];
 
+/*
 for "_i" from 0 to 20 do {
     private _agent = createAgent ["Mullet_F", position introFishSpawnPos, [], 2, "CAN_COLLIDE"]; 
     _agent setDir 20;
 };
+*/
 
 
 private _filmgrain = ppEffectCreate ["FilmGrain",2000];  
@@ -98,3 +97,4 @@ cutText ["", "BLACK IN", 10];
 
 sleep 5;
 STHud_UIMode = 1;
+diwako_dui_main_toggled_off = false;
