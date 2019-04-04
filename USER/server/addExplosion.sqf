@@ -15,4 +15,4 @@ _position set [2,0];
 
 private _explosions = missionNamespace getVariable ["GRAD_LP_explosionSpawns", []];
 _explosions pushBack [_position, _timeout];
-missionNamespace setVariable ["GRAD_LP_explosionSpawns", _explosions;
+missionNamespace setVariable ["GRAD_LP_explosionSpawns", _explosions];

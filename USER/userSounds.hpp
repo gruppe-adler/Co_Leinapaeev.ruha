@@ -3,6 +3,8 @@
 *   Ist in CfgSounds included.
 */
 
+#include "grad_flies\cfgSounds.hpp"
+
 class introRadio01
 {
     // how the sound is referred to in the editor (e.g. trigger effects)
