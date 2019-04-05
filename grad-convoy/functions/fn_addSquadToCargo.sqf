@@ -12,3 +12,5 @@ private _group = [
   _x assignAsCargo _vehicle;
   _x moveInCargo _vehicle;
 } forEach units _group;
+
+(units _group)

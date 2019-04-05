@@ -1,16 +1,4 @@
-/*
- * Script by Michal Hudák (M1keSK)
- * modified for grad_electricFence by McDiod
- */
-
-
-params [["_unit",objNull]];
-
-if (!hasInterface) exitWith {};
-
-_unit playMoveNow "Acts_AidlPercMstpSlowWrflDnon_pissing";
-
-sleep 4;
+params ["_unit"];
 
 private _dir = getDir _unit;
 
@@ -58,3 +46,7 @@ for "_i" from 0.1 to 0 step -0.01 do {
 };
 
 deleteVehicle _stream;
+
+if (local _unit) then {
+    _unit setVariable ['GRAD_LP_peeing', false];
+};

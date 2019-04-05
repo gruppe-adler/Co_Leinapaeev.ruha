@@ -49,7 +49,7 @@ if (
   // TODO check if below is necessary to uncomment
   waitUntil {not isNil "ares_category_list"};
 
-  ["LEINAPAEEV", "Bombard Airfield",
+  ["LEINAPAEEV Mission Progress", "02 Bombard Airfield",
   {
     // Get all the passed parameters
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
@@ -58,6 +58,31 @@ if (
 
     systemChat "ZEUS: Bombard Airfield executed";
 
-  }] call Ares_fnc_RegisterCustomModule;   
+  }] call Ares_fnc_RegisterCustomModule;
+
+
+
+  ["LEINAPAEEV Reinforcements", "Mi8 Infantry Drop",
+  {
+    // Get all the passed parameters
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    [[_position], "USER\server\mi8Drop.sqf"] remoteExec ["BIS_fnc_execVM",2,false];
+
+    systemChat "ZEUS: Mi8 Drop executed";
+
+  }] call Ares_fnc_RegisterCustomModule;
+
+
+  ["LEINAPAEEV FX", "Pee Pee",
+  {
+    // Get all the passed parameters
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    [[_objectUnderCursor], "USER\server\doPee.sqf"] remoteExec ["BIS_fnc_execVM",_objectUnderCursor,false];
+
+    systemChat "ZEUS: Pee Pee executed";
+
+  }] call Ares_fnc_RegisterCustomModule;
 
 };
