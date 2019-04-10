@@ -18,6 +18,7 @@ if (!isServer) exitWith {};
     
     {
         [_x,"Kaitseliit"] call BIS_fnc_setUnitInsignia;
+        [_x] execVM "USER\server\addKilledEHPlayer.sqf";
     } forEach (playableUnits + switchableUnits); 
 }] call CBA_fnc_addEventHandler;
 

@@ -3,7 +3,6 @@ waitUntil {!isNull player};
 waitUntil {  time > 3 };
 
 {
-
   
     _x addEventHandler ["CuratorGroupPlaced", {
         params ["", "_group"];
@@ -18,6 +17,8 @@ waitUntil {  time > 3 };
             _x setSkill ["reloadSpeed", 1]; 
             _x setSkill ["commanding", 1];
             _x setSkill ["general", 1];
+
+            [[_x], "USER\server\addKilledEH.sqf"] remoteExec ["BIS_fnc_execVM", 2];
 
         } forEach units _group;
     }];
