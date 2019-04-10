@@ -12,7 +12,8 @@ _vehicleFlagDefinitions = [
 	["rhs_btr70_msv",[0,-2.7,0.6], [0,0,0]],
     ["rhs_btr80a_msv",[0.8,-2.9,1.2], [0,0,0]],
 	["rhs_brm1k_msv", [0,-2.5,0.6], [0,0,0]],
-	["rhsgref_BRDM2_HQ_msv", [0.8,-1.15,1.3], [0,0,0]]
+	["rhsgref_BRDM2_HQ_msv", [0.8,-1.15,1.3], [0,0,0]],
+    ["Redd_Tank_LKW_leicht_gl_Wolf_Flecktarn_FJg", [0.6,1.15,0.3], [0,0,0]]
 ];
 
 {
