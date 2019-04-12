@@ -40,7 +40,7 @@ _wp setWaypointStatements ["true", "
             private _position = _x select 0;
             private _timeout = _x select 1;
 
-            [_position, _timeout] execVM "USER\server\spawnExplosion.sqf";
+            [_position, _timeout] call MissionControl_fnc_spawnExplosion;
 
             sleep (random 3);
 

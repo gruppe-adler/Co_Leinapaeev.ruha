@@ -4,4 +4,5 @@
 */
 
 #include "BC_flagsOnVehicles\CfgFunctions.hpp"
+#include "missionControl\CfgFunctions.hpp"
 #include "grad_flies\CfgFunctions.hpp"

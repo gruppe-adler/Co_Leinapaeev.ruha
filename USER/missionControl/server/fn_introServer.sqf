@@ -5,7 +5,7 @@ for "_i" from 0 to 20 do {
 
 [fakeRadio, ["introRadioSong",150]] remoteExec ["say3D", [0, -2] select isDedicated];
 ["rossiya"] remoteExec ["playMusic", [0, -2] select isDedicated];
-["USER\scripts\introKeyAnimation.sqf"] remoteExec ["execVM", [0, -2] select isDedicated];
+[] remoteExec ["MissionControl_fnc_introKeyAnimation", [0, -2] select isDedicated];
 sleep (160 + 75);
 
 deleteVehicle fakeRadio;

@@ -3,7 +3,7 @@ params ["_unit"];
 _unit addAction [
     "<t color='#FF00FF'>Pee</t>", {
         params ["_target", "_caller", "_actionId", "_arguments"];
-        [_caller] execVM "USER\client\doPee.sqf";
+        [_caller] spawn MissionControl_fnc_doPee;
     },
     [],
     1.5, 

@@ -2,7 +2,7 @@
 
 	3DEN
 	
-	[this, 600] execVM "USER\server\addExplosion.sqf";
+	[this, 600] call MissionControl_fnc_addExplosion;
 
 */
 

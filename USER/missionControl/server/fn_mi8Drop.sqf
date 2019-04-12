@@ -26,5 +26,5 @@ private _wp = (group _mi8) addWaypoint [_position, 0];
 _wp setWaypointCompletionRadius 300;
 _wp setWaypointType "TR UNLOAD";
 _wp setWaypointStatements ["true", "
-    [vehicle this] execVM 'USER\server\mi8land.sqf';
+    [vehicle this] call MissionControl_fnc_mi8land;
 "];

@@ -14,4 +14,4 @@ _unit setPos _position;
 sleep 1;
 private _bike = "sfp_dakota" createVehicle _position;
 
-[[_position], "USER\client\addSpawnMarker.sqf"] remoteExec ["BIS_fnc_execVM", _unit];
+[_position] remoteExec ["MissionControl_fnc_addSpawnMarker", _unit];
