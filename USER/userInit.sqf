@@ -33,4 +33,7 @@ if (!isServer) exitWith {};
  [_x, [west]] call BIS_fnc_drawCuratorRespawnMarkers;
 } forEach allCurators;
 
+[] execVM "USER\client\addModules.sqf";
+
+
 // [ curatorModule, ["targetIcon.paa", [1,1,1,1], position player, 1, 1, 45, "Target", 1, 0.05, "TahomaB"], false ] call BIS_fnc_addCuratorIcon;

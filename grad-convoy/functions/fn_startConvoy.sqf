@@ -1,14 +1,14 @@
 /*
 
 	// use unique IDs (number) to start!
-	[0] call GRAD_convoy_fnc_startConvoy;
+	[0, west] call GRAD_convoy_fnc_startConvoy;
 	
 */
 
-params ["_convoyID"];
+params ["_convoyID", "_side"];
 missionNamespace setVariable ["GRAD_convoyActive", _convoyID];
 
-private _convoyParams = [_convoyID] call GRAD_convoy_fnc_createConvoy;
+private _convoyParams = [_convoyID, _side] call GRAD_convoy_fnc_createConvoy;
 _convoyParams params ["_waypointStrings", "_convoy"];
 
 private _waypoints = [];
@@ -119,7 +119,10 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
             _distBack = _thisVeh distance _vehicleBehind;
         };
 
-        private _speedLimit = [_thisVeh, _distFront, _distBack] call GRAD_convoy_fnc_getSpeedLimit;
+        private _identifier = format ["GRAD_convoy_%1_pause", _convoyID];
+        private _pause = missionNamespace getVariable [_identifier, false];
+        private _speedLimit = if (_pause) then { 0.001 } else { [_thisVeh, _distFront, _distBack] call GRAD_convoy_fnc_getSpeedLimit };
+
 
         // all fine, go rollin on path travelled from veh in front
         // private _path = _thisVeh getVariable ["grad_convoy_pathHistory", []];

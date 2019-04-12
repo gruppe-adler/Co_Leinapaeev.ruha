@@ -75,7 +75,7 @@ if (
   }] call Ares_fnc_RegisterCustomModule;
 
 
-  ["LEINAPAEEV FX", "Pee Pee",
+  ["LEINAPAEEV FX", "Pee Pee Unit",
   {
     // Get all the passed parameters
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
@@ -85,5 +85,34 @@ if (
     systemChat "ZEUS: Pee Pee executed";
 
   }] call Ares_fnc_RegisterCustomModule;
+
+
+
+  ["LEINAPAEEV CONVOY", "Start Russian Convoy",
+  {
+    // Get all the passed parameters
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    [1, east] call GRAD_convoy_fnc_startConvoy;
+
+  }] call Ares_fnc_RegisterCustomModule;
+
+
+  ["LEINAPAEEV CONVOY", "Toggle Russian Convoy Movement",
+  {
+    // Get all the passed parameters
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    private _convoyID = 1;
+    private _convoyIdentifier = format ["GRAD_convoy_%1_pause", _convoyID];
+    private _pause = missionNamespace getVariable [_convoyIdentifier, false];
+    _pause = !_pause;
+
+    missionNamespace setVariable [_convoyIdentifier, _pause, true];
+
+    systemChat ("ZEUS: Toggling Convoy Pause to " + (str _pause));
+
+  }] call Ares_fnc_RegisterCustomModule;
+
 
 };

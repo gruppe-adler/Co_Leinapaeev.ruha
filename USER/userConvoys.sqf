@@ -74,10 +74,7 @@
 		"getPos civWp_43",
 		"getPos civWp_44",
 		"getPos civWp_45",
-		"getPos civWp_46",
-		"getPos civWp_47",
-		"getPos civWp_48",
-		"getPos civWp_49"
+		"getPos civWp_46"
 		],
 		[
 		["rhs_tigr_m_msv", 				"getPos civConvoyPos_1", 		"getDir civConvoyPos_1"],

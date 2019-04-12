@@ -28,7 +28,7 @@ private _group = createGroup _side;
     private _dir = call compile _dir;
 
     private _vehParams = ([_position,_dir,_classname,_group] call BIS_fnc_spawnVehicle);
-    _vehParams params ["_veh", "_crew", "_group"];
+    _vehParams params ["_veh", "_crew"];
 
     // workaround for stuck tanks / vehicles with turrets / commanders
     // make driver the commanding one
