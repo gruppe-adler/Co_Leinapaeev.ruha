@@ -18,6 +18,7 @@ _camera camSetTarget introCamTarget_1;
 0 fadeMusic 1;
 0 fadeSound 0;
 
+sleep 1;
 
 cutText ["", "BLACK IN", 8];
 
@@ -95,6 +96,7 @@ introTexture_4 setObjectTexture [0, ""];
 
 cutText ["", "BLACK IN", 10];
 
+playMusic "";
 sleep 5;
 STHud_UIMode = 1;
 diwako_dui_main_toggled_off = false;

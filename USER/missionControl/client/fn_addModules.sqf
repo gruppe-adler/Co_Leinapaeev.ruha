@@ -50,6 +50,18 @@
     // TODO check if below is necessary to uncomment
     waitUntil {not isNil "ares_category_list"};
 
+
+    ["LEINAPAEEV Mission Progress", "01 End Siren Alarm",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      INTRO_SIREN_WAILING = false; publicVariableServer "INTRO_SIREN_WAILING";
+
+      systemChat "ZEUS: Ending Siren Alarm";
+
+    }] call Ares_fnc_RegisterCustomModule;
+
     ["LEINAPAEEV Mission Progress", "02 Bombard Airfield",
     {
       // Get all the passed parameters
@@ -80,7 +92,7 @@
       // Get all the passed parameters
       params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
-      [_objectUnderCursor] remoteExec ["MissionControl_fnc_doPee",_objectUnderCursor,false];
+      [_objectUnderCursor] remoteExec ["MissionControl_fnc_doPee", [0, -2] select isDedicated, false];
 
       systemChat "ZEUS: Pee Pee executed";
 
@@ -93,7 +105,7 @@
       // Get all the passed parameters
       params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
-      [1, east] call GRAD_convoy_fnc_startConvoy;
+      [1, east] remoteExec ["GRAD_convoy_fnc_startConvoy", 2];
 
     }] call Ares_fnc_RegisterCustomModule;
 

@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=530;
+		nextID=554;
 	};
 	class Camera
 	{
-		pos[]={4543.6079,242.35243,1944.4072};
-		dir[]={-0.13108537,-0.77090305,-0.62334883};
-		up[]={-0.1586464,0.63694835,-0.75440556};
-		aside[]={-0.97861183,5.3388067e-007,0.2057963};
+		pos[]={6022.1528,208.32693,2234.165};
+		dir[]={0.086814404,-0.38214988,0.92004472};
+		up[]={0.035914861,0.92403662,0.3806231};
+		aside[]={0.99561077,-2.3469329e-007,-0.093945384};
 	};
 };
 binarizationWanted=0;
@@ -20907,7 +20907,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{[this] execVM ""USER\scripts\dressUpAction.sqf"";}";
+				init="call{[this] call MissionControl_fnc_dressUpAction; }";
 				disableSimulation=1;
 				dynamicSimulation=1;
 			};
@@ -21577,7 +21577,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] execVM ""USER\server\addExplosion.sqf"";}";
+				init="call{[this] call MissionControl_fnc_addExplosion;}";
 			};
 			id=2349;
 			type="Land_Radar_ruins_F";
@@ -22313,7 +22313,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] execVM ""USER\server\addExplosion.sqf"";}";
+				init="call{[this] call MissionControl_fnc_addExplosion;}";
 				disableSimulation=1;
 			};
 			id=2373;
@@ -22354,7 +22354,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] execVM ""USER\server\addExplosion.sqf"";}";
+				init="call{[this] call MissionControl_fnc_addExplosion;}";
 				disableSimulation=1;
 			};
 			id=2374;
@@ -22394,7 +22394,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] execVM ""USER\server\addExplosion.sqf"";}";
+				init="call{[this] call MissionControl_fnc_addExplosion;}";
 				disableSimulation=1;
 			};
 			id=2375;
@@ -22433,7 +22433,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="call{[this] execVM ""USER\server\addExplosion.sqf"";}";
+				init="call{[this] call MissionControl_fnc_addExplosion;}";
 			};
 			id=2377;
 			type="Land_UH1H_Wreck_F";
@@ -22450,7 +22450,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="call{[this] execVM ""USER\server\addExplosion.sqf"";}";
+				init="call{[this] call MissionControl_fnc_addExplosion;}";
 			};
 			id=2378;
 			type="Land_UH1H_Wreck_F";

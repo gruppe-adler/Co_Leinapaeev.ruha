@@ -18,7 +18,7 @@ if (!isServer) exitWith {};
     
     {
         [_x,"Kaitseliit"] call BIS_fnc_setUnitInsignia;
-        [_x] execVM "USER\server\addKilledEHPlayer.sqf";
+        [_x] call missionControl_fnc_addKilledEHPlayer;
     } forEach (playableUnits + switchableUnits); 
 }] call CBA_fnc_addEventHandler;
 
@@ -31,9 +31,7 @@ if (!isServer) exitWith {};
 
 {
  [_x, [west]] call BIS_fnc_drawCuratorRespawnMarkers;
-} forEach allCurators;
-
-[] execVM "USER\client\addModules.sqf";
+} forEach allCurators; 
 
 
 // [ curatorModule, ["targetIcon.paa", [1,1,1,1], position player, 1, 1, 45, "Target", 1, 0.05, "TahomaB"], false ] call BIS_fnc_addCuratorIcon;

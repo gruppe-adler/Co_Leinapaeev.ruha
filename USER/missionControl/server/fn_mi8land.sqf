@@ -9,7 +9,7 @@ _mi8 flyInHeight 4;
 
 [{
     params ["_mi8"];
-    getPos _mi8 select 2 < 1
+    getPos _mi8 select 2 < 0.5
 },{
     params ["_mi8", "_originPos"];
     doStop _mi8;

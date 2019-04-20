@@ -1,3 +1,9 @@
+if (!isServer) exitWith {};
+
+waitUntil {
+  time > 7
+};
+
 for "_i" from 0 to 20 do {
     private _agent = createAgent ["Mullet_F", position introFishSpawnPos, [], 2, "CAN_COLLIDE"]; 
     _agent setDir 20;

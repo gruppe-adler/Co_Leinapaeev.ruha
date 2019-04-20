@@ -1,7 +1,7 @@
 class missionControl {
 
     class client {
-        file = USER\missionControl\functions\client;
+        file = USER\missionControl\client;
 
         class addModules { postInit = 1; };
 
@@ -21,7 +21,7 @@ class missionControl {
     };
 
     class server {
-        file = USER\missionControl\functions\server;
+        file = USER\missionControl\server;
 
         class addExplosion;
         class addKilledEH;
@@ -29,10 +29,10 @@ class missionControl {
         class bwConvoyStart;
         class civilianRoadFlow;
         class executeExplosions;
-        class introServer;
+        class introServer { postInit = 1; };
         class killrateTracker { postInit = 1; };
         class mi8Drop;
-        class miland;
+        class mi8land;
         class spawnExplosion;
         class spawnFish;
     };

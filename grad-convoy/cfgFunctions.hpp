@@ -13,5 +13,6 @@ class grad_convoy {
 		class init { postInit = 1; };
 		class removeVehicleFromConvoy;
 		class startConvoy;
+		class userConvoys;
 	};
 };

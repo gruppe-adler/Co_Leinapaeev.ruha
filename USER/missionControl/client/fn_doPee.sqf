@@ -3,14 +3,20 @@
  * modified by McDiod + nomisum
  */
 
+// executed on all clients
 
 params [["_unit",objNull]];
 
 if (!hasInterface) exitWith {};
 
+if (!canSuspend) exitWith {
+    [_unit] spawn MissionControl_fnc_doPee;
+};
+
 _unit setVariable ['GRAD_LP_peeing', true];
-_unit playMoveNow "Acts_AidlPercMstpSlowWrflDnon_pissing";
+_unit switchMove "Acts_AidlPercMstpSlowWrflDnon_pissing";
+
 
 sleep 4;
 
-[_unit] remoteExec ["MissionControl_fnc_peeFX", [0,-2] select isDedicated];
+[_unit] call MissionControl_fnc_peeFX;

@@ -47,6 +47,4 @@ for "_i" from 0.1 to 0 step -0.01 do {
 
 deleteVehicle _stream;
 
-if (local _unit) then {
-    _unit setVariable ['GRAD_LP_peeing', false];
-};
+_unit setVariable ['GRAD_LP_peeing', false];
