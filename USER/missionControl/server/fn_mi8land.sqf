@@ -15,13 +15,16 @@ _mi8 flyInHeight 4;
     doStop _mi8;
     private _cargo = _mi8 getVariable ['GRAD_WP_cargo', []];
     {
+        private _unit = _x;
         [{
             params ["_mi8", "_unit"];
             _unit action ["EJECT", _mi8];
             unassignVehicle (_unit);
-            _x setFormation "DIAMOND";
-        }, [_mi8, _x], random 7] call CBA_fnc_waitAndExecute;
+            _unit setFormation "DIAMOND";
+        }, [_mi8, _unit], (random 7)] call CBA_fnc_waitAndExecute;
     } forEach _cargo;
+
+
 
     [{
         params ["_mi8"];

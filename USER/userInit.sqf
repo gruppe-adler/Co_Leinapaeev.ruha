@@ -4,9 +4,9 @@
 */
 
 
-if (!isServer) exitWith {};
+if (!isServer) exitWith {
 
-["GRAD_loadout_loadoutApplied", {
+    ["GRAD_loadout_loadoutApplied", {
     params ["_loadoutTarget", "_unitLoadout"];
 
     if (typeOf _loadoutTarget == "I_medic_F" && _loadoutTarget getVariable ["GRAD_loadout_applicationCount", 0] == 0) exitWith {
@@ -22,6 +22,7 @@ if (!isServer) exitWith {};
     } forEach (playableUnits + switchableUnits); 
 }] call CBA_fnc_addEventHandler;
 
+};
 
 
 // draw death positions for curator
