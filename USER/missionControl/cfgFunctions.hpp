@@ -11,9 +11,11 @@ class missionControl {
         class dressUpAction;
         class enableWheelchairCarry;
         class introKeyAnimation;
+        class introLocal;
         class jipSpawn;
         class loadWheelchair;
         class peeFX;
+        class showStats;
         class spawnSmoke;
         class standUp;
         class unflipWheelchair;
@@ -27,6 +29,7 @@ class missionControl {
         class addKilledEH;
         class addKilledEHPlayer;
         class bwConvoyStart;
+        class checkWinConditions;
         class civilianRoadFlow;
         class executeExplosions;
         class introServer { postInit = 1; };
