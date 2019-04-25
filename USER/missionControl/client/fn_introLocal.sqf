@@ -5,7 +5,7 @@ _camera cameraEffect ["internal","back"];
 _camera camSetPos (position classicIntroPos_1);
 _camera camSetTarget introCamTarget_1;
 _camera camCommand "inertia on";
-_camera camSetFov 0.25;
+_camera camSetFov 0.35;
 _camera camCommit 0;
 
 0 fadeMusic 1;
@@ -29,10 +29,10 @@ _filmgrain ppEffectAdjust [0.3,0.3,0.12,0.12,0.12,true];
 _filmgrain ppEffectCommit 0;
 
 
-_camera camSetFov 0.35;
+_camera camSetFov 0.25;
 _camera camSetPos (position classicIntroPos_2);
 _camera camSetTarget introCamTarget_2;
-_camera camCommit 45;
+_camera camCommit 44;
 sleep 45;
 
 0 = ["WetDistortion", 300, [
@@ -42,7 +42,7 @@ sleep 45;
     0.0054, 0.0041, 0.0090, 0.0070,
     0.5, 0.3, 10.0, 6.0]] spawn
 {
-    sleep 14;
+    sleep 7;
     params ["_name", "_priority", "_effect", "_handle"];
     while {
         _handle = ppEffectCreate [_name, _priority];
@@ -61,7 +61,7 @@ sleep 45;
     4.10, 3.70, 2.50, 1.85,
     0.0054, 0.0041, 0.0090, 0.0070,
     0.5, 0.3, 10.0, 6.0];
-    _handle ppEffectCommit 1;
+    _handle ppEffectCommit 2;
     waitUntil {ppEffectCommitted _handle};
     uiSleep 1;
     _handle ppEffectEnable false;
@@ -72,11 +72,17 @@ sleep 45;
 
 _camera camSetPos (position classicIntroPos_7);
 _camera camSetTarget introCamTarget_3;
-_camera camCommit 15;
-sleep 15;
+_camera camCommit 10;
+sleep 7;
+
+[introPeeGuy] spawn MissionControl_fnc_doPee;
+sleep 4;
+
+_camera camSetTarget introCamTarget_4;
+_camera camCommit 12;
+sleep 12;
 
 _camera camSetPos (position classicIntroPos_8);
-_camera camSetTarget introCamTarget_4;
 _camera camCommit 30;
 sleep 30;
 
