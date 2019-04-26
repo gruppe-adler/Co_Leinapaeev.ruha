@@ -4,7 +4,7 @@ private _dir = getDir _unit;
 
 private _stream = "#particlesource" createVehicleLocal [0,0,0];
 _stream setParticleRandom [0,[0.004,0.004,0.004],[0.01,0.01,0.01],30,0.01,[0,0,0,0],1,0.02,360];
-_stream setDropInterval 0.0001;
+_stream setDropInterval 0.001;
 _stream attachTo [_unit,[0.1,0.15,-0.10],"Pelvis"] ;
 
 

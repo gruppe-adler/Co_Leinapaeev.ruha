@@ -1,15 +1,9 @@
 
 if (isServer) then {
+    /*
     [] spawn {
-        private _resultInf_west = str (([west, "Players killed"] call grad_points_fnc_getPointsCategory) + ([west, "AI killed"] call grad_points_fnc_getPointsCategory));
-        private _resultInf_east = str (([east, "Players killed"] call grad_points_fnc_getPointsCategory) + ([east, "AI killed"] call grad_points_fnc_getPointsCategory));
+        
         // private _resultArmored = ["", "1", "2", "3", "4"];
-
-        private _resultSoft_west = str ([west, "VEHICLEKILLED"] call grad_points_fnc_getPointsCategory);
-        private _resultSoft_east = str ([east, "VEHICLEKILLED"] call grad_points_fnc_getPointsCategory);
-        // private _resultArmored = ["", "1", "2", "3", "4"];
-        private _resultFuel_west = format ["%1", [west] call (compile preprocessFileLineNumbers "USER\getFuelPoints.sqf")];
-        private _resultFuel_east = format ["%1", [east] call (compile preprocessFileLineNumbers "USER\getFuelPoints.sqf")];
 
         private _resultTotalNumber_west = ((parseNumber _resultInf_west) + (parseNumber _resultSoft_west) + (parseNumber _resultFuel_west));
         private _resultTotalNumber_east = ((parseNumber _resultInf_east) + (parseNumber _resultSoft_east) + (parseNumber _resultFuel_east));
@@ -24,8 +18,9 @@ if (isServer) then {
         private _draw = _resultTotalNumber_west == _resultTotalNumber_east;
 
         sleep 16;
-        [] call GRAD_replay_fnc_stopRecord;
+        // [] call GRAD_replay_fnc_stopRecord;
 
+        
         if (_eastWins) then {
             [[east]] remoteExec ["grad_endings_fnc_endMissionClient",0,false];
         } else {
@@ -35,7 +30,9 @@ if (isServer) then {
                 [[west,east]] remoteExec ["grad_endings_fnc_endMissionClient",0,false];
             };
         };
+        
     };
+    */
 };
 
 if (hasInterface) then {
@@ -72,20 +69,20 @@ if (hasInterface) then {
     private _picturePath = ["", _iconInf, _iconSoft, _iconKilled, _iconArmored, _iconHeli, _iconTotal];
     private _picturePathDescription = ["", "Infanterie", "Autos", "APC", "Tank", "Heli", "Insgesamt"];
 
-    private _resultInf_west = missionNamespace getVariable ["GRAD_LP_currentLosses", 0];
-    private _resultInf_east = missionNamespace getVariable ["GRAD_LP_enemyKilledMan", 0];
+    private _resultInf_west = str (missionNamespace getVariable ["GRAD_LP_currentLosses", 10]);
+    private _resultInf_east = str (missionNamespace getVariable ["GRAD_LP_enemyKilledMan", 45]);
 
     private _resultSoft_west = "0";
-    private _resultSoft_east = missionNamespace getVariable ["GRAD_LP_enemyKilledCar", 0];
+    private _resultSoft_east = str (missionNamespace getVariable ["GRAD_LP_enemyKilledCar", 0]);
 
     private _resultAPC_west = "0";
-    private _resultAPC_east = missionNamespace getVariable ["GRAD_LP_enemyKilledAPC", 0];
+    private _resultAPC_east = str (missionNamespace getVariable ["GRAD_LP_enemyKilledAPC", 0]);
 
     private _resultArmored_west = "0";
-    private _resultArmored_east = missionNamespace getVariable ["GRAD_LP_enemyKilledTank", 0];
+    private _resultArmored_east = str (missionNamespace getVariable ["GRAD_LP_enemyKilledTank", 0]);
 
     private _resultHeli_west = "0";
-    private _resultHeli_east = missionNamespace getVariable ["GRAD_LP_enemyKilledHeli", 0];
+    private _resultHeli_east = str (missionNamespace getVariable ["GRAD_LP_enemyKilledHeli", 0]);
     
 
 
@@ -105,7 +102,7 @@ if (hasInterface) then {
     private _results_west = ["", _resultInf_west, _resultSoft_west, _resultAPC_west, _resultArmored_west, _resultHeli_west, _resultTotal_west];
     private _results_east = ["", _resultInf_east, _resultSoft_east, _resultAPC_west, _resultArmored_east, _resultHeli_east, _resultTotal_east];
 
-    private _eastWins = _resultTotalNumber_east > _resultTotalNumber_west;
+    private _eastWins = _resultTotalNumber_east > _resultTotalNumber_west * 4;
     private _draw = _resultTotalNumber_west == _resultTotalNumber_east;
 
     private _display = findDisplay 46 createDisplay "RscDisplayEmpty";
@@ -113,7 +110,7 @@ if (hasInterface) then {
     _display displayAddEventHandler ["KeyDown", "if (((_this select 1) == 1) && (!isServer)) then {true} else {false};"];
 
 
-    private _resultText = if (!_draw && _eastWins) then { "Ital. Mafia gewinnt" } else { "russ. Mafia gewinnt"  };
+    private _resultText = if (!_draw && _eastWins) then { "Sieg" } else { "Niederlage"  };
     if (_draw) then { _resultText = "Unentschieden!" };
 
     private _background = _display ctrlCreate ["RscText", -1];
@@ -164,15 +161,15 @@ if (hasInterface) then {
         _headline ctrlCommit 0;
 
 
-        for "_j" from 1 to 4 do {
+        for "_j" from 1 to 6 do {
 
-                private _textFadeResult = if (_j == 4) then { 0 } else { 0.5 };
+                private _textFadeResult = if (_j == 5) then { 0 } else { 0.5 };
 
                 if (_i == 1) then {
                     private _picture = _display ctrlCreate ["RscPictureKeepAspect", -1];
                     _picture ctrlSetPosition [
                         _columnWidth * _multiplicator + safezoneX  + _columnWidth + _columnWidth/2,
-                        (_j * (_rowHeight * 6) + safezoneY) + _rowHeight * 6,
+                        (_j * (_rowHeight * 4) + safezoneY) + _rowHeight * 6,
                         _columnWidth * 2,
                         _rowHeight * 2
                     ];
@@ -190,7 +187,7 @@ if (hasInterface) then {
                     _subline ctrlSetStructuredText parseText ("<t size='2' align='center' shadow='0' color='#ffffff'>" + (_results_west select _j) + "</t>");
                     _subline ctrlSetPosition [
                         _columnWidth * _multiplicator + safezoneX  + _columnWidth,
-                        (_j * (_rowHeight * 6) + safezoneY) + _rowHeight * 6,
+                        (_j * (_rowHeight * 4) + safezoneY) + _rowHeight * 6,
                         _columnWidth * 4,
                         _rowHeight * 2
                     ];
@@ -205,7 +202,7 @@ if (hasInterface) then {
                     _subline ctrlSetStructuredText parseText ("<t size='2' align='center' shadow='0' color='#ffffff'>" + (_results_east select _j) + "</t>");
                     _subline ctrlSetPosition [
                         _columnWidth * _multiplicator + safezoneX  + _columnWidth,
-                        (_j * (_rowHeight * 6) + safezoneY) + _rowHeight * 6,
+                        (_j * (_rowHeight * 4) + safezoneY) + _rowHeight * 6,
                         _columnWidth * 4,
                         _rowHeight * 2
                     ];
@@ -218,7 +215,7 @@ if (hasInterface) then {
                 private _divider = _display ctrlCreate ["RscStructuredText", -1];
                 _divider ctrlSetPosition [
                     safezoneX,
-                    (_j * (_rowHeight * 6) + safezoneY) + _rowHeight * 4,
+                    (_j * (_rowHeight * 4) + safezoneY) + _rowHeight * 9,
                     _screenWidth,
                     _dividerHeight
                 ];
