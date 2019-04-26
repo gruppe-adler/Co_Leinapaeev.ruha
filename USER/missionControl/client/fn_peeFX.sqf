@@ -8,12 +8,18 @@ _stream setDropInterval 0.001;
 _stream attachTo [_unit,[0.1,0.15,-0.10],"Pelvis"] ;
 
 
+_unit setRandomLip true;
+
 for "_i" from 0 to 1 step 0.01 do {
     _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]] ;
     sleep 0.02;
 };
 
+_unit setRandomLip false;
+
 sleep 4;
+
+
 
 for "_i" from 1 to 0.4 step -0.01 do {
     _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]] ;

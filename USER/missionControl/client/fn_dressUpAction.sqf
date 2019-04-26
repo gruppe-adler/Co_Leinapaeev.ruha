@@ -12,7 +12,7 @@ _waescheleine addAction [
     true, 
     true, 
     "",
-    "(_this select 1) getVariable ['GRAD_LP_nakedGuy', false]",
+    "_caller getVariable ['GRAD_LP_nakedGuy', false]",
     2,
     false,
     "",

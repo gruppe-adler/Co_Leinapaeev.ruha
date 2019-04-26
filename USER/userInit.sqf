@@ -4,25 +4,23 @@
 */
 
 
-if (!isServer) exitWith {
+if (!isServer) exitWith {};
 
-    ["GRAD_loadout_loadoutApplied", {
-    params ["_loadoutTarget", "_unitLoadout"];
+["GRAD_loadout_loadoutApplied", {
+params ["_loadoutTarget", "_unitLoadout"];
 
-    if (typeOf _loadoutTarget == "I_medic_F" && _loadoutTarget getVariable ["GRAD_loadout_applicationCount", 0] == 0) exitWith {
-        removeAllAssignedItems _loadoutTarget;
-        removeAllContainers _loadoutTarget;
-        removeHeadgear _loadoutTarget;
-        removeAllWeapons _loadoutTarget;
-    };
-    
-    {
-        [_x,"Kaitseliit"] call BIS_fnc_setUnitInsignia;
-        [_x] call missionControl_fnc_addKilledEHPlayer;
+if (typeOf _loadoutTarget == "I_medic_F" && _loadoutTarget getVariable ["GRAD_loadout_applicationCount", 0] == 0) exitWith {
+    removeAllAssignedItems _loadoutTarget;
+    removeAllContainers _loadoutTarget;
+    removeHeadgear _loadoutTarget;
+    removeAllWeapons _loadoutTarget;
+};
+
+{
+    [_x,"Kaitseliit"] call BIS_fnc_setUnitInsignia;
+    [_x] call missionControl_fnc_addKilledEHPlayer;
     } forEach (playableUnits + switchableUnits); 
 }] call CBA_fnc_addEventHandler;
-
-};
 
 
 // draw death positions for curator

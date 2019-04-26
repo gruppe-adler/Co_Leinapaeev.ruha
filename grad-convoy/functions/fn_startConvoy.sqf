@@ -88,7 +88,7 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
         if (!isNull _vehicleBehind) then {
             [_waypoints, getPos _thisVeh] call BIS_fnc_arrayUnShift;  
             _vehicleBehind setDriveOnPath _waypoints;
-            systemChat "starting engines";
+            // systemChat "starting engines";
         };
 
     }, [_thisVeh, _waypoints]] call CBA_fnc_waituntilAndExecute;
