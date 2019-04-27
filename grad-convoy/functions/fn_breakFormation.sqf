@@ -10,7 +10,7 @@ if (CONVOY_DEFEND_ON_AMBUSH) then {
         private _targetPosition = _vehicle getPos [20, _dir];
         // set speed
         _vehicle move _targetPosition;
-        systemChat "move";
+        // systemChat "move";
     } forEach _convoy;
 
     systemChat "Defend convoy triggered";
@@ -32,8 +32,16 @@ if (CONVOY_DEFEND_ON_AMBUSH) then {
             {
                 _x action ["Eject", vehicle _x];
                 unassignVehicle _x;
-                _x allowGetIn false;
-            } forEach (crew _x); // cargo
+                [_x] allowGetIn false;
+
+                _x setUnitPos "MIDDLE";
+                _x setBehaviour "COMBAT"; // to force lights off
+                _x setCombatMode "RED";  // disable him attacking
+                _x enableAI "autoCombat";
+                _x enableAI "TARGET";
+                _x enableAI "AUTOTARGET";
+                _x setSpeedMode "FULL";
+            } forEach _cargo; // (crew _x); // cargo
             
 
         } forEach _convoy;

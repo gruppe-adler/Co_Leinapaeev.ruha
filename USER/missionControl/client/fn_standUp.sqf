@@ -11,7 +11,7 @@ if (!local _unit) exitWith {};
 
     
     if (stance _unit != "PRONE" && speed _unit > 2) then {
-         [player, objNull, 5] call ACE_hitreactions_fnc_fallDown;
+         // [player, objNull, 5] call ACE_hitreactions_fnc_fallDown;
          player setHitPointDamage ["HitLegs", 0.6];
     };
     

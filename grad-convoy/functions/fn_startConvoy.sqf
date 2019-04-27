@@ -56,16 +56,22 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
         }, [_thisVeh, _waypoints], 5] call CBA_fnc_waitAndExecute;
     };
 
+    /*
     // only driver maybe
     _thisVeh setBehaviour "SAFE"; // to force lights off
     _thisVeh setCombatMode "BLUE";  // disable him attacking
     _thisVeh disableAi "autoCombat";
     _thisVeh disableAI "TARGET";
     _thisVeh disableAI "AUTOTARGET";
+    */
     _thisVeh setSpeedMode "FULL";
     _thisVeh setVariable ["GRAD_convoy_path", _waypoints];
-
     
+
+    private _driver = driver _thisVeh;
+    _driver setCaptive true;
+
+    /*    
     {
         _x setBehaviour "SAFE"; // to force lights off
         _x setCombatMode "BLUE";  // disable him attacking
@@ -74,6 +80,7 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
         _x disableAI "AUTOTARGET";
         _x setSpeedMode "FULL";
     } forEach crew _thisVeh;
+    */
     // workaround/possible fix for vehicles stuck at beginning
     // lets them start with a delay
     [{  

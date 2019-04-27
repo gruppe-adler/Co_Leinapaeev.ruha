@@ -109,6 +109,8 @@ _filmgrain ppEffectEnable true;
 _filmgrain ppEffectAdjust [0.3,0.3,0.12,0.12,0.12,true];
 _filmgrain ppEffectCommit 0;
 
+
+private _playerCamPosition = positionCameraToWorld [0,0,0];
 // CREATE CAM
 _camera = "camera" camCreate (position _unit);
 _camera cameraEffect ["internal","back"];
@@ -141,3 +143,5 @@ GRAD_DEATHCAM_RUNNING = false;
 // fade back in
 sleep 1;
 cutText ["", "BLACK IN", 1];
+
+[0, player, -2, _playerCamPosition] call ace_spectator_fnc_setCameraAttributes;
