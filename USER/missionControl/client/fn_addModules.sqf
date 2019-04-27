@@ -73,6 +73,17 @@
 
     }] call Ares_fnc_RegisterCustomModule;
 
+     ["LEINAPAEEV Mission Progress", "05 Show stats",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      [] remoteExec ["MissionControl_fnc_showStats", [0, -2] select isDedicated, true];
+
+      systemChat "ZEUS: Showing Stats";
+
+    }] call Ares_fnc_RegisterCustomModule;
+
 
 
     ["LEINAPAEEV Reinforcements", "Mi8 Infantry Drop",

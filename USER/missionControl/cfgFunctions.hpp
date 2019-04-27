@@ -29,7 +29,6 @@ class missionControl {
         class addKilledEH;
         class addKilledEHPlayer;
         class bwConvoyStart;
-        class checkWinConditions;
         class civilianRoadFlow;
         class executeExplosions;
         class introServer { postInit = 1; };

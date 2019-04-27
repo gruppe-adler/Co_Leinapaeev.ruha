@@ -9,8 +9,6 @@ for "_i" from 0 to 20 do {
     _agent setDir 20;
 };
 
-[fakeRadio, ["introRadioSong",150]] remoteExec ["say3D", [0, -2] select isDedicated];
-["rossiya"] remoteExec ["playMusic", [0, -2] select isDedicated];
 [] remoteExec ["MissionControl_fnc_introLocal", [0, -2] select isDedicated];
 sleep (160 + 75);
 

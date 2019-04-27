@@ -1,6 +1,6 @@
 if (didJIP) exitWith {
     [player] call missionControl_fnc_jipSpawn;
-    "introBlackLoading" cutRsc ["RscTitleDisplayEmpty", "BLACK IN", 3];
+    "introBlackLoading" cutText ["", "BLACK IN", 3];
 };
 
 private _camera = "camera" camCreate (ASLToAGL eyePos player);
@@ -21,7 +21,12 @@ _filmgrain ppEffectCommit 0;
 
 sleep 3;
 
-"introBlackLoading" cutRsc ["RscTitleDisplayEmpty", "BLACK IN", 5];
+fakeRadio say3D ["introRadioSong",150];
+playMusic "rossiya";
+
+
+
+"introBlackLoading" cutText ["", "BLACK IN", 15];
 
 
 _camera camSetFov 0.25;
