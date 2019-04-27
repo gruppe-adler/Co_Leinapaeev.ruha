@@ -18,3 +18,6 @@ private _offsets = [
   	};
 
 } forEach _offsets;
+
+_vehicle setVariable ["wheelChairLoaded", true, true];
+_wheelchair setVariable ["wheelChairLoaded", true, true];

@@ -12,3 +12,6 @@ private _positionBehindVehicle = _vehicle modelToWorld [0,-(_length/2 + 1),0];
 
 detach _wheelchair; 
 _wheelchair setPos _positionBehindVehicle;
+
+_vehicle setVariable ["wheelChairLoaded", false, true];
+_wheelchair setVariable ["wheelChairLoaded", false, true];

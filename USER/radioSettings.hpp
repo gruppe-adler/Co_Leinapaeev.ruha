@@ -58,11 +58,11 @@ class shortrange {
 //LONGRANGE KANÄLE =============================================================
 class longrange {
     class net1 {
-        freq = 32;
+        freq = 50;
     };
 
     class net2 {
-        freq = 33;
+        freq = 60;
     };
 
     class net3 {

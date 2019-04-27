@@ -20,6 +20,7 @@ class missionControl {
         class standUp;
         class unflipWheelchair;
         class unloadWheelchair;
+        class wheelChairActions;
     };
 
     class server {
@@ -31,6 +32,8 @@ class missionControl {
         class bwConvoyStart;
         class civilianRoadFlow;
         class executeExplosions;
+        class fillBox;
+        class fillRadios;
         class introServer { postInit = 1; };
         class killrateTracker { postInit = 1; };
         class mi8Drop;

@@ -10,7 +10,7 @@ for "_i" from 0 to 20 do {
 };
 
 [] remoteExec ["MissionControl_fnc_introLocal", [0, -2] select isDedicated];
-sleep (160 + 75);
+sleep (160 + 90);
 
 deleteVehicle fakeRadio;
 
@@ -41,7 +41,7 @@ sleep 6;
 
 ["unintelligible voice", "..."] remoteExec ["BIS_fnc_showSubtitle", [0, -2] select isDedicated];
 
-sleep 7;
+sleep 20;
 
 INTRO_SIREN_WAILING = true;
 

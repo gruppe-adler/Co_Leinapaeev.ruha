@@ -240,7 +240,7 @@ class estonia {
 
         //Squad Leader
         class Soldier_SL_F: Soldier_F {
-            backpack = "tfar_rt1523g_big_bwmod";
+            backpack = "sfp_ra180";
             addItemsToBackpack[] = {
                 LIST_2("SmokeShellBlue"),
                 LIST_2("SmokeShellGreen"),

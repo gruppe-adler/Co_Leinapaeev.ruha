@@ -1,5 +1,7 @@
 params ["_wheelchair"];
 
+if (!isServer) exitWith {};
+
 _wheelchair addEventHandler ["GetOut", {
     private _vehicle = param [0, objNull, [objNull]];
     (_vehicle call BIS_fnc_getPitchBank) params ["_vx","_vy"];

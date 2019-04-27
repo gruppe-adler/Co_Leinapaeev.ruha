@@ -3,6 +3,8 @@ if (didJIP) exitWith {
     "introBlackLoading" cutText ["", "BLACK IN", 3];
 };
 
+"introBlackLoading" cutText ["", "BLACK", 999];
+
 private _camera = "camera" camCreate (ASLToAGL eyePos player);
 _camera cameraEffect ["internal","back"];
 _camera camSetPos (position classicIntroPos_1);
@@ -32,8 +34,8 @@ playMusic "rossiya";
 _camera camSetFov 0.25;
 _camera camSetPos (position classicIntroPos_2);
 _camera camSetTarget introCamTarget_2;
-_camera camCommit 42;
-sleep 43.2;
+_camera camCommit 46.5;
+sleep 49;
 
 0 = ["WetDistortion", 300, [
     0.1,
@@ -122,6 +124,6 @@ introTexture_4 setObjectTexture [0, ""];
 cutText ["", "BLACK IN", 10];
 
 playMusic "";
-sleep 5;
+sleep 50;
 STHud_UIMode = 1;
 diwako_dui_main_toggled_off = false;

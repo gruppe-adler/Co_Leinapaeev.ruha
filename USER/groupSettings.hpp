@@ -41,5 +41,5 @@ class OPFOR {
 };
 
 class INDEPENDENT {
-
+    
 };
