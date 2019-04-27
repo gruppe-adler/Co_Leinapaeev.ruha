@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=594;
+		nextID=602;
 	};
 	class Camera
 	{
-		pos[]={6620.3594,63.04298,1222.8461};
-		dir[]={-0.011413085,-0.3260659,-0.94531631};
-		up[]={-0.0039367699,0.94533491,-0.32606417};
-		aside[]={-0.99995643,2.901761e-007,0.012071534};
+		pos[]={6613.9136,57.293663,1175.9286};
+		dir[]={-0.074972689,-0.36468881,-0.9281494};
+		up[]={-0.029364545,0.93111652,-0.36352748};
+		aside[]={-0.99678564,3.7795689e-007,0.080515303};
 	};
 };
 binarizationWanted=0;
@@ -114,7 +114,6 @@ addons[]=
 	"Redd_Tank_Gepard_1A2",
 	"A3_Armor_F_Tank_LT_01",
 	"ace_realisticnames",
-	"BWA3_Factionennek",
 	"A3_Soft_F_Exp_Truck_01",
 	"A3_Structures_F_Ind_Cargo",
 	"CUP_CAMisc_E_WF",
@@ -124,7 +123,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=67;
+		items=66;
 		class Item0
 		{
 			className="A3_Modules_F_Heli";
@@ -532,22 +531,17 @@ class AddonsMetaData
 		};
 		class Item63
 		{
-			className="BWA3_Factionennek";
-			name="BWA3_Factionennek";
-		};
-		class Item64
-		{
 			className="A3_Soft_F_Exp";
 			name="Arma 3 Apex - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item65
+		class Item64
 		{
 			className="CUP_CAMisc_E_WF";
 			name="CUP_CAMisc_E_WF";
 		};
-		class Item66
+		class Item65
 		{
 			className="CUP_CABuildings2_Misc_Cargo";
 			name="CUP_CABuildings2_Misc_Cargo";
@@ -3945,7 +3939,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=423;
+		items=422;
 		class Item0
 		{
 			dataType="Layer";
@@ -20029,8 +20023,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6607.9292,47.08794,1155.4913};
-				angles[]={-0,0.98625064,0};
+				position[]={6607.9292,47.08794,1155.491};
+				angles[]={0,0.98625064,0};
 			};
 			side="Empty";
 			flags=4;
@@ -20056,7 +20050,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+							value="[[[[],[]],[[""SatchelCharge_Remote_Mag"",""sfp_strvm5_mag""],[5,8]],[[""grad_axe"",""ACE_EntrenchingTool""],[10,10]],[[],[]]],false]";
 						};
 					};
 				};
@@ -25988,7 +25982,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6617.894,48.786739,1174.2616};
+				position[]={6632.5679,48.786739,1165.61};
+				angles[]={-0,4.7358556,0};
 			};
 			side="Empty";
 			flags=4;
@@ -26194,21 +26189,6 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6622.7744,48.501915,1170.4202};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=2575;
-			type="Fennek_Flecktarn";
-		};
-		class Item415
-		{
-			dataType="Object";
-			class PositionInfo
-			{
 				position[]={6605.2842,48.983475,1143.264};
 			};
 			side="Empty";
@@ -26263,7 +26243,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item416
+		class Item415
 		{
 			dataType="Object";
 			class PositionInfo
@@ -26303,7 +26283,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item417
+		class Item416
 		{
 			dataType="Object";
 			class PositionInfo
@@ -26343,7 +26323,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item418
+		class Item417
 		{
 			dataType="Object";
 			class PositionInfo
@@ -26382,7 +26362,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item419
+		class Item418
 		{
 			dataType="Object";
 			class PositionInfo
@@ -26421,7 +26401,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item420
+		class Item419
 		{
 			dataType="Object";
 			class PositionInfo
@@ -26460,7 +26440,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item421
+		class Item420
 		{
 			dataType="Object";
 			class PositionInfo
@@ -26563,7 +26543,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item422
+		class Item421
 		{
 			dataType="Object";
 			class PositionInfo

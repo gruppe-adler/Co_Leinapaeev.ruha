@@ -1,6 +1,6 @@
 if (didJIP) exitWith {
     [player] call missionControl_fnc_jipSpawn;
-    "introBlackLoading" cutRsc ["", "BLACK IN", 3];
+    "introBlackLoading" cutRsc ["RscTitleDisplayEmpty", "BLACK IN", 3];
 };
 
 private _camera = "camera" camCreate (ASLToAGL eyePos player);
@@ -21,14 +21,14 @@ _filmgrain ppEffectCommit 0;
 
 sleep 3;
 
-"introBlackLoading" cutRsc ["", "BLACK IN", 5];
+"introBlackLoading" cutRsc ["RscTitleDisplayEmpty", "BLACK IN", 5];
 
 
 _camera camSetFov 0.25;
 _camera camSetPos (position classicIntroPos_2);
 _camera camSetTarget introCamTarget_2;
-_camera camCommit 43;
-sleep 44;
+_camera camCommit 42;
+sleep 43.2;
 
 0 = ["WetDistortion", 300, [
     0.1,
