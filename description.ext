@@ -7,9 +7,9 @@ class Header
 
 //MISSION SETTINGS =============================================================
 respawn = 3;
-respawnDelay = 10;
+respawnDelay = 999999;
 respawnVehicleDelay = 0;
-respawnTemplates[] = {"Base"};
+respawnTemplates[] = {"ace_spectator"};
 respawnOnStart = -1;
 respawnDialog = 0;
 disabledAI = 0;
