@@ -8,7 +8,7 @@ _allgroups = [] call GRAD_groupsettings_fnc_findPlayableGroups;
 
 if (isServer) then {
     [_allGroups] call GRAD_groupsettings_fnc_setDynamicGroupNames;
-    "groupsettings: groups registered" remoteExec ["systemChat",0,false];
+    // "groupsettings: groups registered" remoteExec ["systemChat",0,false];
 };
 
 if (hasInterface) then {

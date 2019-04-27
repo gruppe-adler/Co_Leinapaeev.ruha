@@ -1,11 +1,7 @@
 if (didJIP) exitWith {
     [player] call missionControl_fnc_jipSpawn;
-    cutText ["", "BLACK", 999];
-    cutText ["", "BLACK IN", 5];
+    "introBlackLoading" cutRsc ["", "BLACK IN", 3];
 };
-
-diwako_dui_main_toggled_off = true;
-cutText ["", "BLACK", 999];
 
 private _camera = "camera" camCreate (ASLToAGL eyePos player);
 _camera cameraEffect ["internal","back"];
@@ -25,7 +21,7 @@ _filmgrain ppEffectCommit 0;
 
 sleep 3;
 
-cutText ["", "BLACK IN", 5];
+"introBlackLoading" cutRsc ["", "BLACK IN", 5];
 
 
 _camera camSetFov 0.25;

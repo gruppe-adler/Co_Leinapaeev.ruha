@@ -4,7 +4,18 @@
 */
 
 
-if (!isServer) exitWith {};
+if (!isServer) exitWith {
+
+	// draw death positions for curator
+	{
+		[_x] call BIS_fnc_drawCuratorDeaths;
+	} forEach (playableUnits + switchableUnits); 
+
+	{
+	 [_x, [west]] call BIS_fnc_drawCuratorRespawnMarkers;
+	} forEach allCurators; 
+
+};
 
 ["GRAD_loadout_loadoutApplied", {
 params ["_loadoutTarget", "_unitLoadout"];
@@ -23,14 +34,7 @@ if (typeOf _loadoutTarget == "I_medic_F" && _loadoutTarget getVariable ["GRAD_lo
 }] call CBA_fnc_addEventHandler;
 
 
-// draw death positions for curator
-{
-	[_x] call BIS_fnc_drawCuratorDeaths;
-} forEach (playableUnits + switchableUnits); 
 
-{
- [_x, [west]] call BIS_fnc_drawCuratorRespawnMarkers;
-} forEach allCurators; 
 
 
 // [ curatorModule, ["targetIcon.paa", [1,1,1,1], position player, 1, 1, 45, "Target", 1, 0.05, "TahomaB"], false ] call BIS_fnc_addCuratorIcon;
