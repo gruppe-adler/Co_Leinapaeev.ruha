@@ -6,6 +6,7 @@ class missionControl {
         class addModules { postInit = 1; };
 
         class addPeeAction;
+        class addSmokeToCar;
         class addSpawnMarker;
         class doPee;
         class dressUpAction;

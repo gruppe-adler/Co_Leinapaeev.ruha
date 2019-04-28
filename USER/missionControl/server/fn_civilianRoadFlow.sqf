@@ -1,5 +1,7 @@
 params ["_markerA", "_markerB"];
 
+if (!isNil "CIVILIAN_FLOW_ACTIVE" && {!CIVILIAN_FLOW_ACTIVE}) exitWith { systemChat "dont spawn twice"; };
+
 CIVILIAN_FLOW_ACTIVE = true;
 CIVILIAN_CARS = [];
 
@@ -7,7 +9,7 @@ private _positionA = getMarkerPos _markerA;
 private _positionB = getMarkerPos _markerB;
 
 private _dir = 180;
-private _maxCount = 20;
+private _maxCount = 40;
 
 // motorbikes tend to make problems
 private _types = [
@@ -46,14 +48,33 @@ private _types = [
         private _car = (selectRandom _types) createVehicle _positionA;
         _car setDir 180;
         private _agent = createAgent ["RDS_Civilian_Random", _positionA, [], 0, "NONE"];
-        _agent disableAI "ALL";
+        // _agent disableAI "ALL";
+        _agent disableAI "FSM";
+        _agent disableAI "MINEDETECTION";
         _agent setBehaviour "CARELESS";
         _agent setCombatMode "BLUE";
         _agent setSpeedMode "FULL";
         _agent enableAI "MOVE";
 
+        _agent setCaptive true;
+
         _agent assignAsDriver _car;
         _agent moveInDriver _car;
+
+        private _type = typeOf _car;
+        if (_type == "RDS_Lada_Civ_01" ||
+            _type == "RDS_Lada_Civ_02" ||
+            _type == "RDS_Lada_Civ_03") then {
+
+            private _item = selectRandom [
+                "Land_LuggageHeap_02_F",
+                "Land_PaperBox_01_small_closed_brown_F",
+                "Land_LuggageHeap_01_F",
+                "Land_LuggageHeap_03_F"
+            ] createVehicle [0,0,0];
+
+            _item attachTo [_car, [0,0,0]];
+        };
 
 
         CIVILIAN_CARS pushBackUnique _car;

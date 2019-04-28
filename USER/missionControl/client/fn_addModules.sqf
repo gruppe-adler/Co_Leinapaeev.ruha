@@ -109,6 +109,43 @@
 
     }] call Ares_fnc_RegisterCustomModule;
 
+    ["LEINAPAEEV FX", "Add Smoke to Car",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      if (!isNull _objectUnderCursor && {_objectUnderCursor isKindOf "Car"}) exitWith {
+        [_objectUnderCursor] call MissionControl_fnc_addSmokeToCar;
+        systemChat "ZEUS: Smoke added";
+      };
+
+      systemChat "ZEUS: Smoke cant be added";
+
+    }] call Ares_fnc_RegisterCustomModule;
+
+
+    ["LEINAPAEEV FX", "Start Civilian Spawn",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      ["mrk_flag_rus", "mrk_sign_tallin"] remoteExec ["missionControl_fnc_civilianRoadFlow", 2];
+
+      systemChat "ZEUS: Civ Flow started";
+
+    }] call Ares_fnc_RegisterCustomModule;
+
+    ["LEINAPAEEV FX", "Stop Civilian Spawn",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      CIVILIAN_FLOW_ACTIVE = false; publicVariableServer "CIVILIAN_FLOW_ACTIVE";
+
+      systemChat "ZEUS: Civ Flow stopped";
+
+    }] call Ares_fnc_RegisterCustomModule;
+
 
 
     ["LEINAPAEEV CONVOY", "Start Russian Convoy",
