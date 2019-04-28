@@ -147,6 +147,15 @@
     }] call Ares_fnc_RegisterCustomModule;
 
 
+    ["LEINAPAEEV CONVOY", "Start Bundeswehr Convoy",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      [] remoteExec ["missionControl_fnc_bwConvoyStart", 2];
+
+    }] call Ares_fnc_RegisterCustomModule;
+
 
     ["LEINAPAEEV CONVOY", "Start Russian Convoy",
     {

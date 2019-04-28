@@ -32,6 +32,7 @@ class missionControl {
         class addKilledEHPlayer;
         class bwConvoyStart;
         class civilianRoadFlow;
+        class deleteCar;
         class executeExplosions;
         class fillBox;
         class fillRadios;

@@ -41,6 +41,8 @@ private _types = [
     if (!CIVILIAN_FLOW_ACTIVE) exitWith {};
     if (count CIVILIAN_CARS > _maxCount) exitWith {};
 
+    if (random 3 > 1) exitWith {};
+
     private _isEmpty = !(count (_positionA nearEntities [["Man", "LandVehicle"], 10]) > 0);
     // systemChat str (_isEmpty);
 
@@ -71,7 +73,7 @@ private _types = [
                 "Land_PaperBox_01_small_closed_brown_F",
                 "Land_LuggageHeap_01_F",
                 "Land_LuggageHeap_03_F"
-            ] createVehicle [0,0,0];
+            ] createVehicle [0,0,0.3];
 
             _item attachTo [_car, [0,0,0]];
         };

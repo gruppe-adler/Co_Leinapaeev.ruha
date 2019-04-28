@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7660.2134,60.910202,7116.3525};
-		dir[]={-0.52320439,-0.59581792,0.60932076};
-		up[]={-0.38815188,0.8031196,0.45204008};
-		aside[]={0.75869012,1.3595854e-007,0.65146172};
+		pos[]={2001.9244,4.5654864,1348.5355};
+		dir[]={-0.50583351,-0.44175899,0.74093461};
+		up[]={-0.24907891,0.89713377,0.36484551};
+		aside[]={0.82589012,-6.519258e-009,0.56383222};
 	};
 };
 binarizationWanted=0;
@@ -558,7 +558,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category0
+	class Category1
 	{
 		name="Scenario";
 		class Attribute0
@@ -13883,7 +13883,7 @@ class Mission
 			class Attributes
 			{
 				condition="call{this}";
-				onActivation="call{{ CIVILIAN_CARS deleteAt (CIVILIAN_CARS find _x); deleteVehicle _x; } forEach thisList;}";
+				onActivation="call{{ [_x] call missionControl_fnc_deleteCar; } forEach thisList;}";
 				repeatable=1;
 				activationBy="CIV";
 				isServerOnly=1;

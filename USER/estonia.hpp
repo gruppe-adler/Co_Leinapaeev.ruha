@@ -44,6 +44,7 @@ class estonia {
         gps = "";
         radio = "TFAR_rf7800str";
         nvgoggles = NVITEM;
+        glasses = "";
     };
     class Type {
         //Rifleman
