@@ -106,7 +106,7 @@ class estonia {
             primaryWeaponMagazine = "rhs_200rnd_556x45_T_SAW";
             handgunWeapon = "";
             handgunWeaponMagazine = "";
-            backpack = "ARC_GER_Kitbag_compact_Flecktarn";
+            backpack = "";
             addItemsToBackpack[] = {
                 LIST_2("rhs_200rnd_556x45_M_SAW"),
                 "rhsusf_100Rnd_556x45_soft_pouch",
@@ -209,7 +209,7 @@ class estonia {
         class soldier_AA_F: Soldier_F {
             secondaryWeapon = "rhs_weap_fim92";
             secondaryWeaponMagazine = "rhs_fim92_mag";
-            backpack = "ARC_GER_Backpack_Carryall_Flecktarn";
+            backpack = "";
             addItemsToBackpack[] = {
                 "rhs_fim92_mag"
             };
@@ -219,7 +219,7 @@ class estonia {
         class soldier_AT_F: Soldier_F {
             secondaryWeapon = "rhs_weap_fgm148";
             secondaryWeaponMagazine = "rhs_fgm148_magazine_AT";
-            backpack = "ARC_GER_Backpack_Carryall_Flecktarn";
+            backpack = "";
             addItemsToBackpack[] = {
                 "rhs_fgm148_magazine_AT"
             };
@@ -227,7 +227,7 @@ class estonia {
 
         //Repair Specialist
         class soldier_repair_F: Soldier_F {
-            backpack = "ARC_GER_Backpack_compact_Flecktarn";
+            backpack = "";
             addItemsToBackpack[] = {
                 "ToolKit",
                 "ACE_wirecutter"
@@ -277,7 +277,7 @@ class estonia {
 
     class Rank {
         class LIEUTENANT {
-            headgear = "ARC_GER_Flecktarn_Milcap";
+            headgear = "";
         };
     };
 };

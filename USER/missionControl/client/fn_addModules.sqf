@@ -85,6 +85,65 @@
     }] call Ares_fnc_RegisterCustomModule;
 
 
+    ["LEINAPAEEV Reinforcements", "Mi8 Recon over Street",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      [[
+        getPos civWP_1,
+        getPos civWP_2,
+        getPos civWP_3,
+        getPos civWP_4,
+        getPos civWP_5,
+        getPos civWP_6,
+        getPos civWP_7,
+        getPos civWP_8,
+        getPos civWP_9,
+        getPos civWP_10,
+        getPos civWP_11,
+        getPos civWP_12,
+        getPos civWP_13,
+        getPos civWP_14,
+        getPos civWP_15,
+        getPos civWP_16,
+        getPos civWP_17,
+        getPos civWP_18,
+        getPos civWP_19,
+        getPos civWP_20,
+        getPos civWP_21,
+        getPos civWP_22,
+        getPos civWP_23,
+        getPos civWP_24,
+        getPos civWP_25,
+        getPos civWP_26,
+        getPos civWP_27,
+        getPos civWP_28,
+        getPos civWP_29,
+        getPos civWP_30,
+        getPos civWP_31,
+        getPos civWP_32,
+        getPos civWP_33,
+        getPos civWP_34,
+        getPos civWP_35,
+        getPos civWP_36,
+        getPos civWP_37,
+        getPos civWP_38,
+        getPos civWP_39,
+        getPos civWP_40,
+        getPos civWP_41,
+        getPos civWP_42,
+        getPos civWP_43,
+        getPos civWP_44,
+        getPos civWP_45,
+        getPos civWP_46
+
+      ]] remoteExec ["MissionControl_fnc_mi8Recon",2,false];
+
+      systemChat "ZEUS: Mi8 Recon executed";
+
+    }] call Ares_fnc_RegisterCustomModule;
+
 
     ["LEINAPAEEV Reinforcements", "Mi8 Infantry Drop",
     {

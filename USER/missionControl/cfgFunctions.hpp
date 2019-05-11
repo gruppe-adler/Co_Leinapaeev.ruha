@@ -40,6 +40,7 @@ class missionControl {
         class killrateTracker { postInit = 1; };
         class mi8Drop;
         class mi8land;
+        class mi8recon;
         class spawnExplosion;
         class spawnFish;
     };
