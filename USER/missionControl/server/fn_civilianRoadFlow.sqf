@@ -30,7 +30,12 @@ private _types = [
     "C_Truck_02_fuel_F",
     "C_Offroad_01_repair_F",
     "C_Van_02_vehicle_F",
-    "C_Van_02_service_F"
+    "C_Van_02_service_F",
+    "RDS_Lada_Civ_01",
+    "RDS_Lada_Civ_03",
+    "RDS_Lada_Civ_02",
+    "C_Truck_02_fuel_F",
+    "sfp_van_hemglass"
 ];
 
 // agent variante
@@ -68,12 +73,7 @@ private _types = [
             _type == "RDS_Lada_Civ_02" ||
             _type == "RDS_Lada_Civ_03") then {
 
-            private _item = selectRandom [
-                "Land_LuggageHeap_02_F",
-                "Land_PaperBox_01_small_closed_brown_F",
-                "Land_LuggageHeap_01_F",
-                "Land_LuggageHeap_03_F"
-            ] createVehicle [0,0,0.3];
+            private _item = "Land_LuggageHeap_01_F" createVehicle [0,0,0.3];
 
             _item attachTo [_car, [0,0,0]];
         };

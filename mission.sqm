@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2848;
+		nextID=2852;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6338.6069,22.081963,2236.0488};
-		dir[]={-0.27886349,-0.23895536,-0.93013054};
-		up[]={-0.068625152,0.97102922,-0.22889517};
-		aside[]={-0.95787978,2.2343011e-007,0.28718278};
+		pos[]={2052.3994,28.840343,1310.183};
+		dir[]={0.055502191,-0.58330625,0.81036425};
+		up[]={0.03985846,0.81224841,0.58195031};
+		aside[]={0.99766982,2.6565976e-007,-0.068330213};
 	};
 };
 binarizationWanted=0;
@@ -5827,6 +5827,9 @@ class Mission
 					};
 					class Attributes
 					{
+						combatMode="BLUE";
+						behaviour="CARELESS";
+						speedMode="LIMITED";
 					};
 					id=2621;
 					class CustomAttributes
@@ -7250,6 +7253,7 @@ class Mission
 					class Attributes
 					{
 						behaviour="CARELESS";
+						speedMode="LIMITED";
 					};
 					id=2629;
 					class CustomAttributes
@@ -7713,6 +7717,9 @@ class Mission
 					};
 					class Attributes
 					{
+						combatMode="BLUE";
+						behaviour="CARELESS";
+						speedMode="LIMITED";
 					};
 					id=2639;
 					class CustomAttributes
@@ -9136,6 +9143,7 @@ class Mission
 					class Attributes
 					{
 						behaviour="CARELESS";
+						speedMode="LIMITED";
 					};
 					id=2647;
 					class CustomAttributes
@@ -32416,6 +32424,7 @@ class Mission
 			};
 			id=2750;
 			type="CUP_t_picea2s";
+			atlOffset=9.5367432e-007;
 		};
 		class Item462
 		{
@@ -32432,6 +32441,7 @@ class Mission
 			};
 			id=2751;
 			type="CUP_t_picea2s";
+			atlOffset=4.7683716e-007;
 		};
 		class Item463
 		{
@@ -32511,6 +32521,7 @@ class Mission
 			};
 			id=2757;
 			type="CUP_t_picea3f";
+			atlOffset=4.7683716e-007;
 		};
 		class Item468
 		{
@@ -32526,6 +32537,7 @@ class Mission
 			};
 			id=2758;
 			type="CUP_Smrk_maly";
+			atlOffset=-1.1920929e-007;
 		};
 		class Item469
 		{
@@ -32542,6 +32554,7 @@ class Mission
 			};
 			id=2759;
 			type="CUP_misc_BurnSpruce_PMC";
+			atlOffset=4.7683716e-007;
 		};
 		class Item470
 		{
@@ -32639,6 +32652,7 @@ class Mission
 			};
 			id=2766;
 			type="CUP_vetev_2_dub";
+			atlOffset=-1.1920929e-007;
 		};
 		class Item476
 		{
@@ -32687,6 +32701,7 @@ class Mission
 			};
 			id=2769;
 			type="CUP_vetev_2_dub";
+			atlOffset=5.9604645e-008;
 		};
 		class Item479
 		{
@@ -32719,6 +32734,7 @@ class Mission
 			};
 			id=2771;
 			type="CUP_vetev_2_dub";
+			atlOffset=-1.1920929e-007;
 		};
 		class Item481
 		{
@@ -33156,6 +33172,7 @@ class Mission
 			};
 			id=2844;
 			type="CUP_t_picea2s";
+			atlOffset=-1.9073486e-006;
 		};
 		class Item509
 		{
