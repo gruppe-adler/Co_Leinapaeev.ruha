@@ -1,5 +1,7 @@
 params ["_vehicle"];
 
+if (!isServer) exitWith {};
+
 _vehicle addEventhandler ["Killed", {
     
         params ["_unit", "_killer", "_instigator", "_useEffects"];

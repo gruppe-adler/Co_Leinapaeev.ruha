@@ -15,7 +15,9 @@ class missionControl {
         class introLocal;
         class jipSpawn;
         class loadWheelchair;
+        class outroSequence;
         class peeFX;
+        class rotatingCam;
         class showStats;
         class spawnSmoke;
         class standUp;
@@ -32,15 +34,18 @@ class missionControl {
         class addKilledEHPlayer;
         class bwConvoyStart;
         class civilianRoadFlow;
+        class createChairCircle;
         class deleteCar;
         class executeExplosions;
         class fillBox;
         class fillRadios;
+        class getPosInCircle;
         class introServer { postInit = 1; };
         class killrateTracker { postInit = 1; };
         class mi8Drop;
         class mi8land;
         class mi8recon;
+        class outro;
         class spawnExplosion;
         class spawnFish;
     };

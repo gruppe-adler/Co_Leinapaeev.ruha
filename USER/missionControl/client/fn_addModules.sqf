@@ -73,6 +73,30 @@
 
     }] call Ares_fnc_RegisterCustomModule;
 
+
+    ["LEINAPAEEV Mission Progress", "04 Create Chair Circle + Outro",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      [] remoteExec ["missionControl_fnc_outro", 2];
+
+      private _count = 30; // count (playableUnits + switchableUnits) + 2;
+      
+      // possible chairs
+      private _chairs = ["Land_CampingChair_V1_F", getPos chaircircle_position, _count] call missionControl_fnc_createChairCircle;
+      {
+        private _chair = (_chairs select _forEachIndex);
+        if (_forEachIndex > (_count -1)) exitWith {};
+        [_x, _chair, _chairs, _count] remoteExec ["missionControl_fnc_outroSequence", _x];
+        _chair setVariable ["grad_seatClaimedBy", _x, true];
+      } forEach (playableUnits + switchableUnits);
+
+      
+    }] call Ares_fnc_RegisterCustomModule;
+
+
+
      ["LEINAPAEEV Mission Progress", "05 Show stats",
     {
       // Get all the passed parameters
@@ -202,6 +226,44 @@
       CIVILIAN_FLOW_ACTIVE = false; publicVariableServer "CIVILIAN_FLOW_ACTIVE";
 
       systemChat "ZEUS: Civ Flow stopped";
+
+    }] call Ares_fnc_RegisterCustomModule;
+
+
+
+    ["LEINAPAEEV OUTRO MARKERS", "Define Outro Start",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      "mrk_outroSequence_start" setMarkerPos _position;
+      "mrk_outroSequence_start" setMarkerAlphaLocal 1;
+
+      systemChat "ZEUS: Moved Outro Start Marker";
+
+    }] call Ares_fnc_RegisterCustomModule;
+
+    ["LEINAPAEEV OUTRO MARKERS", "Define Outro End",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      "mrk_outroSequence_end" setMarkerPos _position;
+      "mrk_outroSequence_end" setMarkerAlphaLocal 1;
+
+      systemChat "ZEUS: Moved Outro End Marker";
+
+    }] call Ares_fnc_RegisterCustomModule;
+
+    ["LEINAPAEEV OUTRO MARKERS", "Define Outro Target",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      "mrk_outroSequence_target" setMarkerPos _position;
+      "mrk_outroSequence_target" setMarkerAlphaLocal 1;
+
+      systemChat "ZEUS: Moved Outro Start Marker";
 
     }] call Ares_fnc_RegisterCustomModule;
 

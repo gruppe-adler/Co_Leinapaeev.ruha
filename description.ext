@@ -131,6 +131,16 @@ class CfgMusic
         // filename, volume, pitch
         sound[] = { "sounds\rossiya.ogg", db + 0, 1.0 };
     };
+
+    class outroSong
+    {
+        // how the sound is referred to in the editor (e.g. trigger effects)
+        name = "outroSong";
+        // filename, volume, pitch, distance (optional)
+        sound[] = { "sounds\outro.ogg", db + 0, 1.0 };
+        // subtitle delay in seconds, subtitle text
+        titles[] = { 0, "" };
+    };
 };
 
 //SOUNDS =======================================================================
