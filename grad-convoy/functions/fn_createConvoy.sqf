@@ -42,6 +42,14 @@ private _group = createGroup _side;
 
     [_veh, true] call BC_flagsOnVehicles_fnc_toggleFlag;
 
+    if (typeOf _veh == "rhs_gaz66_ammo_msv") then {
+        _veh addWeaponCargoGlobal ["rhs_weap_rpg7", 5];
+        _veh addMagazineCargoGlobal ["rhs_rpg7_PG7V_mag", 10];
+        _veh addMagazineCargoGlobal ["ATMine", 10];
+        _veh addMagazineCargoGlobal ["SatchelCharge_Remote_Mag", 6];
+        _veh addMagazineCargoGlobal ["sfp_strvm5_mag", 6];
+    };
+
 
     if (typeOf _veh == "rhs_gaz66_msv"
         ) then {

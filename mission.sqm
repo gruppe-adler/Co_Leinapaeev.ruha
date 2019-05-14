@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2972;
+		nextID=2976;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5890.6567,89.161003,1079.7963};
-		dir[]={0.92588502,-0.37106493,-0.07124164};
-		up[]={0.36998394,0.92860329,-0.028468104};
-		aside[]={-0.076718308,1.6402919e-007,-0.99706411};
+		pos[]={6611.1411,65.091789,1171.0035};
+		dir[]={0.33703446,-0.62768859,-0.70172679};
+		up[]={0.27175522,0.77846432,-0.56581104};
+		aside[]={-0.90142196,-1.0296935e-007,-0.43294725};
 	};
 };
 binarizationWanted=0;
@@ -135,13 +135,14 @@ addons[]=
 	"A3_Structures_F_Mil_BagBunker",
 	"rhs_c_radars",
 	"rhsusf_c_troops",
-	"FHQ_Accessories"
+	"FHQ_Accessories",
+	"rhs_c_trucks"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=77;
+		items=78;
 		class Item0
 		{
 			className="A3_Modules_F_Heli";
@@ -642,6 +643,13 @@ class AddonsMetaData
 			className="FHQ_Accessories";
 			name="FHQ_Accessories";
 			author="Alwarren";
+		};
+		class Item77
+		{
+			className="rhs_c_trucks";
+			name="GAZ-66";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
 		};
 	};
 };
@@ -4331,7 +4339,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=527;
+		items=529;
 		class Item0
 		{
 			dataType="Layer";
@@ -34005,6 +34013,70 @@ class Mission
 			colorName="ColorGUER";
 			id=2971;
 			atlOffset=3.3125613;
+		};
+		class Item527
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6594.1084,46.671436,1304.703};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=2974;
+					type="rhs_msv_driver";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=2974;
+						item1=2973;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
+			id=2972;
+		};
+		class Item528
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6594.1084,48.253338,1304.653};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+			};
+			id=2973;
+			type="rhs_gaz66_ammo_msv";
 		};
 	};
 	class Connections

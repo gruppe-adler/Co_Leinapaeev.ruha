@@ -26,13 +26,13 @@ if (CONVOY_DEFEND_ON_AMBUSH) then {
             (driver _x) disableAi "autoCombat";
             (driver _x) setCaptive false;
             private _crew = crew _x;
-            _crew joinGroup _group;
+            _crew joinSilent _group;
 
             _x setVariable ["GRAD_convoy_formationBroken", true, true];
 
             private _cargo = assignedCargo _x;
             _cargo allowGetIn false;
-            _cargo joinGroup _group;
+            _cargo joinSilent _group;
             {
                 _x action ["Eject", vehicle _x];
                 unassignVehicle _x;

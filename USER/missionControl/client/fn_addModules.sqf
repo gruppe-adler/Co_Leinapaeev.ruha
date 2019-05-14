@@ -350,6 +350,22 @@
 
     }] call Ares_fnc_RegisterCustomModule;
 
+    ["LEINAPAEEV CONVOY", "Toggle Russian RECON Tanks Movement",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      private _convoyID = 3;
+      private _convoyIdentifier = format ["GRAD_convoy_%1_pause", _convoyID];
+      private _pause = missionNamespace getVariable [_convoyIdentifier, false];
+      _pause = !_pause;
+
+      missionNamespace setVariable [_convoyIdentifier, _pause, true];
+
+      systemChat ("ZEUS: Toggling Recon Tanks Pause to " + (str _pause));
+
+    }] call Ares_fnc_RegisterCustomModule;
+
 
   };
 };
