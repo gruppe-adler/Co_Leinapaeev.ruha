@@ -32,7 +32,8 @@ private _distance = _count/7;
 
 private _startPos = getMarkerPos "mrk_outroSequence_start";
 private _endPos = getMarkerPos "mrk_outroSequence_end";
-private _targetPos = getMarkerPos "mrk_outroSequence_target";
+private _targetPosStart = getMarkerPos "mrk_outroSequence_target_start";
+private _targetPosEnd = getMarkerPos "mrk_outroSequence_target_end";
 
 private _camStartPos = _startPos getPos [100, ((_startPos getDir _endPos) - 180)];
 _camStartPos set [2, 30];
@@ -45,23 +46,20 @@ _camEndPos set [2, 150];
 private _camera = "camera" camCreate (ASLToAGL eyePos player);
 _camera cameraEffect ["internal","back"];
 _camera camSetPos (_camStartPos);
-_camera camSetTarget _targetPos;
+_camera camSetTarget _targetPosStart;
 _camera camCommand "inertia on";
 _camera camSetFov 0.40;
 _camera camCommit 0;
 
-private _filmgrain = ppEffectCreate ["FilmGrain",2000];  
-_filmgrain ppEffectEnable true;  
+private _filmgrain = ppEffectCreate ["FilmGrain",2000];
+_filmgrain ppEffectEnable true;
 _filmgrain ppEffectAdjust [0.3,0.3,0.12,0.12,0.12,true];  
 _filmgrain ppEffectCommit 0;
 
 0 fadeSound 0;
-0 fadeMusic 1;
-
-
-
 sleep 3;
 
+0 fadeMusic 1;
 playMusic "outroSong";
 
 "introBlackLoading" cutText ["", "BLACK IN", 15];
@@ -72,6 +70,7 @@ titleText ["<t color='#ffffff' shadow='0' size='1.5'>Einige Stunden später...</
 titleFadeOut 5;
 
 _camera camSetFov 0.45;
+_camera camSetTarget _targetPosEnd;
 _camera camSetPos (_camEndPos);
 _camera camCommit 46.5;
 sleep 44;

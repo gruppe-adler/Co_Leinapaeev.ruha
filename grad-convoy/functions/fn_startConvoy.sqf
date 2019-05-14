@@ -56,14 +56,14 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
         }, [_thisVeh, _waypoints], 5] call CBA_fnc_waitAndExecute;
     };
 
-    /*
+    
     // only driver maybe
     _thisVeh setBehaviour "SAFE"; // to force lights off
     _thisVeh setCombatMode "BLUE";  // disable him attacking
     _thisVeh disableAi "autoCombat";
     _thisVeh disableAI "TARGET";
     _thisVeh disableAI "AUTOTARGET";
-    */
+    
     _thisVeh setSpeedMode "FULL";
     _thisVeh setVariable ["GRAD_convoy_path", _waypoints];
     

@@ -7,3 +7,4 @@
 #include "missionControl\CfgFunctions.hpp"
 #include "grad_flies\CfgFunctions.hpp"
 #include "grad_deathcam\CfgFunctions.hpp"
+#include "grad-permaChoice\CfgFunctions.hpp"

@@ -1,7 +1,7 @@
 if (!isServer) exitWith {};
 
 waitUntil {
-  time > 7
+  time > 10
 };
 
 for "_i" from 0 to 20 do {
@@ -10,7 +10,7 @@ for "_i" from 0 to 20 do {
 };
 
 [] remoteExec ["MissionControl_fnc_introLocal", [0, -2] select isDedicated];
-sleep (160 + 90);
+sleep (160 + 70);
 
 deleteVehicle fakeRadio;
 
@@ -24,15 +24,15 @@ sleep 3.5;
 
 [klapperradio, ["introRadio03",150]] remoteExec ["say3D", [0, -2] select isDedicated];
 ["Radio Host", "Soldiers of the Russian Federation violently crossed our border on multiple points and are heading southwest."] remoteExec ["BIS_fnc_showSubtitle", [0, -2] select isDedicated];
-sleep 6.5;
+sleep 6.6;
 
 [klapperradio, ["introRadio04",150]] remoteExec ["say3D", [0, -2] select isDedicated];
 ["Radio Host", "This is no emergency exercise! I repeat, this is no emergency exercise."] remoteExec ["BIS_fnc_showSubtitle", [0, -2] select isDedicated];
-sleep 6;
+sleep 6.2;
 
 [klapperradio, ["introRadio05",150]] remoteExec ["say3D", [0, -2] select isDedicated];
 ["Radio Host", "We call all citizens to their evacuation and support plans, resist the intruders!"] remoteExec ["BIS_fnc_showSubtitle", [0, -2] select isDedicated];
-sleep 6.2;
+sleep 6.3;
 
 
 [klapperradio, ["introRadio06",150]] remoteExec ["say3D", [0, -2] select isDedicated];

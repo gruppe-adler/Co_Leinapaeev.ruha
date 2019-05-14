@@ -1,4 +1,4 @@
-if (didJIP || !isMultiplayer || true) exitWith {
+if (didJIP || !isMultiplayer) exitWith {
     // [player] call missionControl_fnc_jipSpawn;
     "introBlackLoading" cutText ["", "BLACK IN", 3];
 };

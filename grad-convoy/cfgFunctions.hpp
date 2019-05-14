@@ -5,6 +5,7 @@ class grad_convoy {
 
 		class addSquadToCargo;
 		class breakFormation;
+		class breakFormationExec;
 		class checkForStuckVehicle;
 		class createConvoy;
 		class getSpeedLimit;

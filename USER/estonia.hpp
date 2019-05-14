@@ -28,7 +28,7 @@ class estonia {
         headgear = "rhsgref_6b27m_ttsko_forest";
         primaryWeapon = "rhs_weap_g36c";
         primaryWeaponMagazine = "rhssaf_30rnd_556x45_EPR_G36";
-        primaryWeaponOptics = "rhsusf_acc_g33_T1";
+        primaryWeaponOptics = "FHQ_optic_AC11704";
         primaryWeaponPointer = LLITEM;
         primaryWeaponMuzzle = SUPPRESSORITEM;
         primaryWeaponUnderbarrel = "";

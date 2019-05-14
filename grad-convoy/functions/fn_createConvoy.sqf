@@ -6,7 +6,7 @@
 
 params ["_id", "_side"];
 
-private _convoyID = missionNamespace getVariable ["GRAD_convoy_convoyCount", 0];
+private _convoyID = _id; // missionNamespace getVariable ["GRAD_convoy_convoyCount", 0];
 missionNamespace setVariable ["GRAD_convoy_convoyCount", (_convoyID + 1)];
 
 private _vehicleDefinitions = [_id] call GRAD_convoy_fnc_getVehicleDefinitions;
