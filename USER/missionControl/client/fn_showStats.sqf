@@ -1,4 +1,3 @@
-
 if (isServer) then {
     /*
     [] spawn {
@@ -35,10 +34,11 @@ if (isServer) then {
     */
 };
 
+
 if (hasInterface) then {
 
-    playMusic "EventTrack01_F_Curator";
-    [player, true] call TFAR_fnc_forceSpectator;
+    // playMusic "EventTrack01_F_Curator";
+    // [player, true] call TFAR_fnc_forceSpectator;
     [player, player] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;
 
 
@@ -106,7 +106,13 @@ if (hasInterface) then {
     private _results_east = ["", _resultInf_east, _resultSoft_east, _resultAPC_east, _resultArmored_east, _resultHeli_east, _resultTotal_east];
 
     private _eastWins = _resultTotalNumber_east > _resultTotalNumber_west * 4;
-    private _efficiency = round (((_resultInf_east) + (_resultSoft_east*2) + (_resultAPC_east*3) + (_resultArmored_east*4) + (_resultHeli_east*5)) * 4 / ((_resultInf_west) + (_resultSoft_west*2) + (_resultAPC_west*3) + (_resultArmored_west*4) + (_resultHeli_west*5)) * 100);
+
+    hint str _resultHeli_east;
+
+    private _efficiency = round (
+            (((_resultInf_east) + (_resultSoft_east*2) + (_resultAPC_east*3) + (_resultArmored_east*4) + (_resultHeli_east*5)) * 4) / 
+            (((_resultInf_west) + (_resultSoft_west*2) + (_resultAPC_west*3) + (_resultArmored_west*4) + (_resultHeli_west*5)) * 100 + 0.1)
+        );
 
     private _draw = _resultTotalNumber_west == _resultTotalNumber_east;
 

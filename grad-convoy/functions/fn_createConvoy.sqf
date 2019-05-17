@@ -50,7 +50,8 @@ private _group = createGroup _side;
         _veh addMagazineCargoGlobal ["sfp_strvm5_mag", 6];
     };
 
-
+    [_veh] call MissionControl_fnc_addKilledEH;
+    
     if (typeOf _veh == "rhs_gaz66_msv"
         ) then {
         [_veh] call GRAD_convoy_fnc_addSquadToCargo;

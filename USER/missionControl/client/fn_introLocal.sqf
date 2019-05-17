@@ -38,7 +38,7 @@ _camera camSetFov 0.25;
 _camera camSetPos (position classicIntroPos_2);
 _camera camSetTarget introCamTarget_2;
 _camera camCommit 46.5;
-sleep 48;
+sleep 47.7;
 
 0 = ["WetDistortion", 300, [
     0.1,

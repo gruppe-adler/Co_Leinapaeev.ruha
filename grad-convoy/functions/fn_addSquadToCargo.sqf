@@ -14,6 +14,4 @@ private _group = [
   [_x] call MissionControl_fnc_addKilledEH;
 } forEach units _group;
 
-[_vehicle] call MissionControl_fnc_addKilledEH;
-
 (units _group)
