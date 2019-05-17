@@ -70,20 +70,20 @@ if (hasInterface) then {
     private _picturePath = ["", _iconInf, _iconSoft, _iconAPC, _iconArmored, _iconHeli, _iconTotal];
     private _picturePathDescription = ["", "Infanterie (1 Effizienzpunkt)", "Autos (2 Effizienzpunkte)", "APC (3 Effizienzpunkte)", "Tank (4 Effizienzpunkte)", "Heli (5 Effizienzpunkte)", "Insgesamt"];
 
-    private _resultInf_west = (missionNamespace getVariable ["GRAD_LP_currentLosses", 10]);  
-    private _resultInf_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledMan", 250]);
+    private _resultInf_west = (missionNamespace getVariable ["GRAD_LP_currentLosses", 0]);  
+    private _resultInf_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledMan", 0]);
 
     private _resultSoft_west = 0;
-    private _resultSoft_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledCar", 2]);
+    private _resultSoft_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledCar", 0]);
 
     private _resultAPC_west = 0;
-    private _resultAPC_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledAPC", 4]);
+    private _resultAPC_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledAPC", 0]);
 
     private _resultArmored_west = 0;
-    private _resultArmored_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledTank", 3]);
+    private _resultArmored_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledTank", 0]);
 
     private _resultHeli_west = 0;
-    private _resultHeli_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledHeli", 4]);
+    private _resultHeli_east = (missionNamespace getVariable ["GRAD_LP_enemyKilledHeli", 0]);
     
 
 

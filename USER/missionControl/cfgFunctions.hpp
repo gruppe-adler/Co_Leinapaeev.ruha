@@ -17,12 +17,15 @@ class missionControl {
         class loadWheelchair;
         class outroSequence;
         class peeFX;
+        class policeLights;
         class rotatingCam;
         class showStats;
+        class sitDown;
         class spawnSmoke;
         class standUp;
         class unflipWheelchair;
         class unloadWheelchair;
+        class weaponOnBack;
         class wheelChairActions;
     };
 
@@ -33,6 +36,7 @@ class missionControl {
         class addKilledEH;
         class addKilledEHPlayer;
         class bwConvoyStart;
+        class bwConvoySetup { postInit = 1; };
         class civilianRoadFlow;
         class createChairCircle;
         class deleteCar;
@@ -46,6 +50,7 @@ class missionControl {
         class mi8land;
         class mi8recon;
         class outro;
+        class setMePeeGuy;
         class spawnExplosion;
         class spawnFish;
     };

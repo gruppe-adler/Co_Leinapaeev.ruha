@@ -138,6 +138,8 @@ _camera cameraEffect ["terminate","back"];
 camDestroy _camera;
 showCinemaBorder false;
 
+[0, player, -2, _playerCamPosition] call ace_spectator_fnc_setCameraAttributes;
+
 GRAD_DEATHCAM_RUNNING = false;
 
 // fade back in

@@ -35,7 +35,23 @@ private _types = [
     "RDS_Lada_Civ_03",
     "RDS_Lada_Civ_02",
     "C_Truck_02_fuel_F",
-    "sfp_van_hemglass"
+    "sfp_van_hemglass",
+    "RDS_Lada_Civ_01",
+    "RDS_Lada_Civ_03",
+    "RDS_Lada_Civ_02",
+    "RDS_Lada_Civ_01",
+    "RDS_Lada_Civ_03",
+    "RDS_Lada_Civ_02",
+    "RDS_Golf4_Civ_01",
+    "RDS_Octavia_Civ_01",
+    "RDS_Gaz24_Civ_03",
+    "RDS_Gaz24_Civ_01",
+    "RDS_Gaz24_Civ_02",
+    "RDS_Golf4_Civ_01",
+    "RDS_Gaz24_Civ_03",
+    "RDS_Gaz24_Civ_01",
+    "RDS_Gaz24_Civ_02",
+    "RDS_Golf4_Civ_01"
 ];
 
 // agent variante

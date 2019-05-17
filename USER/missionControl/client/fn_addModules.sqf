@@ -173,7 +173,7 @@
 
       [3, east] remoteExec ["GRAD_convoy_fnc_startConvoy", 2];
 
-      systemChat "ZEUS: Recon Convoy executed";
+      systemChat "ZEUS: Recon Tanks executed";
 
     }] call Ares_fnc_RegisterCustomModule;
 
@@ -303,24 +303,29 @@
     }] call Ares_fnc_RegisterCustomModule;
 
 
+
+    ["LEINAPAEEV 08 Outro", "Create Chair Circle",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      private _count = count (playableUnits + switchableUnits);
+      
+      // possible chairs
+      private _chairs = ["Land_CampingChair_V1_F", getPos chaircircle_position, _count] call missionControl_fnc_createChairCircle;
+      CO_LP_CHAIRCIRCLE = _chairs; publicVariable "CO_LP_CHAIRCIRCLE";
+
+      
+    }] call Ares_fnc_RegisterCustomModule;
+
+
+
     ["LEINAPAEEV 08 Outro", "Start Outro",
     {
       // Get all the passed parameters
       params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
       [] remoteExec ["missionControl_fnc_outro", 2];
-
-      private _count = count (playableUnits + switchableUnits) + 2;
-      
-      // possible chairs
-      private _chairs = ["Land_CampingChair_V1_F", getPos chaircircle_position, _count] call missionControl_fnc_createChairCircle;
-      {
-        private _chair = (_chairs select _forEachIndex);
-        if (_forEachIndex > (_count -1)) exitWith {};
-        [_x, _chair, _chairs, _count] remoteExec ["missionControl_fnc_outroSequence", _x];
-        _chair setVariable ["grad_seatClaimedBy", _x, true];
-      } forEach (playableUnits + switchableUnits);
-
       
     }] call Ares_fnc_RegisterCustomModule;
 

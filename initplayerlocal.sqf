@@ -6,6 +6,6 @@ if (didJIP) then {
 grad_template_ratingEH = player addEventHandler ["HandleRating",{0}];
 
 if (!didJIP) then {
-    "introBlackLoading" cutText ["loading", "BLACK", 9999];
+    "introBlackLoading" cutText ["loading", "BLACK FADED", 999];
     diwako_dui_main_toggled_off = true;
 };

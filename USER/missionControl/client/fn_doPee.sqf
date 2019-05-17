@@ -7,6 +7,7 @@
 
 params [["_unit",objNull]];
 
+if (isNull _unit) exitWith {};
 if (!hasInterface) exitWith {};
 
 if (!canSuspend) exitWith {

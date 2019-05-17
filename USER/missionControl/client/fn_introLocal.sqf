@@ -1,9 +1,12 @@
 if (didJIP || !isMultiplayer) exitWith {
+    "introBlackLoading" cutText ["", "BLACK IN", 2];
     // [player] call missionControl_fnc_jipSpawn;
-    "introBlackLoading" cutText ["", "BLACK IN", 3];
+    sleep 3;
+    "introBlackLoading" cutText ["", "PLAIN", 3];
+    0 fadeSound 1;
 };
 
-"introBlackLoading" cutText ["", "BLACK", 999];
+"introBlackLoading" cutText ["loading", "BLACK FADED", 999];
 
 private _camera = "camera" camCreate (ASLToAGL eyePos player);
 _camera cameraEffect ["internal","back"];
@@ -35,7 +38,7 @@ _camera camSetFov 0.25;
 _camera camSetPos (position classicIntroPos_2);
 _camera camSetTarget introCamTarget_2;
 _camera camCommit 46.5;
-sleep 49;
+sleep 48;
 
 0 = ["WetDistortion", 300, [
     0.1,
@@ -77,7 +80,7 @@ _camera camSetTarget introCamTarget_3;
 _camera camCommit 10;
 sleep 6.5;
 
-[introPeeGuy] spawn MissionControl_fnc_doPee;
+[missionNamespace getVariable ["CO_LP_peeGuy", objNull]] spawn MissionControl_fnc_doPee;
 sleep 5;
 
 _camera camSetTarget introCamTarget_4;

@@ -31,17 +31,17 @@ if _state then {
 
     _mouseOverArea ctrlAddEventHandler ["MouseEnter",{
         private _icon = uiNamespace getVariable ["grad_permaChoice_icon", controlNull];
-        if (!isNull _icon) then { _icon ctrlSetText "grad-permaChoice\data\dieAndSpectate_act.paa"; false };
+        if (!isNull _icon) then { _icon ctrlSetText "USER\grad-permaChoice\data\dieAndSpectate_act.paa"; false };
     }];
     _mouseOverArea ctrlAddEventHandler ["MouseExit",{
         private _icon = uiNamespace getVariable ["grad_permaChoice_icon", controlNull];
-        if (!isNull _icon) then { _icon ctrlSetText "grad-permaChoice\data\dieAndSpectate_def.paa"; false };
+        if (!isNull _icon) then { _icon ctrlSetText "USER\grad-permaChoice\data\dieAndSpectate_def.paa"; false };
     }];
 
     private _icon = (uiNamespace getVariable ["ace_common_dlgDisableMouse", displayNull]) ctrlCreate ["RscPicture",-1];
     uiNamespace setVariable ["grad_permaChoice_icon", _icon];
   	_icon ctrlSetPosition _controlPosition;
-  	_icon ctrlSetText "grad-permaChoice\data\dieAndSpectate_def.paa";
+  	_icon ctrlSetText "USER\grad-permaChoice\data\dieAndSpectate_def.paa";
     _icon ctrlSetBackgroundColor [0,0,0,0.01];
     _icon ctrlCommit 0;
 

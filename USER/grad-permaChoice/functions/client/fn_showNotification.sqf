@@ -6,7 +6,7 @@
 
 params ["_name"];
 
-["SpectatorAscending" ,[_name]] call bis_fnc_showNotification;
+["ScoreAdded" ,["speccing now: " + _name]] call bis_fnc_showNotification;
 
 // add name to list to retreive later on
 private _allSpectators = missionNameSpace getVariable ["GRAD_permaChoice_spectatorList", []];

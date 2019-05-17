@@ -11,9 +11,15 @@ if (!isNull _zeusDisplay) then {
 
 // prepare players to watch intro
 [objNull, _unit] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;
+
 if (([] call ace_spectator_fnc_players) find _unit > -1) then {
+    [false] call ace_spectator_fnc_setSpectator; // launch spec
+    [player, false] call TFAR_fnc_forceSpectator;
+
+
     setPlayerRespawnTime 0;
-    forceRespawn _unit;
+    // forceRespawn _unit;
+    waitUntil { alive _unit };
     hideObjectGlobal _unit; // hide him but sit him in chair anyway
 };
 
@@ -107,15 +113,16 @@ _camera camCommit 20;
     4.10, 3.70, 2.50, 1.85,
     0.0054, 0.0041, 0.0090, 0.0070,
     0.5, 0.3, 10.0, 6.0]] spawn
-{
-    sleep 11;
-    params ["_name", "_priority", "_effect", "_handle"];
-    while {
-        _handle = ppEffectCreate [_name, _priority];
-        _handle < 0
-    } do {
-        _priority = _priority + 1;
-    };
+    {
+        sleep 11;
+        params ["_name", "_priority", "_effect", "_handle"];
+        while {
+            _handle = ppEffectCreate [_name, _priority];
+            _handle < 0
+        } do {
+            _priority = _priority + 1;
+        };
+    
     _handle ppEffectEnable true;
     _handle ppEffectAdjust _effect;
     _handle ppEffectCommit 1;

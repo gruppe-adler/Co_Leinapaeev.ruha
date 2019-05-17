@@ -1,12 +1,15 @@
 if (!isServer) exitWith {};
 
 waitUntil {
-  time > 10
+  time > 15
 };
+
+private _fishes = [];
 
 for "_i" from 0 to 20 do {
     private _agent = createAgent ["Mullet_F", position introFishSpawnPos, [], 1, "CAN_COLLIDE"]; 
     _agent setDir 20;
+    _fishes pushbackUnique _agent;
 };
 
 [] remoteExec ["MissionControl_fnc_introLocal", [0, -2] select isDedicated];
@@ -44,6 +47,9 @@ sleep 6;
 sleep 20;
 
 INTRO_SIREN_WAILING = true;
+
+// delete fishes
+{deleteVehicle _x; } forEach _fishes;
 
 while {INTRO_SIREN_WAILING} do {
     [siren1, ["introSiren", 7000]] remoteExec ["say3D", [0, -2] select isDedicated];
