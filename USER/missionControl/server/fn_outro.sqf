@@ -1,10 +1,12 @@
+
+
+private _count = count (playableUnits + switchableUnits);
+
 // in case no chairs are set yet
 if (isNil "CO_LP_CHAIRCIRCLE") then {
   private _chairs = ["Land_CampingChair_V1_F", getPos chaircircle_position, _count] call missionControl_fnc_createChairCircle;
   CO_LP_CHAIRCIRCLE = _chairs; publicVariable "CO_LP_CHAIRCIRCLE";
 };
-
-private _count = count (playableUnits + switchableUnits);
 
 {
     private _chair = (CO_LP_CHAIRCIRCLE select _forEachIndex);
