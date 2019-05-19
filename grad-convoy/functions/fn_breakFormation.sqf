@@ -3,13 +3,13 @@ params ["_convoy", "_waypoints"];
 {
     private _vehicle = _x;
     private _goLeft = (_forEachIndex mod 2 == 0);
-    private _dir = if (_goLeft) then { 120 } else { 240 };
+    private _dir = if (_goLeft) then { getDir _vehicle -10 } else { getDir _vehicle + 10 };
     _vehicle limitSpeed 50;
     private _ownPosition = getPos _vehicle;
-    private _targetPosition = _vehicle getPos [20, _dir];
+    private _targetPosition = _vehicle getPos [100, _dir];
     // set speed
     _vehicle move _targetPosition;
-    sleep (random .5);
+    sleep (random .2);
     // systemChat "move";
 } forEach _convoy;
 
@@ -66,4 +66,4 @@ systemChat "Defend convoy triggered";
         };
 
     } forEach _convoy;
-}, [_convoy], 7] call CBA_fnc_waitAndExecute;
+}, [_convoy], 4] call CBA_fnc_waitAndExecute;

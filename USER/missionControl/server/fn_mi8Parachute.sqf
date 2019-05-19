@@ -4,7 +4,7 @@ params ["_position"];
 private _spawnPos = [8190.88,8197.78,0];
 private _originPos = [worldSize - 300, worldSize, 100];
 
-private _mi8 = createVehicle ["RHS_Mi8AMT_vdv", _spawnPos, [], 50, "FLY"];
+private _mi8 = createVehicle ["RHS_Mi8AMT_vdv", _spawnPos, [], 300, "FLY"];
 createVehicleCrew _mi8;
 _mi8 setDir (_mi8 getDir _position);
 
@@ -15,7 +15,7 @@ _mi8 disableAI "AUTOCOMBAT";
 _mi8 disableAI "Autotarget";
 _mi8 allowFleeing 0;
 _mi8 setskill ["courage",1];
-_mi8 flyInHeight 20;
+_mi8 flyInHeight 300;
 _mi8 setSpeedMode "FULL";
 
 _mi8 setVariable ['GRAD_WP_targetPos', _position];
@@ -31,12 +31,13 @@ _wp setWaypointStatements ["true", "
     {
         private _unit = _x;
         [{
-            params ['_mi8', '_unit'];
+            private _mi8 = _this select 0;
+            private _unit = _this select 1;
             _unit action ['EJECT', _mi8];
             unassignVehicle (_unit);
 
             [{
-                params ['_unit'];
+                private _unit = _this select 0;
                 private _chute = createVehicle ['rhs_d6_Parachute', position _unit,[],0,'Fly'];
                 _chute setPos position _unit;
                 _unit moveIndriver _chute;
@@ -44,3 +45,22 @@ _wp setWaypointStatements ["true", "
         }, [_mi8, _unit], (random 4)] call CBA_fnc_waitAndExecute;
     } forEach _cargo;
 "];
+
+// next waypoint
+private _wp2 = (group _mi8) addWaypoint [_position getPos [1000, (_mi8 getDir _position) - 180], 0];
+_wp2 setWaypointType "MOVE";
+
+[{
+        params ["_mi8"];
+        (count (fullCrew [ _mi8, "cargo" ] apply { _x select 0 })) < 1
+    },{
+            params ["_mi8", "_originPos"];
+            [_mi8] doFollow _mi8;
+            private _wp = (group _mi8) addWaypoint [_originPos, 0];
+            _mi8 flyInHeight 20;
+            deleteVehicle _helipad;
+            _wp setWaypointStatements ["true", "
+                { deleteVehicle _x } foreach  thislist + [vehicle this]
+            "];
+
+    }, [_mi8, _originPos]] call CBA_fnc_waitUntilAndExecute;

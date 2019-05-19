@@ -4,6 +4,11 @@ private _position = _mi8 getVariable ["GRAD_WP_targetPos", [0,0,0]];
 private _originPos = _mi8 getVariable ["GRAD_WP_originPos", [0,0,0]];
 _position set [2,2];
 private _helipad = "Land_HelipadEmpty_F" createVehicle _position;
+
+{
+  _x addCuratorEditableObjects [[_helipad],false];
+} forEach allCurators;
+
 _mi8 land "GET OUT";
 _mi8 flyInHeight 4;
 
