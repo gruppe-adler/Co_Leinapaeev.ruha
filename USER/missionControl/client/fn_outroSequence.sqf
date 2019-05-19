@@ -15,7 +15,6 @@ if (!isNull _zeusDisplay) then {
 
 moveout _unit;
 
-playMusic "outroSong";
 if (_isSpectator) then {
     "introBlackLoading" cutText ["loading", "BLACK FADED", 999];
 } else {
@@ -28,7 +27,9 @@ private _distance = _count/7;
 
 [_chair, _unit] call acex_sitting_fnc_sit;
 
-
+if (_isSpectator) then {
+    [player, true] remoteExec ["hideObjectGlobal", 2];
+};
 
 private _startPos = getMarkerPos "mrk_outroSequence_start";
 private _endPos = getMarkerPos "mrk_outroSequence_end";
