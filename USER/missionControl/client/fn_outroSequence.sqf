@@ -28,7 +28,8 @@ private _distance = _count/7;
 [_chair, _unit] call acex_sitting_fnc_sit;
 
 if (_isSpectator) then {
-    [player, true] remoteExec ["hideObjectGlobal", 2];
+    [_unit, true] remoteExec ["hideObjectGlobal", 2];
+    _unit setVariable ["CO_LP_ISHIDDEN", true, true];
 };
 
 private _startPos = getMarkerPos "mrk_outroSequence_start";

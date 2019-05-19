@@ -4,11 +4,11 @@ if (!canSuspend) exitWith {
     [_unit, _chair, _chairs, _count] spawn missionControl_fnc_decideOutro;
 };
 
-private _isSpectator = !alive player;
+private _isSpectator = !alive _unit;
 
 if (_isSpectator) then {
     setPlayerRespawnTime 0;
-    forceRespawn player;
+    forceRespawn _unit;
 
     diag_log "force respawn";
 };
@@ -22,4 +22,8 @@ if (_isSpectator) then {
 };
 
 // new player?!
-[player, _chair, _chairs, _count, _isSpectator] spawn missionControl_fnc_outroSequence;
+if (isPlayer _unit) then {
+    [player, _chair, _chairs, _count, _isSpectator] spawn missionControl_fnc_outroSequence;
+} else {
+    [_unit, _chair, _chairs, _count, _isSpectator] spawn missionControl_fnc_outroSequence;
+};

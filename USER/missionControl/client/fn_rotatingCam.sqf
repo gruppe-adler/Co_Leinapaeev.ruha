@@ -38,7 +38,7 @@ _this spawn {
                 
                 private _string = ("ÜBERLEBT");
 
-                if (isHidden _occupier) then {
+                if (_occupier getVariable ["CO_LP_ISHIDDEN", false]) then {
                     _string = ("GEFALLEN");
                 };
 
