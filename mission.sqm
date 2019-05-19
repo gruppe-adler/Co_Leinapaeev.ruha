@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=3006;
+		nextID=3016;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=658;
+		nextID=666;
 	};
 	class Camera
 	{
-		pos[]={1996.8011,11.869346,1346.2365};
-		dir[]={0.13034269,-0.65906447,0.74070781};
-		up[]={0.11422108,0.75208509,0.64909256};
-		aside[]={0.9848702,1.411172e-008,-0.17330837};
+		pos[]={2055.2241,97.282455,1343.7563};
+		dir[]={0.45819741,-0.56757826,0.68404937};
+		up[]={0.31587091,0.82331568,0.47156855};
+		aside[]={0.8308413,1.6362173e-007,-0.55652422};
 	};
 };
 binarizationWanted=0;
@@ -135,13 +135,14 @@ addons[]=
 	"A3_Structures_F_Mil_BagBunker",
 	"rhs_c_radars",
 	"rhsusf_c_troops",
-	"FHQ_Accessories"
+	"FHQ_Accessories",
+	"A3_Soft_F_Quadbike_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=77;
+		items=78;
 		class Item0
 		{
 			className="A3_Modules_F_Heli";
@@ -642,6 +643,13 @@ class AddonsMetaData
 			className="FHQ_Accessories";
 			name="FHQ_Accessories";
 			author="Alwarren";
+		};
+		class Item77
+		{
+			className="A3_Soft_F";
+			name="Arma 3 Alpha - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -4449,7 +4457,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=529;
+		items=532;
 		class Item0
 		{
 			dataType="Layer";
@@ -18014,6 +18022,7 @@ class Mission
 			};
 			id=2125;
 			type="Redd_Tank_Fuchs_1A4_San_Flecktarn";
+			atlOffset=9.5367432e-007;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -18393,6 +18402,7 @@ class Mission
 				};
 			};
 			id=2151;
+			atlOffset=9.5367432e-007;
 		};
 		class Item176
 		{
@@ -34708,6 +34718,56 @@ class Mission
 				speedMode="LIMITED";
 			};
 			id=3004;
+		};
+		class Item529
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2065.3547,17.211239,1371.2441};
+				angles[]={0.0099949092,0,0.049958061};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=3006;
+			type="B_Quadbike_01_F";
+			atlOffset=-0.0024604797;
+		};
+		class Item530
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2067.6792,17.324972,1371.0848};
+				angles[]={0.0099949092,0.35111141,0.049958061};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=3007;
+			type="RDS_tt650_Civ_01";
+		};
+		class Item531
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2069.1973,17.337639,1369.2924};
+				angles[]={0.010000871,0.52421385,6.278194};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=3008;
+			type="RDS_JAWA353_Civ_01";
+			atlOffset=9.5367432e-007;
 		};
 	};
 	class Connections

@@ -12,6 +12,6 @@ private _position = getMarkerPos (selectRandom [
 _unit setPos _position;
 
 sleep 1;
-private _bike = "sfp_dakota" createVehicle _position;
+private _bike = (selectRandom ["sfp_dakota", "RDS_JAWA353_Civ_01", "RDS_tt650_Civ_01"]) createVehicle _position;
 
 [_position] remoteExec ["MissionControl_fnc_addSpawnMarker", _unit];

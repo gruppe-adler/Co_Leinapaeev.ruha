@@ -48,6 +48,7 @@ class missionControl {
         class killrateTracker { postInit = 1; };
         class mi8Drop;
         class mi8land;
+        class mi8Parachute;
         class mi8recon;
         class outro;
         class setMePeeGuy;

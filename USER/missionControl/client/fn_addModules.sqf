@@ -241,17 +241,27 @@
     }] call Ares_fnc_RegisterCustomModule;
 
 
-    ["LEINAPAEEV 07 Reinforcements", "Mi8 Infantry Drop",
+    ["LEINAPAEEV 07 Reinforcements", "Mi8 Infantry Landing",
     {
       // Get all the passed parameters
       params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
       [_position] remoteExec ["MissionControl_fnc_mi8Drop",2,false];
 
-      systemChat "ZEUS: Mi8 Drop executed";
+      systemChat "ZEUS: Mi8 Landing executed";
 
     }] call Ares_fnc_RegisterCustomModule;
 
+    ["LEINAPAEEV 07 Reinforcements", "Mi8 Infantry Parachuting",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+      [_position] remoteExec ["MissionControl_fnc_mi8Parachute",2,false];
+
+      systemChat "ZEUS: Mi8 Parachute executed";
+
+    }] call Ares_fnc_RegisterCustomModule;
 
 
     ["LEINAPAEEV 08 Outro", "Define Outro Start",

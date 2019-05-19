@@ -107,7 +107,7 @@ if (hasInterface) then {
 
     private _eastWins = _resultTotalNumber_east > _resultTotalNumber_west * 4;
 
-    hint str _resultHeli_east;
+    // hint str _resultHeli_east;
 
     private _efficiency = round (
             (((_resultInf_east) + (_resultSoft_east*2) + (_resultAPC_east*3) + (_resultArmored_east*4) + (_resultHeli_east*5)) * 4) / 

@@ -49,5 +49,21 @@ systemChat "Defend convoy triggered";
             _x setSpeedMode "FULL";
         } forEach _cargo; // (crew _x); // cargo
 
+        if (_x isKindOf "Truck_F") then {
+
+            {
+                _x action ["Eject", vehicle _x];
+                unassignVehicle _x;
+                [_x] allowGetIn false;
+                _x setUnitPos "MIDDLE";
+                _x setBehaviour "COMBAT"; // to force lights off
+                _x setCombatMode "RED";  // disable him attacking
+                _x enableAI "autoCombat";
+                _x enableAI "TARGET";
+                _x enableAI "AUTOTARGET";
+                _x setSpeedMode "FULL";
+            } forEach crew _x;
+        };
+
     } forEach _convoy;
 }, [_convoy], 7] call CBA_fnc_waitAndExecute;
