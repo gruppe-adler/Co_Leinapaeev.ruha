@@ -1,4 +1,4 @@
-params ["_unit", "_chair", "_chairs", "_count"];
+params ["_unit", "_chair", "_chairs", "_count", "_isSpectator"];
 
 STHud_UIMode = 0;
 diwako_dui_main_toggled_off = true;
@@ -11,22 +11,16 @@ if (!isNull _zeusDisplay) then {
 
 // prepare players to watch intro
 [objNull, _unit] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;
-
-if (([] call ace_spectator_fnc_players) find _unit > -1) then {
-    [false] call ace_spectator_fnc_setSpectator; // launch spec
-    [player, false] call TFAR_fnc_forceSpectator;
-
-
-    setPlayerRespawnTime 0;
-    // forceRespawn _unit;
-    waitUntil { alive _unit };
-    hideObjectGlobal _unit; // hide him but sit him in chair anyway
-};
+ 
 
 moveout _unit;
 
 playMusic "outroSong";
-"introBlackLoading" cutText ["", "BLACK OUT", 10];
+if (_isSpectator) then {
+    "introBlackLoading" cutText ["loading", "BLACK FADED", 999];
+} else {
+    "introBlackLoading" cutText ["", "BLACK OUT", 10];
+};
 sleep 10;
 
 private _center = getPos chaircircle_position;

@@ -24,7 +24,7 @@ _this spawn {
         _camera = "camera" camCreate _target;
         _camera cameraEffect ["Internal","BACK"];
         showCinemaBorder _showCinemaBorder;
-        _camera camPrepareFOV 0.300;
+        _camera camPrepareFOV 0.400;
         _camera camPrepareTarget _target;
         _camera camCommitPrepared 0;
         

@@ -1,6 +1,6 @@
 
 
-private _count = count (playableUnits + switchableUnits);
+private _count = count (playableUnits + switchableUnits + (allDeadMen select {isPlayer _x}));
 
 // in case no chairs are set yet
 if (isNil "CO_LP_CHAIRCIRCLE") then {
@@ -12,8 +12,8 @@ if (isNil "CO_LP_CHAIRCIRCLE") then {
     private _chair = (CO_LP_CHAIRCIRCLE select _forEachIndex);
     if (_forEachIndex > (_count -1)) exitWith { diag_log format ["didnt find position for all players in chairs at %1", _forEachIndex]; };
     _chair setVariable ["grad_seatClaimedBy", _x, true];
-    [_x, _chair, CO_LP_CHAIRCIRCLE, _count] remoteExec ["missionControl_fnc_outroSequence", _x];
-} forEach (playableUnits + switchableUnits);
+    [_x, _chair, CO_LP_CHAIRCIRCLE, _count] remoteExec ["missionControl_fnc_decideOutro", _x];
+} forEach (playableUnits + switchableUnits + (allDeadMen select {isPlayer _x}));
 
 
 sleep 11;

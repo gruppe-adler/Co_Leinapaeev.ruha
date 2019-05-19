@@ -3,8 +3,8 @@
 *   Funktioniert wie die init.sqf.
 */
 
-
 if (!isServer) exitWith {
+
 
 	// draw death positions for curator
 	{
@@ -29,7 +29,6 @@ if (!isServer) exitWith {
 
    
     [player,"Kaitseliit"] call BIS_fnc_setUnitInsignia;
-    [player] call missionControl_fnc_addKilledEHPlayer; 
     
     }] call CBA_fnc_addEventHandler;
 

@@ -4,6 +4,11 @@ waitUntil {
   time > 15
 };
 
+{ 
+    [_x] call missionControl_fnc_addKilledEHPlayer;
+    _x setVariable ["wr_interrupted", false, true]; 
+} forEach (playableUnits + switchableUnits);
+
 private _fishes = [];
 
 for "_i" from 0 to 20 do {
@@ -40,7 +45,7 @@ sleep 6.3;
 
 [klapperradio, ["introRadio06",150]] remoteExec ["say3D", [0, -2] select isDedicated];
 ["Radio Host", "Dont fall for misinformation! We are being attacked! Again:"] remoteExec ["BIS_fnc_showSubtitle", [0, -2] select isDedicated];
-sleep 6;
+sleep 7;
 
 ["unintelligible voice", "..."] remoteExec ["BIS_fnc_showSubtitle", [0, -2] select isDedicated];
 

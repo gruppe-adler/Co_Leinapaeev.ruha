@@ -8,6 +8,7 @@ class missionControl {
         class addPeeAction;
         class addSmokeToCar;
         class addSpawnMarker;
+        class decideOutro;
         class doPee;
         class dressUpAction;
         class enableWheelchairCarry;

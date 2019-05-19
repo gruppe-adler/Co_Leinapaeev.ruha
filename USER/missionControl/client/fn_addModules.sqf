@@ -378,6 +378,19 @@
       systemChat "ZEUS: Smoke cant be added";
 
     }] call Ares_fnc_RegisterCustomModule;
+
+
+    ["LEINAPAEEV FX", "Ambient Flyby",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      _position set [2,50];
+
+      [[8190.88,8197.78,50],_position,50,"FULL","rhs_mig29sm_vvs",EAST] call BIS_fnc_ambientFlyby;
+
+      systemChat "ZEUS: Flyby added";
+
+    }] call Ares_fnc_RegisterCustomModule;
     
 
 

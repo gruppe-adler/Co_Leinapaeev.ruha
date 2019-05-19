@@ -1,5 +1,9 @@
 params ["_unit"];
 
+/*
+
+// MOVED TO ONPLAYERKILLED
+
 _unit addMPEventHandler ["MPKilled", {
     params ["_unit", "_killer", "_instigator", "_useEffects"];
         
@@ -12,3 +16,4 @@ _unit addMPEventHandler ["MPKilled", {
         _currentLoss = _currentLoss + 1;
         missionNamespace setVariable ["GRAD_LP_currentLosses", _currentLoss, true];
 }];
+*/
