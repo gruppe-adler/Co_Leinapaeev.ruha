@@ -3,6 +3,10 @@
 *   Funktioniert wie die init.sqf.
 */
 
+// disable channels
+0 enableChannel false;
+1 enableChannel false;
+
 if (!isServer) exitWith {
 
 
