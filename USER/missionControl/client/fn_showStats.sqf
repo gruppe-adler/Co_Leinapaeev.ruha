@@ -39,7 +39,7 @@ if (hasInterface) then {
 
     // playMusic "EventTrack01_F_Curator";
     // [player, true] call TFAR_fnc_forceSpectator;
-    [player, player] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;
+    ["ace_medical_treatment_fullHealLocal", [player], player] call CBA_fnc_targetEvent;
 
 
 

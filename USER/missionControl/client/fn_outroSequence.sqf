@@ -10,7 +10,7 @@ if (!isNull _zeusDisplay) then {
 };
 
 // prepare players to watch intro
-[objNull, _unit] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;
+["ace_medical_treatment_fullHealLocal", [player], player] call CBA_fnc_targetEvent;
  
 
 moveout _unit;

@@ -1,6 +1,6 @@
 private _timeline = GRAD_LEIP_introKeyFrameAnimation;
 diwako_dui_main_toggled_off = true;
-
+systemChat "test";
 // if (!isMultiplayer) exitWith {};
 // if (didJIP) exitWith {};
 
@@ -8,7 +8,7 @@ cutText ["", "BLACK", 999];
 
 [_timeline] call BIS_fnc_timeline_play;
 
-private _camera = ([introCam1] call BIS_fnc_camera_getCam);
+private _camera = player getVariable ["localIntroCamera", objNull];
 _camera cameraEffect ["internal","back"];
 /*
 _camera camSetPos (position introCamPos_1);

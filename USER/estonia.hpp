@@ -119,7 +119,7 @@ class estonia {
 
         //Combat Life Saver
         class medic_F: Soldier_F {
-            backpack = "sfp_backpack_sjvv9";
+            backpack = "rhssaf_kitbag_md2camo";
             addItemsToUniform[] = {
                 "ACE_MapTools",
                 "ACE_DefusalKit",
@@ -241,7 +241,7 @@ class estonia {
 
         //Squad Leader
         class Soldier_SL_F: Soldier_F {
-            backpack = "sfp_ra180";
+            backpack = "UK3CB_B_B_Radio_Backpack";
             addItemsToBackpack[] = {
                 LIST_2("SmokeShellBlue"),
                 LIST_2("SmokeShellGreen"),

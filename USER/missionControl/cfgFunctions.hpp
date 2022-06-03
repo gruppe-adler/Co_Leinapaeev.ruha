@@ -11,6 +11,7 @@ class missionControl {
         class decideOutro;
         class doPee;
         class dressUpAction;
+        class initIntroCam { postInit = 1; };
         class introKeyAnimation;
         class introLocal;
         class jipSpawn;
