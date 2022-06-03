@@ -11,11 +11,9 @@ class missionControl {
         class decideOutro;
         class doPee;
         class dressUpAction;
-        class enableWheelchairCarry;
         class introKeyAnimation;
         class introLocal;
         class jipSpawn;
-        class loadWheelchair;
         class outroSequence;
         class peeFX;
         class policeLights;
@@ -24,10 +22,7 @@ class missionControl {
         class sitDown;
         class spawnSmoke;
         class standUp;
-        class unflipWheelchair;
-        class unloadWheelchair;
         class weaponOnBack;
-        class wheelChairActions;
     };
 
     class server {
