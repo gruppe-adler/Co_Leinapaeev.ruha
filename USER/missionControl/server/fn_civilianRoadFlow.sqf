@@ -13,45 +13,40 @@ private _maxCount = 40;
 
 // motorbikes tend to make problems
 private _types = [
-    "RDS_Gaz24_Civ_03",
-    "RDS_Gaz24_Civ_01",
-    "RDS_Gaz24_Civ_02",
-    "RDS_Golf4_Civ_01",
-    "RDS_Octavia_Civ_01",
-    "RDS_Van_01_box_F",
-    "RDS_Lada_Civ_01",
-    "RDS_Lada_Civ_03",
-    "RDS_Lada_Civ_02",
-    "gm_demo_idap_mb_u1300l_cargo",
-    "C_IDAP_Van_02_vehicle_F",
-    "C_IDAP_Truck_02_F",
-    "LOP_CHR_Civ_UAZ",
-    "LOP_CHR_Civ_Ural",
-    "C_Truck_02_fuel_F",
-    "C_Offroad_01_repair_F",
-    "C_Van_02_vehicle_F",
-    "C_Van_02_service_F",
-    "RDS_Lada_Civ_01",
-    "RDS_Lada_Civ_03",
-    "RDS_Lada_Civ_02",
-    "C_Truck_02_fuel_F",
-    "sfp_van_hemglass",
-    "RDS_Lada_Civ_01",
-    "RDS_Lada_Civ_03",
-    "RDS_Lada_Civ_02",
-    "RDS_Lada_Civ_01",
-    "RDS_Lada_Civ_03",
-    "RDS_Lada_Civ_02",
-    "RDS_Golf4_Civ_01",
-    "RDS_Octavia_Civ_01",
-    "RDS_Gaz24_Civ_03",
-    "RDS_Gaz24_Civ_01",
-    "RDS_Gaz24_Civ_02",
-    "RDS_Golf4_Civ_01",
-    "RDS_Gaz24_Civ_03",
-    "RDS_Gaz24_Civ_01",
-    "RDS_Gaz24_Civ_02",
-    "RDS_Golf4_Civ_01"
+    "UK3CB_CHC_C_Datsun_Civ_Closed",
+    "UK3CB_CHC_C_Datsun_Civ_Open",
+    "UK3CB_CHC_C_Hatchback",
+    "UK3CB_CHC_C_Hilux_Civ_Closed",
+    "UK3CB_CHC_C_Lada",
+    "UK3CB_CHC_C_Landcruiser",
+    "UK3CB_CHC_C_Octavia",
+    "UK3CB_CHC_C_Pickup",
+    "UK3CB_CHC_C_Sedan",
+    "UK3CB_CHC_C_Skoda",
+    "UK3CB_CHC_C_Gaz24",
+    "UK3CB_CHC_C_Golf",
+    "UK3CB_CHC_C_V3S_Refuel",
+    "UK3CB_CHC_C_V3S_Recovery",
+    "UK3CB_CHC_C_V3S_Closed",
+    "UK3CB_CHC_C_Ural_Repair",
+    "UK3CB_CHC_C_Ural_Empty",
+    "UK3CB_CHC_C_Ural_Fuel",
+    "UK3CB_CHC_C_Hatchback",
+    "UK3CB_CHC_C_Hilux_Civ_Closed",
+    "UK3CB_CHC_C_Lada",
+    "UK3CB_CHC_C_Landcruiser",
+    "UK3CB_CHC_C_Octavia",
+    "UK3CB_CHC_C_Pickup",
+    "UK3CB_CHC_C_Sedan",
+    "UK3CB_CHC_C_Skoda",
+    "UK3CB_CHC_C_Gaz24",
+    "UK3CB_CHC_C_Golf",
+    "UK3CB_CHC_C_V3S_Refuel",
+    "UK3CB_CHC_C_V3S_Recovery",
+    "UK3CB_CHC_C_V3S_Closed",
+    "UK3CB_CHC_C_Ural_Repair",
+    "UK3CB_CHC_C_Ural_Empty",
+    "UK3CB_CHC_C_Ural_Fuel"
 ];
 
 // agent variante
@@ -70,7 +65,7 @@ private _types = [
     if (_isEmpty) then {
         private _car = (selectRandom _types) createVehicle _positionA;
         _car setDir 180;
-        private _agent = createAgent ["RDS_Civilian_Random", _positionA, [], 0, "NONE"];
+        private _agent = createAgent ["UK3CB_CHC_C_CIV", _positionA, [], 0, "NONE"];
         // _agent disableAI "ALL";
         _agent disableAI "FSM";
         _agent disableAI "MINEDETECTION";
@@ -85,9 +80,7 @@ private _types = [
         _agent moveInDriver _car;
 
         private _type = typeOf _car;
-        if (_type == "RDS_Lada_Civ_01" ||
-            _type == "RDS_Lada_Civ_02" ||
-            _type == "RDS_Lada_Civ_03") then {
+        if (_type == "UK3CB_CHC_C_Lada") then {
 
             private _item = "Land_LuggageHeap_01_F" createVehicle [0,0,0.3];
 

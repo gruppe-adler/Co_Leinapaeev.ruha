@@ -28,7 +28,8 @@ for "_i" from 0 to 20 do {
     _agent setDir 20;
 };
 */
-
+fakeRadio say3D ["introRadioSong",150];
+playMusic "rossiya";
 
 private _filmgrain = ppEffectCreate ["FilmGrain",2000];  
 _filmgrain ppEffectEnable true;  
@@ -61,7 +62,9 @@ _camera camSetPos (position introCamPos_4);
 _camera camCommit 10;
 sleep 10;
 */
-sleep 120;
+sleep 53;
+[missionNamespace getVariable ["CO_LP_peeGuy", objNull]] spawn MissionControl_fnc_doPee;
+sleep 67;
 
 10 fadeMusic 0;
 10 fadeSound 1;
