@@ -1,3 +1,4 @@
+/*
 if (didJIP || !isMultiplayer) exitWith {
     "introBlackLoading" cutText ["", "BLACK IN", 2];
     // [player] call missionControl_fnc_jipSpawn;
@@ -5,6 +6,7 @@ if (didJIP || !isMultiplayer) exitWith {
     "introBlackLoading" cutText ["", "PLAIN", 3];
     0 fadeSound 1;
 };
+*/
 
 "introBlackLoading" cutText ["loading", "BLACK FADED", 999];
 
@@ -13,12 +15,12 @@ _camera cameraEffect ["internal","back"];
 _camera camSetPos (position classicIntroPos_1);
 _camera camSetTarget introCamTarget_1;
 _camera camCommand "inertia on";
-_camera camSetFov 0.35;
+_camera camSetFov 0.30;
 _camera camCommit 0;
 
 private _filmgrain = ppEffectCreate ["FilmGrain",2000];  
 _filmgrain ppEffectEnable true;  
-_filmgrain ppEffectAdjust [0.3,0.3,0.12,0.12,0.12,true];  
+_filmgrain ppEffectAdjust [0.01,0.3,0.12,0.12,0.12,true];  
 _filmgrain ppEffectCommit 0;
 
 0 fadeMusic 1;
@@ -40,38 +42,43 @@ _camera camSetTarget introCamTarget_2;
 _camera camCommit 46.5;
 sleep 47.7;
 
-0 = ["WetDistortion", 300, [
+[{
+    (positionCameraToWorld [0,0,0])  select 0 > -0.1
+}, {
+    0 = ["WetDistortion", 300, [
     0.1,
     0.1, 0.1,
     4.10, 3.70, 2.50, 1.85,
     0.0054, 0.0041, 0.0090, 0.0070,
     0.5, 0.3, 10.0, 6.0]] spawn
-{
-    sleep 7.6;
-    params ["_name", "_priority", "_effect", "_handle"];
-    while {
-        _handle = ppEffectCreate [_name, _priority];
-        _handle < 0
-    } do {
-        _priority = _priority + 1;
+    {
+        params ["_name", "_priority", "_effect", "_handle"];
+        [missionNamespace getVariable ["CO_LP_peeGuy", objNull]] spawn MissionControl_fnc_doPee;
+        
+        while {
+            _handle = ppEffectCreate [_name, _priority];
+            _handle < 0
+        } do {
+            _priority = _priority + 1;
+        };
+        _handle ppEffectEnable true;
+        _handle ppEffectAdjust _effect;
+        _handle ppEffectCommit 1;
+        waitUntil {ppEffectCommitted _handle};
+        // systemChat "admire effect for a sec";
+        _handle ppEffectAdjust [
+        0,
+        0, 0,
+        4.10, 3.70, 2.50, 1.85,
+        0.0054, 0.0041, 0.0090, 0.0070,
+        0.5, 0.3, 10.0, 6.0];
+        _handle ppEffectCommit 3;
+        waitUntil {ppEffectCommitted _handle};
+        uiSleep 1;
+        _handle ppEffectEnable false;
+        ppEffectDestroy _handle;
     };
-    _handle ppEffectEnable true;
-    _handle ppEffectAdjust _effect;
-    _handle ppEffectCommit 1;
-    waitUntil {ppEffectCommitted _handle};
-    // systemChat "admire effect for a sec";
-    _handle ppEffectAdjust [
-    0,
-    0, 0,
-    4.10, 3.70, 2.50, 1.85,
-    0.0054, 0.0041, 0.0090, 0.0070,
-    0.5, 0.3, 10.0, 6.0];
-    _handle ppEffectCommit 3;
-    waitUntil {ppEffectCommitted _handle};
-    uiSleep 1;
-    _handle ppEffectEnable false;
-    ppEffectDestroy _handle;
-};
+}] call CBA_fnc_waitUntilAndExecute;
 
 
 
@@ -80,7 +87,7 @@ _camera camSetTarget introCamTarget_3;
 _camera camCommit 10;
 sleep 6.5;
 
-[missionNamespace getVariable ["CO_LP_peeGuy", objNull]] spawn MissionControl_fnc_doPee;
+
 sleep 5;
 
 _camera camSetTarget introCamTarget_4;
