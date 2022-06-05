@@ -22,6 +22,12 @@
               [_x] remoteExec ["MissionControl_fnc_addKilledEH", 2];
 
           } forEach units _group;
+
+          if (side _group == east) then {
+            {
+              _x addGoggles "Armband_Red_medium";
+            } forEach units _group;
+          };
       }];
 
       _x addEventHandler ["CuratorObjectPlaced", {
@@ -37,6 +43,8 @@
           _object setSkill ["reloadSpeed", 1]; 
           _object setSkill ["commanding", 1];
           _object setSkill ["general", 1];
+
+          [_object] remoteExec ["MissionControl_fnc_addKilledEH", 2];
 
       }];
 
@@ -81,6 +89,23 @@
       [] remoteExec ["MissionControl_fnc_executeExplosions",2,false];
 
       systemChat "ZEUS: Bombard Airfield executed";
+
+    }] call zen_custom_modules_fnc_register;
+
+
+    ["LEINAPAEEV 03 Cruise Missile", "Cruise Missile",
+    {
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
+      _position set [2, 0];
+
+      if (isNull _object) then { 
+          private _helipaddummy = "Land_HelipadEmpty_F" createVehicle [0,0,0];
+          _helipaddummy setPos _position;
+          _object = _helipaddummy;
+      };
+
+      [[6039.96,8977.92,100], "ammo_Missile_Cruise_01", _object, 250, false, [0,0,0.25]] spawn MissionControl_fnc_guideProjectile;
 
     }] call zen_custom_modules_fnc_register;
 
@@ -210,6 +235,9 @@
     }] call zen_custom_modules_fnc_register;
 
     
+
+
+
 
     ["LEINAPAEEV 06 Russian Convoy", "Start Convoy",
     {

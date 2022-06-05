@@ -8,6 +8,7 @@ class missionControl {
         class addPeeAction;
         class addSmokeToCar;
         class addSpawnMarker;
+        class curatorShowFeedbackMessage;
         class decideOutro;
         class doPee;
         class dressUpAction;
@@ -35,8 +36,10 @@ class missionControl {
         class bwConvoyStart;
         class bwConvoySetup { postInit = 1; };
         class civilianRoadFlow;
+        class curatorEH { postInit = 1; };
         class createChairCircle;
         class deleteCar;
+        class guideProjectile;
         class executeExplosions;
         class fillBox;
         class fillRadios;

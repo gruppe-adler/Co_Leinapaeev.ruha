@@ -39,6 +39,12 @@ private _group = createGroup _side;
 
     _convoy pushBack _veh;
 
+    [_veh] remoteexec ["MissionControl_fnc_addKilledEH", 2];
+
+    {
+        [_x] remoteexec ["MissionControl_fnc_addKilledEH", 2];
+    } forEach _crew;
+
 
     [_veh, true] call BC_flagsOnVehicles_fnc_toggleFlag;
 

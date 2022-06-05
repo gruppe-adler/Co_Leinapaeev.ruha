@@ -31,6 +31,7 @@ sleep 3;
 fakeRadio say3D ["introRadioSong",150];
 playMusic "rossiya";
 
+missionNamespace setVariable ["introRadioSongStartTime", CBA_missionTime];
 
 
 "introBlackLoading" cutText ["", "BLACK IN", 15];
@@ -40,10 +41,12 @@ _camera camSetFov 0.25;
 _camera camSetPos (position classicIntroPos_2);
 _camera camSetTarget introCamTarget_2;
 _camera camCommit 46.5;
-sleep 47.7;
+sleep 48.2;
+
+player action ["WeaponOnBack", player];
 
 [{
-    (positionCameraToWorld [0,0,0])  select 0 > -0.1
+    ((positionCameraToWorld [0,0,0]) select 2) > -0.1
 }, {
     0 = ["WetDistortion", 300, [
     0.1,
@@ -54,7 +57,7 @@ sleep 47.7;
     {
         params ["_name", "_priority", "_effect", "_handle"];
         [missionNamespace getVariable ["CO_LP_peeGuy", objNull]] spawn MissionControl_fnc_doPee;
-        
+
         while {
             _handle = ppEffectCreate [_name, _priority];
             _handle < 0
@@ -81,11 +84,12 @@ sleep 47.7;
 }] call CBA_fnc_waitUntilAndExecute;
 
 
-
+sleep 1.25;
 _camera camSetPos (position classicIntroPos_7);
 _camera camSetTarget introCamTarget_3;
 _camera camCommit 10;
-sleep 6.5;
+sleep 5.5;
+
 
 
 sleep 5;
@@ -108,10 +112,17 @@ _camera camSetTarget player;
 _camera camCommit 3;
 sleep 1;
 detach _camera;
-_camera camSetPos [getPos player select 0, getPos player select 1, 1.7];
-_camera camCommit 5;
+if (rank player != "LIEUTENANT") then {
+    _camera camSetPos [getPos player select 0, getPos player select 1, 1.7];
+    _camera camCommit 5;
+};
 sleep 3;
 cutText ["", "BLACK OUT", 1];
+
+fakeRadio2 say3D ["introRadioSong",150, 1, true, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
+fakeRadio3 say3D ["introRadioSong",150, 1, true, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
+ 
+
 sleep 1;
 _filmgrain ppEffectEnable false;   
 ppEffectDestroy _filmgrain; 

@@ -1,6 +1,5 @@
 params ["_unit"];
 
-/*
 
 // MOVED TO ONPLAYERKILLED
 
@@ -15,5 +14,6 @@ _unit addMPEventHandler ["MPKilled", {
         private _currentLoss = missionNamespace getVariable ["GRAD_LP_currentLosses", 0];
         _currentLoss = _currentLoss + 1;
         missionNamespace setVariable ["GRAD_LP_currentLosses", _currentLoss, true];
+
+        ["missionControl_curatorInfo", [_unit, "killed"]] call CBA_fnc_serverEvent;
 }];
-*/

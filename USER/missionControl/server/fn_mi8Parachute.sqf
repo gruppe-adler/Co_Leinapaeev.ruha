@@ -11,6 +11,8 @@ _mi8 setDir (_mi8 getDir _position);
 
 private _cargo = [_mi8] call GRAD_convoy_fnc_addSquadToCargo;
 
+[_mi8] remoteexec ["MissionControl_fnc_addKilledEH", 2];
+
 _mi8 setCombatMode "RED";
 _mi8 disableAI "AUTOCOMBAT";
 _mi8 disableAI "Autotarget";

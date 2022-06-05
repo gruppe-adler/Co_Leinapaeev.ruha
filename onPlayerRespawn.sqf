@@ -5,3 +5,5 @@
 if (([missionConfigFile >> "missionSettings","waveRespawnEnabled",0] call BIS_fnc_returnConfigEntry) == 1) then {
     [] call grad_waverespawn_fnc_onPlayerRespawn;
 };
+
+["missionControl_curatorInfo", [player, "respawned"]] call CBA_fnc_serverEvent;
