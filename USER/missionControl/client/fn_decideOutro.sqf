@@ -4,7 +4,7 @@ if (!canSuspend) exitWith {
     [_unit, _chair, _chairs, _count] spawn missionControl_fnc_decideOutro;
 };
 
-private _isSpectator = !alive _unit;
+private _isSpectator = _unit in ([] call ace_spectator_fnc_players);
 
 if (_isSpectator) then {
     setPlayerRespawnTime 0;

@@ -99,6 +99,20 @@ class estonia {
 
         //Asst. Autorifleman
         class soldier_AAR_F: Soldier_F {
+            addItemsToUniform[] = {
+                LIST_1("ACE_MapTools"),
+                LIST_1("ACE_DefusalKit"),
+                LIST_2("ACE_CableTie"),
+                LIST_1("ACE_Flashlight_MX991"),
+
+                LIST_4("ACE_packingBandage"),
+                LIST_4("ACE_elasticBandage"),
+                LIST_4("ACE_quikclot"),
+                LIST_4("ACE_tourniquet"),
+                LIST_2("ACE_morphine"),
+                LIST_2("ACE_epinephrine"),
+                "ACE_EntrenchingTool"
+            };
             addItemsToBackpack[] = {
                 LIST_2("rhs_200rnd_556x45_M_SAW"),
                 "rhs_200rnd_556x45_T_SAW"

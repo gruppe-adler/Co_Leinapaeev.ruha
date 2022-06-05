@@ -177,9 +177,9 @@
 		"getPos civWp_46"
 		],
 		[
-		["rhs_t72ba_tv", 				"getPos civConvoyPos_1", 		"getDir civConvoyPos_1"],
-	    ["rhs_t72bb_tv", 				"getPos civConvoyPos_2", 		"getDir civConvoyPos_1"],
-	    ["rhs_t72ba_tv", 				"getPos civConvoyPos_3", 		"getDir civConvoyPos_1"]
+		["rhs_t72bb_tv", 				"getPos civConvoyPos_1", 		"getDir civConvoyPos_1"],
+	    ["rhs_t72ba_tv", 				"getPos civConvoyPos_3", 		"getDir civConvoyPos_1"],
+	    ["rhs_t80um", 				"getPos civConvoyPos_5", 		"getDir civConvoyPos_1"]
 	    ]
 	]
 ]

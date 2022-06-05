@@ -37,7 +37,7 @@ missionNamespace setVariable ["introRadioSongStartTime", CBA_missionTime];
 "introBlackLoading" cutText ["", "BLACK IN", 15];
 
 
-_camera camSetFov 0.25;
+_camera camSetFov 0.23;
 _camera camSetPos (position classicIntroPos_2);
 _camera camSetTarget introCamTarget_2;
 _camera camCommit 46.5;
@@ -84,7 +84,7 @@ player action ["WeaponOnBack", player];
 }] call CBA_fnc_waitUntilAndExecute;
 
 
-sleep 1.25;
+sleep 1;
 _camera camSetPos (position classicIntroPos_7);
 _camera camSetTarget introCamTarget_3;
 _camera camCommit 10;
@@ -119,8 +119,8 @@ if (rank player != "LIEUTENANT") then {
 sleep 3;
 cutText ["", "BLACK OUT", 1];
 
-fakeRadio2 say3D ["introRadioSong",150, 1, true, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
-fakeRadio3 say3D ["introRadioSong",150, 1, true, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
+fakeRadio2 say3D ["introRadioSong",150, 1, false, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
+fakeRadio3 say3D ["introRadioSong",150, 1, false, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
  
 
 sleep 1;
