@@ -43,7 +43,9 @@ _camera camSetTarget introCamTarget_2;
 _camera camCommit 46.5;
 sleep 48.2;
 
-player action ["WeaponOnBack", player];
+if (!weaponLowered player) then {
+    player action ["WeaponOnBack", player];
+};
 
 [{
     ((positionCameraToWorld [0,0,0]) select 2) > -0.1
@@ -90,7 +92,10 @@ _camera camSetTarget introCamTarget_3;
 _camera camCommit 10;
 sleep 5.5;
 
-player action ["WeaponOnBack", player];
+if (!weaponLowered player) then {
+    player action ["WeaponOnBack", player];
+};
+
 
 sleep 5;
 

@@ -417,7 +417,7 @@ class estonia {
             headgear = "H_Watchcap_camo";
             vest = "rhssaf_vest_md99_md2camo";
             gps = "itemGPS";
-            backpack = "";
+            backpack = "UK3CB_B_B_Radio_Backpack";
         };
     };
 
