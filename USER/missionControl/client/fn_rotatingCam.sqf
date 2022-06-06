@@ -43,7 +43,7 @@ _this spawn {
                 };
 
                 titleText ["<t color='#ffffff' align='left' shadow='0' size='1'>" + _string + "</t><br/>
-                <t color='#ffffff' align='left' shadow='0' size='2'>" + (name _occupier) + "</t>", "PLAIN", 1, true, true];
+                <t color='#ffffff' align='left' shadow='0' size='2'>" + ([_occupier, false, true] call ace_common_fnc_getName) + "</t>", "PLAIN", 1, true, true];
                 titleFadeOut 1;
             };
 

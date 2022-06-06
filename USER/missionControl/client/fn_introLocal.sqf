@@ -1,4 +1,3 @@
-/*
 if (didJIP || !isMultiplayer) exitWith {
     "introBlackLoading" cutText ["", "BLACK IN", 2];
     // [player] call missionControl_fnc_jipSpawn;
@@ -6,7 +5,8 @@ if (didJIP || !isMultiplayer) exitWith {
     "introBlackLoading" cutText ["", "PLAIN", 3];
     0 fadeSound 1;
 };
-*/
+
+diwako_dui_main_toggled_off = true;
 
 "introBlackLoading" cutText ["loading", "BLACK FADED", 999];
 
@@ -90,7 +90,7 @@ _camera camSetTarget introCamTarget_3;
 _camera camCommit 10;
 sleep 5.5;
 
-
+player action ["WeaponOnBack", player];
 
 sleep 5;
 
@@ -119,8 +119,9 @@ if (rank player != "LIEUTENANT") then {
 sleep 3;
 cutText ["", "BLACK OUT", 1];
 
-fakeRadio2 say3D ["introRadioSong",150, 1, false, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
-fakeRadio3 say3D ["introRadioSong",150, 1, false, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
+fakeRadio2 say3D ["introRadioSong",150, 1, true, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
+fakeRadio3 say3D ["introRadioSong",150, 1, true, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
+fakeRadio4 say3D ["introRadioSong",150, 1, true, CBA_missionTime - (missionNamespace getVariable ["introRadioSongStartTime", 0])];
  
 
 sleep 1;

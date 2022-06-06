@@ -9,7 +9,8 @@ params ["_unit", "_state"];
 if _state then {
     // hint str (uiNamespace getVariable ["ace_common_dlgDisableMouse", displayNull]);
 
-    "STHud_Draw" call STUI_Canvas_Remove; // remove sthud
+    // "STHud_Draw" call STUI_Canvas_Remove; // remove sthud
+    diwako_dui_main_toggled_off = true;
 
     private _controlPosition =
     [
@@ -47,5 +48,5 @@ if _state then {
 
 } else {
     //hint "state false";
-    "STHud_Draw" call STUI_Canvas_Add;
+    diwako_dui_main_toggled_off = false;
 };

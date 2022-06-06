@@ -1,6 +1,5 @@
 params ["_unit", "_chair", "_chairs", "_count", "_isSpectator"];
 
-STHud_UIMode = 0;
 diwako_dui_main_toggled_off = true;
 
 private _zeusDisplay = (findDisplay 312);

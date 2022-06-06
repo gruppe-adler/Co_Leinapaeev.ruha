@@ -4,11 +4,12 @@
 
 */
 
-params ["_name"];
+params ["_unit"];
 
-["ScoreAdded" ,["speccing now: " + _name]] call bis_fnc_showNotification;
 
 // add name to list to retreive later on
 private _allSpectators = missionNameSpace getVariable ["GRAD_permaChoice_spectatorList", []];
-_allSpectators pushback [_name];
+_allSpectators pushback [name _unit];
 missionNameSpace setVariable ["GRAD_permaChoice_spectatorList", _allSpectators];
+
+["missionControl_curatorInfo", [_unit, "spectating"]] call CBA_fnc_serverEvent;

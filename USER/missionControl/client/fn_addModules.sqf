@@ -3,8 +3,9 @@
   waitUntil {  time > 3 };
 
   {
+    private _curator = _x;
     
-      _x addEventHandler ["CuratorGroupPlaced", {
+      _curator addEventHandler ["CuratorGroupPlaced", {
           params ["", "_group"];
 
           { 
@@ -21,6 +22,7 @@
 
               [_x] remoteExec ["MissionControl_fnc_addKilledEH", 2];
 
+              _x addCuratorEditableObjects [[_object], true];
           } forEach units _group;
 
           if (side _group == east) then {
@@ -30,7 +32,7 @@
           };
       }];
 
-      _x addEventHandler ["CuratorObjectPlaced", {
+      _curator addEventHandler ["CuratorObjectPlaced", {
           params ["", "_object"];
           
           _object setSkill ["aimingAccuracy", 0.3];
@@ -45,6 +47,8 @@
           _object setSkill ["general", 1];
 
           [_object] remoteExec ["MissionControl_fnc_addKilledEH", 2];
+
+          _curator addCuratorEditableObjects [[_object], true];
 
       }];
 

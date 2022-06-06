@@ -12,18 +12,21 @@ if (_isSpectator) then {
 
     diag_log "force respawn";
 };
-sleep 0.1;
 
-if (_isSpectator) then {
-    [false] call ace_spectator_fnc_setSpectator; // launch spec
-    [_unit, false] call TFAR_fnc_forceSpectator;
+[{  
+    params ["_unit"];
+    !(_unit in ([] call ace_spectator_fnc_players))
+}, {
+    params ["_unit", "_chair", "_chairs", "_count", "_isSpectator"];
 
-    diag_log "exit spectator";
-};
+    if (_isSpectator) then {
+        [false] call ace_spectator_fnc_setSpectator;
+        [_unit, false] call TFAR_fnc_forceSpectator;
 
-// new player?!
-if (isPlayer _unit) then {
-    [player, _chair, _chairs, _count, _isSpectator] spawn missionControl_fnc_outroSequence;
-} else {
+        diag_log "force exit spectator"; // should never trigger apparently
+    };
+
     [_unit, _chair, _chairs, _count, _isSpectator] spawn missionControl_fnc_outroSequence;
-};
+
+}, [_unit, _chair, _chairs, _count, _isSpectator]] call CBA_fnc_waitUntilAndExecute;
+

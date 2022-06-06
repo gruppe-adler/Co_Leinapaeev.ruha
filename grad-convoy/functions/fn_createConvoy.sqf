@@ -43,6 +43,8 @@ private _group = createGroup _side;
 
     {
         [_x] remoteexec ["MissionControl_fnc_addKilledEH", 2];
+
+        _x addGoggles "Armband_Red_medium";
     } forEach _crew;
 
 
