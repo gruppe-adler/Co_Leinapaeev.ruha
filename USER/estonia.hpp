@@ -40,7 +40,7 @@ class estonia {
         binoculars = "Binocular";
         map = "ItemMap";
         compass = "ItemCompass";
-        watch = "ItemWatch";
+        watch = "TFAR_microdagr";
         gps = "";
         radio = "TFAR_rf7800str";
         nvgoggles = NVITEM;
