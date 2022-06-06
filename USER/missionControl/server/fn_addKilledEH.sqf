@@ -23,7 +23,7 @@ _vehicle addMPEventhandler ["MPKilled", {
             private _newCount = _currentCount + 1;
             missionNamespace setVariable [_selector, _newCount];
 
-            systemChat ((str _newCount) + " killed " + (str _selector));
+            if (isServer) then { diag_log ((str _newCount) + " killed " + (str _selector)); };
 
             ["missionControl_curatorInfo", [typeOf _unit, "killed"]] call CBA_fnc_serverEvent;
         };
