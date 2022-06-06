@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=770;
+		nextID=778;
 	};
 	class Camera
 	{
-		pos[]={4215.7915,20.130749,1422.6088};
-		dir[]={-0.80386019,-0.36737257,0.46781537};
-		up[]={-0.31751958,0.93007421,0.18478377};
-		aside[]={0.50298762,-4.4703484e-008,0.86429799};
+		pos[]={797.40637,51.864838,1834.658};
+		dir[]={0,-0.70710677,0.70710683};
+		up[]={0,0.70710677,0.70710671};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -647,7 +647,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
@@ -7174,7 +7174,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={3183.5171,14.577558,3367.334};
+								position[]={795.82501,26.902313,1854.1072};
 								angles[]={0,1.7773345,0};
 							};
 							side="Independent";
@@ -7255,7 +7255,6 @@ class Mission
 							};
 							id=2632;
 							type="I_Soldier_LAT_F";
-							atlOffset=-9.5367432e-007;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -7323,7 +7322,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={3183.2571,14.567882,3365.6514};
+								position[]={795.565,26.903461,1852.4246};
 								angles[]={0,1.1012112,0};
 							};
 							side="Independent";
@@ -7404,7 +7403,6 @@ class Mission
 							};
 							id=2633;
 							type="I_soldier_F";
-							atlOffset=-9.5367432e-007;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -12374,7 +12372,7 @@ class Mission
 			};
 			id=1526;
 			type="Land_Axe_F";
-			atlOffset=0.77621442;
+			atlOffset=0.74999535;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13474,7 +13472,7 @@ class Mission
 			};
 			id=1588;
 			type="Land_Axe_F";
-			atlOffset=0.77621442;
+			atlOffset=0.74999535;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -18880,7 +18878,7 @@ class Mission
 					};
 					id=2148;
 					type="B_crew_F";
-					atlOffset=9.5367432e-007;
+					atlOffset=0.18161964;
 				};
 			};
 			class Attributes
@@ -35168,34 +35166,83 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3188.3274,15.003297,3366.6091};
-				angles[]={6.268187,3.8483891,6.2382159};
+				position[]={3188.3274,15.003294,3366.6089};
+				angles[]={6.2681928,3.8483813,6.2382083};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				createAsSimpleObject=1;
+				disableSimulation=1;
 			};
 			id=3306;
 			type="Land_WoodenTable_02_large_F";
-			atlOffset=-9.5367432e-007;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item541
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3187.8782,15.444569,3366.0994};
+				position[]={3187.8782,15.444481,3366.0994};
 				angles[]={6.2665696,1.7036159,6.239604};
 			};
 			side="Empty";
 			class Attributes
 			{
 				name="fakeRadio4";
+				createAsSimpleObject=1;
+				disableSimulation=1;
 			};
 			id=3307;
 			type="land_gm_euro_furniture_radio_01";
-			atlOffset=0.91308784;
+			atlOffset=0.91300011;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item542
 		{
@@ -35451,7 +35498,7 @@ class Mission
 			};
 			id=3333;
 			type="Mi8Wreck";
-			atlOffset=-0.99428654;
+			atlOffset=-0.99428749;
 		};
 	};
 	class Connections
