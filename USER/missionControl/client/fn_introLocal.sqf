@@ -112,12 +112,11 @@ sleep 50;
 10 fadeMusic 0;
 10 fadeSound 1;
 
-// private _camera = ([introCam1] call BIS_fnc_camera_getCam);
-_camera camSetTarget player;
-_camera camCommit 3;
-sleep 1;
-detach _camera;
 if (rank player != "LIEUTENANT") then {
+    _camera camSetTarget player;
+    _camera camCommit 3;
+    sleep 1;
+    detach _camera;
     _camera camSetPos [getPos player select 0, getPos player select 1, 1.7];
     _camera camCommit 5;
 };

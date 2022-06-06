@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=3333;
+		nextID=3334;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6328.6953,-8.0186539,2192.4795};
-		dir[]={-0.054362141,-0.75502336,0.65344113};
-		up[]={-0.062596858,0.65569741,0.75242394};
-		aside[]={0.99655706,1.1103111e-008,0.082907207};
+		pos[]={4215.7915,20.130749,1422.6088};
+		dir[]={-0.80386019,-0.36737257,0.46781537};
+		up[]={-0.31751958,0.93007421,0.18478377};
+		aside[]={0.50298762,-4.4703484e-008,0.86429799};
 	};
 };
 binarizationWanted=0;
@@ -647,7 +647,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category0
+	class Category1
 	{
 		name="Scenario";
 		class Attribute0
@@ -4443,7 +4443,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=551;
+		items=552;
 		class Item0
 		{
 			dataType="Layer";
@@ -18880,7 +18880,7 @@ class Mission
 					};
 					id=2148;
 					type="B_crew_F";
-					atlOffset=0.18161964;
+					atlOffset=9.5367432e-007;
 				};
 			};
 			class Attributes
@@ -34890,7 +34890,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="[[[[""BWA3_PzF3_Tandem_Loaded""],[2]],[[""gm_mine_at_dm21"",""gm_1Rnd_44x537mm_heat_dm32_pzf44_2""],[4,4]],[[],[]],[[],[]]],false]";
+							value="[[[[""gm_pzf3_blk""],[2]],[[""gm_mine_at_dm21"",""gm_1Rnd_60mm_heat_dm22_pzf3""],[4,4]],[[],[]],[[],[]]],false]";
 						};
 					};
 				};
@@ -35435,6 +35435,23 @@ class Mission
 			id=3332;
 			type="Land_Loudspeakers_F";
 			atlOffset=0.0080003738;
+		};
+		class Item551
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6325.2104,-12.666677,2192.9597};
+				angles[]={0.39762813,0,0.16595954};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=3333;
+			type="Mi8Wreck";
+			atlOffset=-0.99428654;
 		};
 	};
 	class Connections
