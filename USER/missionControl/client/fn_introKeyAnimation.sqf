@@ -1,6 +1,6 @@
 private _timeline = GRAD_LEIP_introKeyFrameAnimation;
 diwako_dui_main_toggled_off = true;
-
+systemChat "test";
 // if (!isMultiplayer) exitWith {};
 // if (didJIP) exitWith {};
 
@@ -8,7 +8,7 @@ cutText ["", "BLACK", 999];
 
 [_timeline] call BIS_fnc_timeline_play;
 
-private _camera = ([introCam1] call BIS_fnc_camera_getCam);
+private _camera = player getVariable ["localIntroCamera", objNull];
 _camera cameraEffect ["internal","back"];
 /*
 _camera camSetPos (position introCamPos_1);
@@ -28,7 +28,8 @@ for "_i" from 0 to 20 do {
     _agent setDir 20;
 };
 */
-
+fakeRadio say3D ["introRadioSong",150];
+playMusic "rossiya";
 
 private _filmgrain = ppEffectCreate ["FilmGrain",2000];  
 _filmgrain ppEffectEnable true;  
@@ -61,7 +62,9 @@ _camera camSetPos (position introCamPos_4);
 _camera camCommit 10;
 sleep 10;
 */
-sleep 120;
+sleep 53;
+[missionNamespace getVariable ["CO_LP_peeGuy", objNull]] spawn MissionControl_fnc_doPee;
+sleep 67;
 
 10 fadeMusic 0;
 10 fadeSound 1;

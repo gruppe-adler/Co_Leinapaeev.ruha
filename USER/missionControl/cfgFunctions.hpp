@@ -8,14 +8,14 @@ class missionControl {
         class addPeeAction;
         class addSmokeToCar;
         class addSpawnMarker;
+        class curatorShowFeedbackMessage;
         class decideOutro;
         class doPee;
         class dressUpAction;
-        class enableWheelchairCarry;
+        class initIntroCam { postInit = 1; };
         class introKeyAnimation;
         class introLocal;
         class jipSpawn;
-        class loadWheelchair;
         class outroSequence;
         class peeFX;
         class policeLights;
@@ -24,10 +24,7 @@ class missionControl {
         class sitDown;
         class spawnSmoke;
         class standUp;
-        class unflipWheelchair;
-        class unloadWheelchair;
         class weaponOnBack;
-        class wheelChairActions;
     };
 
     class server {
@@ -39,8 +36,10 @@ class missionControl {
         class bwConvoyStart;
         class bwConvoySetup { postInit = 1; };
         class civilianRoadFlow;
+        class curatorEH { postInit = 1; };
         class createChairCircle;
         class deleteCar;
+        class guideProjectile;
         class executeExplosions;
         class fillBox;
         class fillRadios;

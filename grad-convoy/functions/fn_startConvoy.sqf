@@ -20,6 +20,7 @@ private _waypoints = [];
 private _identifier = format ["GRAD_convoy_vehicleList_%1", _convoyID];
 missionNamespace setVariable [_identifier, _convoy];
 
+
 // debug
 /*
 addMissionEventHandler ["Draw3D", {
@@ -66,6 +67,15 @@ for [{_i=0},{_i<count _convoy},{_i=_i+1}] do {
     
     _thisVeh setSpeedMode "FULL";
     _thisVeh setVariable ["GRAD_convoy_path", _waypoints];
+
+
+    if (_convoyID == 3) then {
+        _thisVeh forceFlagTexture "\rhsafrf\addons\rhs_main\data\Flag_rus_CO.paa";
+    };
+
+    if (_convoyID == 1 && typeOf _thisVeh == "rhs_btr80a_msv") then {
+        _thisVeh forceFlagTexture "\rhsafrf\addons\rhs_main\data\Flag_rus_CO.paa";
+    };
     
 
     private _driver = driver _thisVeh;

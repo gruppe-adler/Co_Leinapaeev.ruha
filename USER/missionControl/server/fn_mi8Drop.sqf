@@ -8,6 +8,8 @@ private _mi8 = createVehicle ["RHS_Mi8AMT_vdv", _spawnPos, [], 50, "FLY"];
 createVehicleCrew _mi8;
 _mi8 setDir (_mi8 getDir _position);
 
+[_mi8] remoteexec ["MissionControl_fnc_addKilledEH", 2];
+
 private _cargo = [_mi8] call GRAD_convoy_fnc_addSquadToCargo;
 
 _mi8 setCombatMode "RED";

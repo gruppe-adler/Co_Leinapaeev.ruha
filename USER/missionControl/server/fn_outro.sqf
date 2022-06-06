@@ -21,9 +21,18 @@ sleep 11;
 setDate [2020, 6, 15, 0, 0];
 0 setFog [2, 0.7, 1];
 
+private _position = [6325.58,2205.45,0.299999]; 
+private _lightpoint = "#lightpoint" createVehicleLocal _position; 
+_lightpoint setLightColor [0,1,1]; 
+_lightpoint setLightAmbient [0.2,0.0,0.3]; 
+_lightpoint setLightUseFlare true; 
+_lightpoint setLightFlareSize 3; 
+_lightpoint setLightFlareMaxDistance 3.5; 
+_lightpoint setLightBrightness 4; 
+_lightpoint setLightDayLight true;
 
 
-private _ambulance = "RDS_S1203_Civ_02" createVehicle (getMarkerPos "mrk_outroSequence_target_start"); 
+private _ambulance = "UK3CB_C_Hilux_Ambulance" createVehicle (getMarkerPos "mrk_outroSequence_target_start"); 
 _ambulance spawn rds_fnc_syrena;
 
 private _ambulance2 = "rhs_gaz66_ap2_vmf" createVehicle (getMarkerPos "mrk_outroSequence_target_end"); 

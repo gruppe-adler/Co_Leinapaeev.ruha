@@ -21,3 +21,5 @@ _mi8 limitSpeed 50;
     _wp setWaypointCompletionRadius 100;
     _wp setWaypointType "MOVE";
 } forEach  _positionArray;
+
+[_mi8] remoteexec ["MissionControl_fnc_addKilledEH", 2];

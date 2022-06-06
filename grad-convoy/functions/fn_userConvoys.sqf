@@ -90,10 +90,13 @@
 	    ["RHS_Ural_Fuel_MSV_01", 				"getPos civConvoyPos_11", 		"getDir civConvoyPos_1"],
 	    ["RHS_Ural_Fuel_MSV_01", 				"getPos civConvoyPos_12", 		"getDir civConvoyPos_1"],
 	    ["RHS_BM21_MSV_01", 				"getPos civConvoyPos_13",		"getDir civConvoyPos_1"],
-	    ["rhs_gaz66_msv", 				"getPos civConvoyPos_14", 		"getDir civConvoyPos_1"],
-	    ["rhs_gaz66_msv", 				"getPos civConvoyPos_15", 		"getDir civConvoyPos_1"],
-	    ["rhs_btr80a_msv", 				"getPos civConvoyPos_16", 		"getDir civConvoyPos_1"],
-	    ["rhs_tigr_m_msv", 				"getPos civConvoyPos_17",		"getDir civConvoyPos_1"]
+	    ["RHS_BM21_MSV_01", 				"getPos civConvoyPos_14",		"getDir civConvoyPos_1"],
+	    ["RHS_BM21_MSV_01", 				"getPos civConvoyPos_15",		"getDir civConvoyPos_1"],
+	    ["RHS_BM21_MSV_01", 				"getPos civConvoyPos_16",		"getDir civConvoyPos_1"],
+	    ["rhs_gaz66_msv", 				"getPos civConvoyPos_17", 		"getDir civConvoyPos_1"],
+	    ["rhs_gaz66_msv", 				"getPos civConvoyPos_18", 		"getDir civConvoyPos_1"],
+	    ["rhs_btr80a_msv", 				"getPos civConvoyPos_19", 		"getDir civConvoyPos_1"],
+	    ["rhs_tigr_m_msv", 				"getPos civConvoyPos_20",		"getDir civConvoyPos_1"]
 	    ]
 	],
 	[
@@ -117,14 +120,14 @@
 	    ["rhs_btr70_vdv", 				"getPos civConvoyPos_7", 		"getDir civConvoyPos_1"],
 	    ["rhs_btr70_vdv", 				"getPos civConvoyPos_8", 		"getDir civConvoyPos_1"],
 	    ["rhs_btr70_vdv", 				"getPos civConvoyPos_9", 		"getDir civConvoyPos_1"],
-	    ["RDS_Van_01_box_F", 				"getPos civConvoyPos_10", 		"getDir civConvoyPos_1"],
-	    ["RDS_Van_01_box_F", 				"getPos civConvoyPos_11", 		"getDir civConvoyPos_1"],
-	    ["RDS_Van_01_box_F", 				"getPos civConvoyPos_12", 		"getDir civConvoyPos_1"],
-	    ["RDS_Van_01_box_F", 				"getPos civConvoyPos_13",		"getDir civConvoyPos_1"],
-	    ["RDS_Van_01_box_F", 				"getPos civConvoyPos_14", 		"getDir civConvoyPos_1"],
-	    ["RDS_Van_01_box_F", 				"getPos civConvoyPos_15", 		"getDir civConvoyPos_1"],
-	    ["RDS_Van_01_box_F", 				"getPos civConvoyPos_16", 		"getDir civConvoyPos_1"],
-	    ["RDS_Van_01_box_F", 				"getPos civConvoyPos_17",		"getDir civConvoyPos_1"]
+	    ["C_Van_02_transport_F", 				"getPos civConvoyPos_10", 		"getDir civConvoyPos_1"],
+	    ["C_Van_02_transport_F", 				"getPos civConvoyPos_11", 		"getDir civConvoyPos_1"],
+	    ["C_Van_02_transport_F", 				"getPos civConvoyPos_12", 		"getDir civConvoyPos_1"],
+	    ["C_Van_02_transport_F", 				"getPos civConvoyPos_13",		"getDir civConvoyPos_1"],
+	    ["C_Van_02_transport_F", 				"getPos civConvoyPos_14", 		"getDir civConvoyPos_1"],
+	    ["C_Van_02_transport_F", 				"getPos civConvoyPos_15", 		"getDir civConvoyPos_1"],
+	    ["C_Van_02_transport_F", 				"getPos civConvoyPos_16", 		"getDir civConvoyPos_1"],
+	    ["C_Van_02_transport_F", 				"getPos civConvoyPos_17",		"getDir civConvoyPos_1"]
 	    ]
 	],
 	[
@@ -177,9 +180,9 @@
 		"getPos civWp_46"
 		],
 		[
-		["rhs_t72ba_tv", 				"getPos civConvoyPos_1", 		"getDir civConvoyPos_1"],
-	    ["rhs_t72bb_tv", 				"getPos civConvoyPos_2", 		"getDir civConvoyPos_1"],
-	    ["rhs_t72ba_tv", 				"getPos civConvoyPos_3", 		"getDir civConvoyPos_1"]
+		["rhs_t72bb_tv", 				"getPos civConvoyPos_1", 		"getDir civConvoyPos_1"],
+	    ["rhs_t72ba_tv", 				"getPos civConvoyPos_3", 		"getDir civConvoyPos_1"],
+	    ["rhs_t80um", 				"getPos civConvoyPos_5", 		"getDir civConvoyPos_1"]
 	    ]
 	]
 ]

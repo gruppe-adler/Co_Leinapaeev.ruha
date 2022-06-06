@@ -39,6 +39,14 @@ private _group = createGroup _side;
 
     _convoy pushBack _veh;
 
+    [_veh] remoteexec ["MissionControl_fnc_addKilledEH", 2];
+
+    {
+        [_x] remoteexec ["MissionControl_fnc_addKilledEH", 2];
+
+        _x addGoggles "Armband_Red_medium";
+    } forEach _crew;
+
 
     [_veh, true] call BC_flagsOnVehicles_fnc_toggleFlag;
 
@@ -47,7 +55,6 @@ private _group = createGroup _side;
         _veh addMagazineCargoGlobal ["rhs_rpg7_PG7V_mag", 10];
         _veh addMagazineCargoGlobal ["ATMine_Range_Mag", 10];
         _veh addMagazineCargoGlobal ["SatchelCharge_Remote_Mag", 6];
-        _veh addMagazineCargoGlobal ["sfp_strvm5_mag", 6];
     };
 
     [_veh] call MissionControl_fnc_addKilledEH;

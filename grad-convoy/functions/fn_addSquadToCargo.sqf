@@ -11,6 +11,7 @@ private _group = [
 {
   _x assignAsCargo _vehicle;
   _x moveInCargo _vehicle;
+  _x addGoggles "Armband_Red_medium";
   [_x] call MissionControl_fnc_addKilledEH;
 } forEach units _group;
 

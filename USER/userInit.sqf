@@ -7,6 +7,33 @@
 0 enableChannel false;
 1 enableChannel false;
 
+// needs to be local!
+["GRAD_loadout_loadoutApplied", {
+params ["_loadoutTarget", "_unitLoadout"];
+
+if (local _loadoutTarget) then {
+
+    if (rank _loadoutTarget != "LIEUTENANT" && typeOf _loadoutTarget == "I_medic_F" && _loadoutTarget getVariable ["GRAD_loadout_applicationCount", 0] == 0) exitWith {
+        removeAllAssignedItems _loadoutTarget;
+        removeAllContainers _loadoutTarget;
+        removeHeadgear _loadoutTarget;
+        removeAllWeapons _loadoutTarget;
+        removeGoggles _loadoutTarget;
+    };
+
+    private _markerstr = createMarkerLocal ["mrk_lp_spawn", position _loadoutTarget];
+    _markerstr setMarkerShapeLocal "ICON";
+    _markerstr setMarkerTypeLocal "hd_start";
+    _markerstr setMarkerColorLocal "ColorIndependent";
+    _markerstr setMArkerTextLocal "Startpunkt";
+};
+
+[player,"Kaitseliit"] call BIS_fnc_setUnitInsignia;
+
+}] call CBA_fnc_addEventHandler;
+
+
+
 if (!isServer) exitWith {
 
 
@@ -18,23 +45,6 @@ if (!isServer) exitWith {
 	{
 	 [_x, [west]] call BIS_fnc_drawCuratorRespawnMarkers;
 	} forEach allCurators; 
-
-
-    // needs to be local!
-    ["GRAD_loadout_loadoutApplied", {
-    params ["_loadoutTarget", "_unitLoadout"];
-
-    if (typeOf _loadoutTarget == "I_medic_F" && _loadoutTarget getVariable ["GRAD_loadout_applicationCount", 0] == 0) exitWith {
-        removeAllAssignedItems _loadoutTarget;
-        removeAllContainers _loadoutTarget;
-        removeHeadgear _loadoutTarget;
-        removeAllWeapons _loadoutTarget;
-    };
-
-   
-    [player,"Kaitseliit"] call BIS_fnc_setUnitInsignia;
-    
-    }] call CBA_fnc_addEventHandler;
 
 };
 

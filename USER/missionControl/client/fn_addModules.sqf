@@ -3,8 +3,9 @@
   waitUntil {  time > 3 };
 
   {
+    private _curator = _x;
     
-      _x addEventHandler ["CuratorGroupPlaced", {
+      _curator addEventHandler ["CuratorGroupPlaced", {
           params ["", "_group"];
 
           { 
@@ -21,10 +22,17 @@
 
               [_x] remoteExec ["MissionControl_fnc_addKilledEH", 2];
 
+              _x addCuratorEditableObjects [[_object], true];
           } forEach units _group;
+
+          if (side _group == east) then {
+            {
+              _x addGoggles "Armband_Red_medium";
+            } forEach units _group;
+          };
       }];
 
-      _x addEventHandler ["CuratorObjectPlaced", {
+      _curator addEventHandler ["CuratorObjectPlaced", {
           params ["", "_object"];
           
           _object setSkill ["aimingAccuracy", 0.3];
@@ -38,78 +46,103 @@
           _object setSkill ["commanding", 1];
           _object setSkill ["general", 1];
 
+          [_object] remoteExec ["MissionControl_fnc_addKilledEH", 2];
+
+          _curator addCuratorEditableObjects [[_object], true];
+
       }];
 
   } forEach allCurators;
 
 
   if (  
-    isClass (configFile >> "CfgPatches" >> "achilles_modules_f_achilles")
+    isClass (configFile >> "CfgPatches" >> "zen_main")
   ) then
   {
-    // Note that the line below has to be uncommented if your mission is a Zeus Game Master mission.
-    // TODO check if below is necessary to uncomment
-    waitUntil {not isNil "ares_category_list"};
+    // Note that the line below has to be uncommented if your mission is a Zeus Game Master mission.    
 
 
     ["LEINAPAEEV 01 End Sirens", "01 End Siren Alarm",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       INTRO_SIREN_WAILING = false; publicVariableServer "INTRO_SIREN_WAILING";
 
       systemChat "ZEUS: Ending Siren Alarm";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV 02 BW Convoy", "Start Bundeswehr Convoy",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [] remoteExec ["missionControl_fnc_bwConvoyStart", 2];
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV 03 Bombard", "Bombard Airfield",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [] remoteExec ["MissionControl_fnc_executeExplosions",2,false];
 
       systemChat "ZEUS: Bombard Airfield executed";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
+
+
+    ["LEINAPAEEV 03 Cruise Missile", "Cruise Missile",
+    {
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
+      _position set [2, 0];
+
+      if (isNull _object) then { 
+          private _helipaddummy = "Land_HelipadEmpty_F" createVehicle [0,0,0];
+          _helipaddummy setPos _position;
+          _object = _helipaddummy;
+      };
+
+      [[6039.96,8977.92,100], "ammo_Missile_Cruise_01", _object, 250, false, [0,0,0.25]] spawn MissionControl_fnc_guideProjectile;
+
+    }] call zen_custom_modules_fnc_register;
 
 
     ["LEINAPAEEV 04 CivCars", "Start Civilian Spawn",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       ["mrk_flag_rus", "mrk_sign_tallin"] remoteExec ["missionControl_fnc_civilianRoadFlow", 2];
 
       systemChat "ZEUS: Civ Flow started";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV 04 CivCars", "Stop Civilian Spawn",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       CIVILIAN_FLOW_ACTIVE = false; publicVariableServer "CIVILIAN_FLOW_ACTIVE";
 
       systemChat "ZEUS: Civ Flow stopped";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV 05 Russian Recon", "Mi8 Recon over Street",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [[
         getPos civWP_1,
@@ -163,24 +196,26 @@
 
       systemChat "ZEUS: Mi8 Recon executed";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
     ["LEINAPAEEV 05 Russian Recon", "START Tanks",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [3, east] remoteExec ["GRAD_convoy_fnc_startConvoy", 2];
 
       systemChat "ZEUS: Recon Tanks executed";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV 05 Russian Recon", "TOGGLE Tanks Movement",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       private _convoyID = 3;
       private _convoyIdentifier = format ["GRAD_convoy_%1_pause", _convoyID];
@@ -191,33 +226,39 @@
 
       systemChat ("ZEUS: Toggling Recon Tanks Pause to " + (str _pause));
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV 05 Russian Recon", "DEFEND Tanks",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [3] remoteExec ["GRAD_convoy_fnc_breakFormationExec", 2]; // 3 is russia tanks
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     
+
+
+
 
     ["LEINAPAEEV 06 Russian Convoy", "Start Convoy",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [1, east] remoteExec ["GRAD_convoy_fnc_startConvoy", 2];
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
     ["LEINAPAEEV 06 Russian Convoy", "Toggle Convoy Movement",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       private _convoyID = 1;
       private _convoyIdentifier = format ["GRAD_convoy_%1_pause", _convoyID];
@@ -228,96 +269,104 @@
 
       systemChat ("ZEUS: Toggling Convoy Pause to " + (str _pause));
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
     ["LEINAPAEEV 06 Russian Convoy", "DEFEND Convoy",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [1] remoteExec ["GRAD_convoy_fnc_breakFormationExec", 2]; // 1 is russia
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
     ["LEINAPAEEV 07 Reinforcements", "Mi8 Infantry Landing",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [_position] remoteExec ["MissionControl_fnc_mi8Drop",2,false];
 
       systemChat "ZEUS: Mi8 Landing executed";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV 07 Reinforcements", "Mi8 Infantry Parachuting",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [_position] remoteExec ["MissionControl_fnc_mi8Parachute",2,false];
 
       systemChat "ZEUS: Mi8 Parachute executed";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
     ["LEINAPAEEV 08 Outro", "Define Outro Start",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       "mrk_outroSequence_start" setMarkerPos _position;
       "mrk_outroSequence_start" setMarkerAlphaLocal 1;
 
       systemChat "ZEUS: Moved Outro Start Marker";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV 08 Outro", "Define Outro End",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       "mrk_outroSequence_end" setMarkerPos _position;
       "mrk_outroSequence_end" setMarkerAlphaLocal 1;
 
       systemChat "ZEUS: Moved Outro End Marker";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV 08 Outro", "Define Outro Target Start",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       "mrk_outroSequence_target_start" setMarkerPos _position;
       "mrk_outroSequence_target_start" setMarkerAlphaLocal 1;
 
       systemChat "ZEUS: Moved Outro Start Marker";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
      ["LEINAPAEEV 08 Outro", "Define Outro Target End",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       "mrk_outroSequence_target_end" setMarkerPos _position;
       "mrk_outroSequence_target_end" setMarkerAlphaLocal 1;
 
       systemChat "ZEUS: Moved Outro Start Marker";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
 
     ["LEINAPAEEV 08 Outro", "Create Chair Circle",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       private _count = count (playableUnits + switchableUnits);
       
@@ -326,49 +375,53 @@
       CO_LP_CHAIRCIRCLE = _chairs; publicVariable "CO_LP_CHAIRCIRCLE";
 
       
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
 
     ["LEINAPAEEV 08 Outro", "Start Outro",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [] remoteExec ["missionControl_fnc_outro", 2];
       
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
 
      ["LEINAPAEEV 09 Stats", "05 Show stats",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [] remoteExec ["MissionControl_fnc_showStats", [0, -2] select isDedicated, true];
 
       systemChat "ZEUS: Showing Stats";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
 
     ["LEINAPAEEV FX", "Pee Pee Unit",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       [_objectUnderCursor] remoteExec ["MissionControl_fnc_doPee", [0, -2] select isDedicated, false];
 
       systemChat "ZEUS: Pee Pee executed";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
     ["LEINAPAEEV FX", "Add Smoke to Car",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
 
       if (!isNull _objectUnderCursor && {_objectUnderCursor isKindOf "Car"}) exitWith {
         [_objectUnderCursor] call MissionControl_fnc_addSmokeToCar;
@@ -377,20 +430,21 @@
 
       systemChat "ZEUS: Smoke cant be added";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
 
 
     ["LEINAPAEEV FX", "Ambient Flyby",
     {
       // Get all the passed parameters
-      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      params ["_position", "_object"];
+      _position = asltoAGL _position;
       _position set [2,50];
 
       [[8190.88,8197.78,50],_position,50,"FULL","rhs_mig29sm_vvs",EAST] call BIS_fnc_ambientFlyby;
 
       systemChat "ZEUS: Flyby added";
 
-    }] call Ares_fnc_RegisterCustomModule;
+    }] call zen_custom_modules_fnc_register;
     
 
 

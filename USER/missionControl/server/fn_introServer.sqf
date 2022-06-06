@@ -60,5 +60,7 @@ while {INTRO_SIREN_WAILING} do {
     [siren1, ["introSiren", 7000]] remoteExec ["say3D", [0, -2] select isDedicated];
     sleep 4;
     [siren2, ["introSiren", 7000]] remoteExec ["say3D", [0, -2] select isDedicated];
+    sleep 3;
+    [siren3, ["introSiren", 7000]] remoteExec ["say3D", [0, -2] select isDedicated];
     sleep 47;
 };

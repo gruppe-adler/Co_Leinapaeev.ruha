@@ -40,11 +40,11 @@ class estonia {
         binoculars = "Binocular";
         map = "ItemMap";
         compass = "ItemCompass";
-        watch = "ItemWatch";
+        watch = "TFAR_microdagr";
         gps = "";
         radio = "TFAR_rf7800str";
         nvgoggles = NVITEM;
-        glasses = "";
+        goggles = "Armband_Yellow_medium";
     };
     class Type {
         //Rifleman
@@ -68,13 +68,81 @@ class estonia {
                 LIST_2("rhsusf_mag_17Rnd_9x19_JHP"),
                 LIST_7("rhssaf_30rnd_556x45_EPR_G36")
             };
+            class Rank {
+                class LIEUTENANT {
+                    uniform[] = {
+                                "UK3CB_CHC_C_U_ACTIVIST_02",
+                                "UK3CB_CHC_C_U_COACH_03",
+                                "UK3CB_CHC_C_U_COACH_04",
+                                "UK3CB_CHC_C_U_COACH_05",
+                                "UK3CB_CHC_C_U_CIT_02",
+                                "UK3CB_CHC_C_U_CIT_03",
+                                "UK3CB_CHC_C_U_CIT_04",
+                                "UK3CB_CHC_C_U_PROF_02",
+                                "UK3CB_CHC_C_U_CAN_01"
+                        };
+                    vest[] = {"rhssaf_vest_otv_md2camo", "rhssaf_vest_md12_m70_rifleman"};
+                    headgear[] = {
+                                "UK3CB_TKA_I_H_Patrolcap_OLI",
+                                "UK3CB_H_Safari_Hat_Brown",
+                                "UK3CB_ANP_B_H_Patrolcap_BLU",
+                                "UK3CB_LFR_B_H_CAP_OLI",
+                                "UK3CB_TKA_B_H_BoonieHat_WDL",
+                                "UK3CB_CW_US_B_LATE_H_BoonieHat_WDL_01",
+                                "UK3CB_LNM_B_H_BoonieHat_MULTICAM",
+                                "H_Bandanna_khk_hs"
+                        };
+                    goggles = "Armband_Yellow_medium2";
+                };
+            };
         };
 
         //Asst. Autorifleman
         class soldier_AAR_F: Soldier_F {
+            addItemsToUniform[] = {
+                LIST_1("ACE_MapTools"),
+                LIST_1("ACE_DefusalKit"),
+                LIST_2("ACE_CableTie"),
+                LIST_1("ACE_Flashlight_MX991"),
+
+                LIST_4("ACE_packingBandage"),
+                LIST_4("ACE_elasticBandage"),
+                LIST_4("ACE_quikclot"),
+                LIST_4("ACE_tourniquet"),
+                LIST_2("ACE_morphine"),
+                LIST_2("ACE_epinephrine"),
+                "ACE_EntrenchingTool"
+            };
             addItemsToBackpack[] = {
                 LIST_2("rhs_200rnd_556x45_M_SAW"),
                 "rhs_200rnd_556x45_T_SAW"
+            };
+            class Rank {
+                class LIEUTENANT {
+                    uniform[] = {
+                                "UK3CB_CHC_C_U_ACTIVIST_02",
+                                "UK3CB_CHC_C_U_COACH_03",
+                                "UK3CB_CHC_C_U_COACH_04",
+                                "UK3CB_CHC_C_U_COACH_05",
+                                "UK3CB_CHC_C_U_CIT_02",
+                                "UK3CB_CHC_C_U_CIT_03",
+                                "UK3CB_CHC_C_U_CIT_04",
+                                "UK3CB_CHC_C_U_PROF_02",
+                                "UK3CB_CHC_C_U_CAN_01"
+                        };
+                    vest[] = {"rhssaf_vest_otv_md2camo", "rhssaf_vest_md12_m70_rifleman"};
+                    headgear[] = {
+                                "UK3CB_TKA_I_H_Patrolcap_OLI",
+                                "UK3CB_H_Safari_Hat_Brown",
+                                "UK3CB_ANP_B_H_Patrolcap_BLU",
+                                "UK3CB_LFR_B_H_CAP_OLI",
+                                "UK3CB_TKA_B_H_BoonieHat_WDL",
+                                "UK3CB_CW_US_B_LATE_H_BoonieHat_WDL_01",
+                                "UK3CB_LNM_B_H_BoonieHat_MULTICAM",
+                                "H_Bandanna_khk_hs"
+                        };
+                    goggles = "Armband_Yellow_medium2";
+                };
             };
         };
 
@@ -115,11 +183,37 @@ class estonia {
                 LIST_2("HandGrenade"),
                 LIST_2("SmokeShell")
             };
+            class Rank {
+                class LIEUTENANT {
+                    uniform[] = {
+                                "UK3CB_CHC_C_U_ACTIVIST_02",
+                                "UK3CB_CHC_C_U_COACH_03",
+                                "UK3CB_CHC_C_U_COACH_04",
+                                "UK3CB_CHC_C_U_COACH_05",
+                                "UK3CB_CHC_C_U_CIT_02",
+                                "UK3CB_CHC_C_U_CIT_03",
+                                "UK3CB_CHC_C_U_CIT_04",
+                                "UK3CB_CHC_C_U_PROF_02",
+                                "UK3CB_CHC_C_U_CAN_01"
+                        };
+                    vest[] = {"rhssaf_vest_otv_md2camo", "rhssaf_vest_md12_m70_rifleman"};
+                    headgear[] = {
+                                "UK3CB_TKA_I_H_Patrolcap_OLI",
+                                "UK3CB_H_Safari_Hat_Brown",
+                                "UK3CB_ANP_B_H_Patrolcap_BLU",
+                                "UK3CB_LFR_B_H_CAP_OLI",
+                                "UK3CB_TKA_B_H_BoonieHat_WDL",
+                                "UK3CB_CW_US_B_LATE_H_BoonieHat_WDL_01",
+                                "UK3CB_LNM_B_H_BoonieHat_MULTICAM",
+                                "H_Bandanna_khk_hs"
+                        };
+                };
+            };
         };
 
         //Combat Life Saver
         class medic_F: Soldier_F {
-            backpack = "sfp_backpack_sjvv9";
+            backpack = "rhssaf_kitbag_md2camo";
             addItemsToUniform[] = {
                 "ACE_MapTools",
                 "ACE_DefusalKit",
@@ -143,7 +237,32 @@ class estonia {
                 class SERGEANT {
                     GRAD_FACTIONS_MEDICITEMS_PT
                 };
-                class LIEUTENANT: SERGEANT {};
+                class LIEUTENANT {
+                    uniform[] = {
+                                "UK3CB_CHC_C_U_ACTIVIST_02",
+                                "UK3CB_CHC_C_U_COACH_03",
+                                "UK3CB_CHC_C_U_COACH_04",
+                                "UK3CB_CHC_C_U_COACH_05",
+                                "UK3CB_CHC_C_U_CIT_02",
+                                "UK3CB_CHC_C_U_CIT_03",
+                                "UK3CB_CHC_C_U_CIT_04",
+                                "UK3CB_CHC_C_U_PROF_02",
+                                "UK3CB_CHC_C_U_CAN_01"
+                        };
+                    vest[] = {"rhssaf_vest_otv_md2camo", "rhssaf_vest_md12_m70_rifleman"};
+                    headgear[] = {
+                                "UK3CB_TKA_I_H_Patrolcap_OLI",
+                                "UK3CB_H_Safari_Hat_Brown",
+                                "UK3CB_ANP_B_H_Patrolcap_BLU",
+                                "UK3CB_LFR_B_H_CAP_OLI",
+                                "UK3CB_TKA_B_H_BoonieHat_WDL",
+                                "UK3CB_CW_US_B_LATE_H_BoonieHat_WDL_01",
+                                "UK3CB_LNM_B_H_BoonieHat_MULTICAM",
+                                "H_Bandanna_khk_hs"
+                        };
+                    goggles = "Armband_Yellow_medium2";
+                        GRAD_FACTIONS_MEDICITEMS_SQ
+                };
                 class CAPTAIN: SERGEANT {};
                 class MAJOR: SERGEANT {};
                 class COLONEL: SERGEANT {};
@@ -156,7 +275,7 @@ class estonia {
                 "ACE_Clacker",
                 "ACE_M26_Clacker",
                 "SatchelCharge_Remote_Mag",
-                LIST_5("DemoCharge_Remote_Mag")
+                LIST_4("DemoCharge_Remote_Mag")
             };
         };
 
@@ -241,7 +360,7 @@ class estonia {
 
         //Squad Leader
         class Soldier_SL_F: Soldier_F {
-            backpack = "sfp_ra180";
+            backpack = "UK3CB_B_B_Radio_Backpack";
             addItemsToBackpack[] = {
                 LIST_2("SmokeShellBlue"),
                 LIST_2("SmokeShellGreen"),
@@ -265,13 +384,40 @@ class estonia {
                 LIST_3("rhs_mag_m713_Red"),
                 LIST_3("rhs_mag_m715_Green")
             };
+            class Rank {
+                class LIEUTENANT {
+                    uniform[] = {
+                                "UK3CB_CHC_C_U_ACTIVIST_02",
+                                "UK3CB_CHC_C_U_COACH_03",
+                                "UK3CB_CHC_C_U_COACH_04",
+                                "UK3CB_CHC_C_U_COACH_05",
+                                "UK3CB_CHC_C_U_CIT_02",
+                                "UK3CB_CHC_C_U_CIT_03",
+                                "UK3CB_CHC_C_U_CIT_04",
+                                "UK3CB_CHC_C_U_PROF_02",
+                                "UK3CB_CHC_C_U_CAN_01"
+                        };
+                    vest[] = {"rhssaf_vest_otv_md2camo", "rhssaf_vest_md12_m70_rifleman"};
+                    headgear[] = {
+                                "UK3CB_TKA_I_H_Patrolcap_OLI",
+                                "UK3CB_H_Safari_Hat_Brown",
+                                "UK3CB_ANP_B_H_Patrolcap_BLU",
+                                "UK3CB_LFR_B_H_CAP_OLI",
+                                "UK3CB_TKA_B_H_BoonieHat_WDL",
+                                "UK3CB_CW_US_B_LATE_H_BoonieHat_WDL_01",
+                                "UK3CB_LNM_B_H_BoonieHat_MULTICAM",
+                                "H_Bandanna_khk_hs"
+                        };
+                    goggles = "Armband_Yellow_medium2";
+                };
+            };
         };
 
         class officer_F: Soldier_F {
             headgear = "H_Watchcap_camo";
             vest = "rhssaf_vest_md99_md2camo";
             gps = "itemGPS";
-            backpack = "";
+            backpack = "UK3CB_B_B_Radio_Backpack";
         };
     };
 

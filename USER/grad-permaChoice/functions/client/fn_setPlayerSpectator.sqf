@@ -16,4 +16,4 @@ private _allCuratorUnits = [];
     _allCuratorUnits pushback (getAssignedCuratorUnit _x);
 } forEach allCurators;
 
-[name player] remoteExec ["GRAD_permaChoice_fnc_showNotification", _allCuratorUnits, true];
+[player] call GRAD_permaChoice_fnc_showNotification;
